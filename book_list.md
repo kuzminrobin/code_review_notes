@@ -1,4 +1,4 @@
-While reading the C++ books (articles, etc.) from time to time I notice that the authors give contradicting advice. Typically a book published later is based on more knowledge and deserves more attention while resolving the contradiction.
+While reading the C++ books (articles, etc.) from time to time I notice that the authors give contradicting pieces of advice. Typically a book published later is based on more knowledge and deserves more attention while resolving the contradiction.
 This is a list of C++ (and other system programming) books, articles, etc. sorted by publication date.  
 [BOOK], [article]  
 __[READ]__, [NOT_YET_READ]  
@@ -38,3 +38,7 @@ Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).
 Extracted from:  
 [EMC++]: Book References Not Found.  
 [MEC++]: Recommended Reading (p.285), Front List (Addison-Wesley Professional Computing Series), p.5.  
+
+---
+TODO:
+[MC++D] Loki Library direct link.
