@@ -3,6 +3,8 @@ This is a list of C++ (and other system programming) books, articles, etc. sorte
 [BOOK], [article]  
 __[READ]__, [NOT_YET_READ]  
 
+__Chronological List of C++ (and other system programming) Books, Articles, etc.__  
+
 `1990.??.??` [AC++RM] [Margaret A. Ellis, Bjarne Stroustrup. _The Annotated C++ Reference Manual_](https://www.amazon.com/Annotated-C-Reference-Manual/dp/0201514591) (more info: [MEC++]).  
 `1992.??.??` [AC++] James Coplien. _Advanced C++: Programming Styles and Idioms_. Addison-Wesley, 1992, ISBN 0-201-54855-0 (more info: [MEC++])  
 `1992.??.??` [C++PS] [Tom Cargill. _C++ Programming Style_ (1st Edition)](https://www.amazon.com/C-Programming-Style-Tom-Cargill/dp/0201563657).  
