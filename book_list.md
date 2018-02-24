@@ -12,17 +12,27 @@ __[READ]__, [NOT_YET_READ]
 `1994.11.09` [exc_h:fsos] Tom Cargill? _"Exception Handling: A False Sense of Security"_, C++ Report, Volume 6, Number 9, November-December 1994, pages 21-24 (more info: [MEC++]).  
 `1995.??.??` [DP] Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. _Design Patterns: Elements of Reusable Object-Oriented Software_. Addison-Wesley, 1995, ISBN 0-201-63361-2 (more info: [MEC++]).  
 `1995.??.??` [D&CRC++] Martin D. Carroll, Margaret A. Ellis. _Designing and Coding Reusable C++_. Addison-Wesley, 1995, ISBN 0-201-51284-X (more info: [MEC++]).  
+`1996.??.??` [LSC++SD] [John Lakos. _Large-Scale C++ Software Design_](https://www.amazon.com/Large-Scale-Software-Design-John-Lakos/dp/0201633620) ([EMC++] Front List).  
 `1996.??.??` __[MEC++]__ [Scott Meyers. _More Effective C++: 35 New Ways to Improve Your Programs and Designs_ (1st Edition)](https://www.amazon.com/gp/product/020163371X?ie=UTF8tag=aristeia.com-20linkCode=as2camp=1789creative=9325creativeASIN=020163371X).  
 `1997.??.??` [C++PL3] Bjarne Stroustrup. _The C++ Programming Language_ (Third Edition). Addison-Wesley, 1997, ISBN 0-201-88954-4 (more info: [MEC++]).  
+`1997.??.??` [CI&I] [David R. Hanson. _C Interfaces and Implementations: Techniques for Creating Reusable Software_ (1st Edition)](https://www.amazon.com/Interfaces-Implementations-Techniques-Creating-Reusable/dp/0201498413) ([EMC++] Front List).  
 `1998.??.??` [EC++2] Scott Meyers. _Effective C++, Second Edition: 50 Specific Ways to Improve Your Programs and Designs_.
 Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).  
+`1999.02.12` [ACPwC++] [Michi Henning, Steve Vinoski. _Advanced CORBA® Programming with C++_](https://www.amazon.com/Advanced-CORBA%C2%AE-Programming-Michi-Henning/dp/0201379279) ([EMC++] Front List).  
+`1999.??.??` [GP&STL] [Matthew H. Austern. _Generic Programming and the STL: Using and Extending the C++ Standard Template Library_ (1st Edition)](https://www.amazon.com/Generic-Programming-STL-Extending-Standard/dp/0201309564) ([EMC++] Front List).  
 `1999.11.18` __[ExcC++]__ [Herb Sutter. _Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions_](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622).  
 `2001.02.01` __[MC++D]__ [Andrei Alexandrescu. _Modern C++ Design: Generic Programming and Design Patterns Applied_ (1st Edition)](https://www.amazon.com/Modern-Design-Generic-Programming-Patterns/dp/0201704315).  
+`2001.??.??` [STLT&RG2] [David R. Musser, Gillmer J. Derge, Atul Saini. _STL Tutorial and Reference Guide: C++ Programming with the Standard Template Library_ (2nd Edition)](https://www.amazon.com/STL-Tutorial-Reference-Guide-Addison-Wesley/dp/0321702123) ([EMC++] Front List).  
 `2001.??.??` __[ESTL]__ [Scott Meyers. _Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template Library_ (1st Edition)](https://www.amazon.com/gp/product/0201749629?ie=UTF8tag=aristeia.com-20linkCode=as2camp=1789creative=9325creativeASIN=0201749629).  
 `2001.12.17` [MExcC++] [Herb Sutter. _More Exceptional C++: 40 New Engineering Puzzles, Programming Problems, and Solutions_ (1st Edition)](https://www.amazon.com/More-Exceptional-Engineering-Programming-Solutions/dp/020170434X).  
+`2003.??.??` [C++G] [Stephen C. Dewhurst _C++ Gotchas: Avoiding Common Problems in Coding and Design_ (1st Edition)](https://www.amazon.com/Gotchas-Avoiding-Common-Problems-Coding/dp/0321125185) ([EMC++] Front List).  
 `2004.06.??` [ExcC++S] [Herb Sutter. _Exceptional C++ Style: 40 New Engineering Puzzles, Programming Problems, and Solutions_ (1st Edition)](https://www.amazon.com/Exceptional-Style-Engineering-Programming-Solutions/dp/0201760428).  
 `2004.10.??` __[C++CS]__ [Herb Sutter, Andrei Alexandrescu. _C++ Coding Standards: 101 Rules, Guidelines, and Best Practices_](https://www.amazon.com/Coding-Standards-Rules-Guidelines-Practices/dp/0321113586).  
 `2005.??.??` __[EC++3]__ [Scott Meyers. _Effective C++: 55 Specific Ways to Improve Your Programs and Designs_ (3rd Edition)](https://www.amazon.com/gp/product/0321334876?ie=UTF8&tag=aristeia.com-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321334876).  
 `2012.??.??` __[C++CinA]__ [Anthony Williams. _C++ Concurrency in Action_ (1st Edition)](https://www.manning.com/books/c-plus-plus-concurrency-in-action).  
 `2014.11.07` __[EMC++]__ [Scott Meyers. _Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).  
   
+---
+Extracted from:  
+[EMC++]: Book References Not Found.  
+[MEC++]: Recommended Reading (p.285), Front List (Addison-Wesley Professional Computing Series), p.5.  
