@@ -11,18 +11,32 @@ __Chronological List of C++ (and other system programming) Books, Articles, etc.
 `1992.12.??` __[C++S&T]__ [Robert B. Murray. _C++ strategies and tactics_](https://www.amazon.com/Strategies-Tactics-Robert-B-Murray/dp/0201563827). The date is based on section 10.1, p.249.  
 `1994.??.??` [D&EoC++] Bjarne Stroustrup. _The Design and Evolution of C++_. Addison-Wesley, 1994, ISBN 0-201-54330-3 (more info: [MEC++]).  
 `1994.??.??` [S&EC++] John J. Barton, Lee R. Nackman. _Scientific and Engineering C++_. Addison-Wesley, 1994, ISBN 0-201-53393-6 (more info: [MEC++]).  
+`1994.??.??` [IC++OM] Stanley B. Lippman. _Inside the C++ Object Model_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
 `1994.11.09` [exc_h:fsos] Tom Cargill? _"Exception Handling: A False Sense of Security"_, C++ Report, Volume 6, Number 9, November-December 1994, pages 21-24 (more info: [MEC++]).  
+`1995.02.??` [rtp] James O. Coplien. _The column without a name: A curiously recurring template pattern_. C++ Report, February ([MC++D] Bibliography).  
 `1995.??.??` [DP] Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. _Design Patterns: Elements of Reusable Object-Oriented Software_. Addison-Wesley, 1995, ISBN 0-201-63361-2 (more info: [MEC++]).  
 `1995.??.??` [D&CRC++] Martin D. Carroll, Margaret A. Ellis. _Designing and Coding Reusable C++_. Addison-Wesley, 1995, ISBN 0-201-51284-X (more info: [MEC++]).  
+`1996.03.??` [rc] Douglas C. Schmidt. _Reality Check_. C++ Report, March. Available at http://www.cs.wustl.edu/~schmidt/editorial-3.html ([MC++D] Bibliography).  
+`1996.??.??` [RoC++] Andrew Koenig, Barbara Moo. _Ruminations on C++_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
 `1996.??.??` [LSC++SD] [John Lakos. _Large-Scale C++ Software Design_](https://www.amazon.com/Large-Scale-Software-Design-John-Lakos/dp/0201633620) ([EMC++] Front List).  
+`1996.??.??` [av] Robert Martin. _Acyclic Visitor_. http://objectmentor.com/publications/acv.pdf (dead link) ([MC++D] Bibliography).  
 `1996.??.??` __[MEC++]__ [Scott Meyers. _More Effective C++: 35 New Ways to Improve Your Programs and Designs_ (1st Edition)](https://www.amazon.com/gp/product/020163371X?ie=UTF8tag=aristeia.com-20linkCode=as2camp=1789creative=9325creativeASIN=020163371X).  
+`1996.11.??` [rtsp] Scott Meyers. _Refinements to smart pointers_. C++ Report, November–December ([MC++D] Bibliography).  
 `1997.??.??` [C++PL3] Bjarne Stroustrup. _The C++ Programming Language_ (Third Edition). Addison-Wesley, 1997, ISBN 0-201-88954-4 (more info: [MEC++]).  
 `1997.??.??` [CI&I] [David R. Hanson. _C Interfaces and Implementations: Techniques for Creating Reusable Software_ (1st Edition)](https://www.amazon.com/Interfaces-Implementations-Techniques-Creating-Reusable/dp/0201498413) ([EMC++] Front List).  
+`1998.04.??` Scott Meyers. _Counting objects in C++_. C/C++ Users Journal, April ([MC++D] Bibliography).  
 `1998.??.??` [EC++2] Scott Meyers. _Effective C++, Second Edition: 50 Specific Ways to Improve Your Programs and Designs_.
 Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).  
 `1999.02.12` [ACPwC++] [Michi Henning, Steve Vinoski. _Advanced CORBA® Programming with C++_](https://www.amazon.com/Advanced-CORBA%C2%AE-Programming-Michi-Henning/dp/0201379279) ([EMC++] Front List).  
+`1999.03.??` Jaakko Järvi. _Tuples and Multiple Return Values in C++_. TUCS Technical Report No. 249, March ([MC++D] Bibliography).  
+`1999.??.??` Jaakko Järvi. _The Lambda Library_. http://lambda.cs.utu.fi (dead link) ([MC++D] Bibliography).  
 `1999.??.??` [GP&STL] [Matthew H. Austern. _Generic Programming and the STL: Using and Extending the C++ Standard Template Library_ (1st Edition)](https://www.amazon.com/Generic-Programming-STL-Extending-Standard/dp/0201309564) ([EMC++] Front List).  
+`1999.??.??` Scott Meyers. _auto_ptr update_. http://www.awl.com/cseng/titles/0-201-63371-X/auto_ptr.html (dead link). _Note: The Colvin/Gibbons trick is not described as-is in any paper. Meyers's notes on auto_ptr are the most accurate description of the solution that Greg Colvin and Bill Gibbons found. The trick uses auto_ptr to solve the function return problem_ ([MC++D] Bibliography).  
 `1999.11.18` __[ExcC++]__ [Herb Sutter. _Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions_](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622).  
+`2000.04.??` [t:eitoft] Andrei Alexandrescu. _Traits: The else-if-then of types_. C++ Report, April ([MC++D] Bibliography).  
+`2000.04.??` [sl] Matt Austern. _The standard librarian_. C++ Report, April ([MC++D] Bibliography).  
+`2000.??.??` [GP:MT&A] Krzysztof Czarnecki, Ulrich Eisenecker. _Generative Programming: Methods, Tools, and Applications_. Reading, MA: Addison-Wesley ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?  
+`2000.10.??` [ombt&v] Andrei Alexandrescu. _On mappings between types and values_. C/C++ Users Journal, October. ([MC++D] Bibliography).  
 `2001.02.01` __[MC++D]__ [Andrei Alexandrescu. _Modern C++ Design: Generic Programming and Design Patterns Applied_ (1st Edition)](https://www.amazon.com/Modern-Design-Generic-Programming-Patterns/dp/0201704315).  
 `2001.??.??` [STLT&RG2] [David R. Musser, Gillmer J. Derge, Atul Saini. _STL Tutorial and Reference Guide: C++ Programming with the Standard Template Library_ (2nd Edition)](https://www.amazon.com/STL-Tutorial-Reference-Guide-Addison-Wesley/dp/0321702123) ([EMC++] Front List).  
 `2001.??.??` __[ESTL]__ [Scott Meyers. _Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template Library_ (1st Edition)](https://www.amazon.com/gp/product/0201749629?ie=UTF8tag=aristeia.com-20linkCode=as2camp=1789creative=9325creativeASIN=0201749629).  
@@ -38,7 +52,9 @@ Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).
 Extracted from:  
 [EMC++]: Book References Not Found.  
 [MEC++]: Recommended Reading (p.285), Front List (Addison-Wesley Professional Computing Series), p.5.  
+[MC++D]: Bibliography: In Progress.  TODO: Front List.
 
 ---
-TODO:
-[MC++D] Loki Library direct link.
+TODO:  
+[MC++D]: Loki Library direct link.  
+[GP:MT&A]: Is it C++ (or other system programming)?  
