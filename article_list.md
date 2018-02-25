@@ -1,6 +1,6 @@
 ### Chronological List of _key_ C++ (and other system programming) Articles and Other Resources, Except Books
 The books are in a [separate list](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).  
-_Key_ articles and resources are those that are referred to in the books.  
+I call _key_ those articles and resources that are referred to in the books or those that were used in the sources I dealt with.  
 
 + `1994.11.09` [exc_h:fsos] [Tom Cargill. _"Exception Handling: A False Sense of Security"_](http://ptgmedia.pearsoncmg.com/images/020163371x/supplements/Exception_Handling_Article.html), C++ Report, Volume 6, Number 9, November-December 1994, pages 21-24 (more info: [MEC++]), ([C++CinA] Print resources), [local copy](https://github.com/kuzminrobin/code_review_notes/blob/master/local_copies/Exception_Handling_Article.html).  
 + `1995.02.??` [rtp] James O. Coplien. _The column without a name: A curiously recurring template pattern_. C++ Report, February ([MC++D] Bibliography).  
@@ -12,6 +12,7 @@ _Key_ articles and resources are those that are referred to in the books.
 + `1997.10.??` [ctaic++] [Kevin S. Van Horn. _Compile-time assertions in C++_](http://www.xmission.com/~ksvhsoft/ctassert/ctassert.html) (dead link), C/C++ Users Journal, October ([MC++D] Bibliography).  
 + `1998.04.??` [coic++] Scott Meyers. _Counting objects in C++_. C/C++ Users Journal, April ([MC++D] Bibliography).  
 + `1998.11.??` [u/rr] Al Stevens. _Undo/Redo redux_. Dr. Dobb's Journal, November ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?   
++ `1999.02.??` [ctvtc] [Dan Saks. _const T vs.T const_](http://www.dansaks.com/articles/1999-02%20const%20T%20vs%20T%20const.pdf).  
 + `1999.03.??` [t&mrvic++] Jaakko Järvi. _Tuples and Multiple Return Values in C++_. TUCS Technical Report No. 249, March ([MC++D] Bibliography).  
 + `1999.??.??` [ll] [Jaakko Järvi. _The Lambda Library_](http://lambda.cs.utu.fi) (dead link) ([MC++D] Bibliography).  
 + `1999.??.??` [au] [Scott Meyers. _auto_ptr update_](http://www.awl.com/cseng/titles/0-201-63371-X/auto_ptr.html) (dead link). _Note: The Colvin/Gibbons trick is not described as-is in any paper. Meyers's notes on auto_ptr are the most accurate description of the solution that Greg Colvin and Bill Gibbons found. The trick uses auto_ptr to solve the function return problem_ ([MC++D] Bibliography).  
@@ -31,3 +32,4 @@ Extracted from [books](https://github.com/kuzminrobin/code_review_notes/blob/mas
 ---
 TODO:  
 + [MC++D]: Loki Library direct link (and local copy).  
++ Alexandrescu, asserts.  
