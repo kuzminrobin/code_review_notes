@@ -1,4 +1,4 @@
-### __Chronological List of _key_ C++ (and other system programming) Articles and Other Resources, Except Books__
+### Chronological List of _key_ C++ (and other system programming) Articles and Other Resources, Except Books
 The books are in a [separate list](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).  
 _Key_ articles and resources are those that are referred to in the books.  
 
