@@ -25,7 +25,7 @@ _Key_ articles and resources are those that are referred to in the books.
 Extracted from [books](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):  
 [EMC++]: Book References Not Found.  
 [MEC++]: Recommended Reading (p.285), Front List (Addison-Wesley Professional Computing Series), p.5.  
-[MC++D]: Bibliography, p.311.  TODO: Front List.
+[MC++D]: Bibliography on p.311, Front List on p.4.
 
 ---
 TODO:  
