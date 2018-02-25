@@ -1,7 +1,7 @@
 While reading the C++ books, articles, etc. from time to time I notice that the authors give contradicting pieces of advice. Typically a book published later is based on greater knowledge and deserves more attention while resolving the contradiction.
 This is a list of C++ (and other system programming) books _sorted by publication date_.  
 
-__Chronological List of C++ (and other system programming) Books.__  
+### Chronological List of C++ (and other system programming) Books.
 (the articles and other resources are in a [separate file](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md))  
 
 `1990.??.??` [AC++RM] [Margaret A. Ellis, Bjarne Stroustrup. _The Annotated C++ Reference Manual_](https://www.amazon.com/Annotated-C-Reference-Manual/dp/0201514591) (more info: [MEC++]).  
@@ -54,4 +54,4 @@ TODO:
 [GP:MT&A]: Is it C++ (or other system programming)?  
 
 ---
-__[READ]__, [NOT_YET_READ]  
+__[HAS_BEEN_READ]__, [NOT_YET_READ]  
