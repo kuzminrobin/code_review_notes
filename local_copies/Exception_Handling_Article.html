@@ -1,0 +1,237 @@
+
+<!-- saved from url=(0092)http://ptgmedia.pearsoncmg.com/images/020163371x/supplements/Exception_Handling_Article.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>"<center><h2>EXCEPTION HANDLING:<br>A FALSE SENSE OF SECURITY</h2>
+<h3>by Tom Cargill</h3></center>
+<p>
+</p><blockquote>This article first appeared in <i>C++ Report</i>, Volume 6, Number 9, November-December 1994.<p></p></blockquote><p>
+</p><h3><br></h3>
+
+I suspect that most members of the C++ community vastly underestimate the skills needed to program with exceptions and therefore underestimate the true costs of their use. The popular belief is that exceptions provide a straightforward mechanism for adding reliable error handling to our programs. On the contrary, I see exceptions as a mechanism that may cause more ills than it cures. Without extraordinary care, the addition of exceptions to most software is likely to diminish overall reliability and impede the software development process.<p>
+
+This ""extraordinary care"" demanded by exceptions originates in the subtle interactions among language features that can arise in exception handling. Counter-intuitively, the hard part of coding exceptions is not the explicit throws and catches. The really hard part of using exceptions is to write all the intervening code in such a way that an arbitrary exception can propagate from its throw site to its handler, arriving safely and without damaging other parts of the program along the way.</p><p>
+
+In the October 1993 issue of the <i>C++ Report</i>, David Reed argues in favor of exceptions that: ""Robust reusable types require a robust error handling mechanism that can be used in a consistent way across different reusable class libraries."" While entirely in favor of robust error handling, I have serious doubts that exceptions will engender software that is any more robust than that achieved by other means. I am concerned that exceptions will lull programmers into a false sense of security, believing that their code is handling errors when in reality the exceptions are actually compounding errors and hindering the software.</p><p>
+
+To illustrate my concerns concretely I will examine the code that appeared in Reed's article. The code (page 42, October 1993) is a Stack class template. To reduce the size of Reed's code for presentation purposes, I have made two changes. First, instead of throwing <code>Exception</code> objects, my version simply throws literal character strings. The detailed encoding of the exception object is irrelevant for my purposes, because we will see no extraction of information from an exception object. Second, to avoid having to break long lines of source text, I have abbreviated the identifier <code>current_index</code> to <code>top</code>. Reed's code follows. Spend a few minutes studying it before reading on. Pay particular attention to its exception handling. [Hint: Look for any of the classic problems associated with <code>delete</code>, such as too few <code>delete</code> operations, too man4ddelete operations or access to memory after its <code>delete</code>.]</p><p>
+</p><pre>template <class t="">
+class Stack
+{
+  unsigned nelems;
+  int top;
+  T* v;
+public:
+  unsigned count();
+  void push(T);
+  T pop();
+
+  Stack();
+  ~Stack();
+  Stack(const Stack&amp;);
+  Stack&amp; operator=(const Stack&amp;);
+};
+
+template <class t="">
+Stack<t>::Stack()
+{
+  top = -1;
+  v = new T[nelems=10];
+  if( v == 0 )
+    throw ""out of memory"";
+}
+
+template <class t="">
+Stack<t>::Stack(const Stack<t>&amp; s)
+{
+  v = new T[nelems = s.nelems];
+  if( v == 0 )
+    throw ""out of memory"";
+  if( s.top &gt; -1 ){
+    for(top = 0; top &lt;= s.top; top++)
+      v[top] = s.v[top];
+
+    top--;
+  }
+}
+
+template <class t="">
+Stack<t>::~Stack()
+{
+  delete [] v;
+}
+
+template <class t="">
+void Stack<t>::push(T element)
+{
+  top++;
+  if( top == nelems-1 ){
+    T* new_buffer = new T[nelems+=10];
+    if( new_buffer == 0 )
+      throw ""out of memory"";
+    for(int i = 0; i &lt; top; i++)
+      new_buffer[i] = v[i];
+    delete [] v;
+    v = new_buffer;
+  }
+  v[top] = element;
+}
+
+template <class t="">
+T Stack<t>::pop()
+{
+  if( top &lt; 0 )
+    throw ""pop on empty stack"";
+  return v[top--];
+}
+
+template <class t="">
+unsigned Stack<t>::count()
+{
+  return top+1;
+}
+
+template <class t="">
+Stack<t>&amp;
+Stack<t>::operator=(const Stack<t>&amp; s)
+{
+  delete [] v;
+  v = new T[nelems=s.nelems];
+  if( v == 0 )
+    throw ""out of memory"";
+  if( s.top &gt; -1 ){
+    for(top = 0; top &lt;= s.top; top++)
+      v[top] = s.v[top];
+    top--;
+  }
+  return *this;
+}</t></t></t></class></t></class></t></class></t></class></t></class></t></t></class></t></class></class></pre>
+<p>
+
+My examination of the code is in three phases. First, I study the code's behavior along its ""normal,"" exception-free execution paths, those in which no exceptions are thrown. Second, I study the consequences of exceptions thrown explicitly by the member functions of <code>Stack</code>. Third, I study the consequences of exceptions thrown by the <code>T</code> objects that are manipulated by <code>Stack</code>. Of these three phases, it is unquestionably the third that involves the most demanding analysis.</p><p>
+
+</p><h4>Normal Execution Paths</h4>
+
+Consider the following code, which uses assignment to make a copy of an empty stack:<p>
+</p><pre>Stack<int> y;
+Stack<int> x = y;
+assert( y.count() == 0 );
+printf( ""%u\n"", x.count() );
+
+<outputs>
+
+17736</outputs></int></int></pre>
+<p>
+The object <code>x</code> should be made empty, since it is copied from an empty master. However, <code>x</code> is not empty according to <code>x.count()</code>; the value 17736 appears because <code>x.top</code> is not set by the copy constructor when copying an empty object. The test that suppresses the copy loop for an empty object also suppresses the setting of <code>top</code>. The value that <code>top</code> assumes is determined by the contents of its memory as left by the last occupant.</p><p>
+
+Now consider a similar situation with respect to assignment:</p><p>
+</p><pre>Stack<int> a, b;
+a.push(0);
+a = b;
+printf( ""%u\n"", a.count() );
+
+<outputs>
+
+1</outputs></int></pre>
+<p>
+
+Again, the object <code>a</code> should be empty. Again, it isn't. The boundary condition fault seen in the copy constructor also appears in <code>operator=</code>, so the value of <code>a.top</code> is not set to the value of <code>b.top</code>. There is a second bug in <code>operator=</code>. It does nothing to protect itself against self-assignment, that is, where the left-hand and right-hand sides of the assignment are the same object. Such an assignment would cause <code>operator=</code> to attempt to access deleted memory, with undefined results.</p><p>
+
+</p><h4>Exceptions Thrown by <code>Stack</code></h4>
+
+There are five explicit throw sites in <code>Stack</code>: four report memory exhaustion from operator <code>new</code>, and one reports stack underflow on a <code>pop</code> operation. (<code>Stack</code> assumes that on memory exhaustion operator <code>new</code> returns a null pointer. However, some implementations of operator <code>new</code> throw an exception instead. I will probably address exceptions thrown by operator <code>new</code> in a later column.)<p>
+
+The <code>throw</code> expressions in the default constructor and copy constructor of <code>Stack</code> are benign, by and large. When either of these constructors throws an exception, no <code>Stack</code> object remains and there is little left to say. (The little that does remain is sufficiently subtle that I will defer it to a later column as well.)</p><p>
+
+The <code>throw</code> from <code>push</code> is more interesting. Clearly, a <code>Stack</code> object that <code>throws</code> from a <code>push</code> operation has rejected the pushed value. However, when rejecting the operation, in what state should <code>push</code> leave its object? On <code>push</code> failure, this <code>stack</code> class takes its object into an inconsistent state, because the increment of <code>top</code> precedes a check to see that any necessary growth can be accomplished. The <code>stack</code> object is in an inconsistent state because the value of <code>top</code> indicates the presence of an element for which there is no corresponding entry in the allocated array.</p><p>
+
+Of course, the <code>stack</code> class might be documented to indicate that a <code>throw</code> from its <code>push</code> leaves the object in a state in which further member functions (<code>count</code>, <code>push</code> and <code>pop</code>) can no longer be used. However, it is simpler to correct the code. The <code>push</code> member function could be modified so that if an exception is thrown, the object is left in the state that it occupied before the <code>push</code> was attempted. Exceptions do not provide a rationale for an object to enter an inconsistent state, thus requiring clients to know which member functions may be called.</p><p>
+
+A similar problem arises in <code>operator=</code>, which disposes of the original array before successfully allocating a new one. If <code>x</code> and <code>y</code> are <code>Stack</code> objects and <code>x</code>=<code>y</code> throws the out-of-memory exception from <code>x.operator=</code>, the state of <code>x</code> is inconsistent. The value returned by <code>a.count()</code> does not reflect the number of elements that can be popped off the stack because the array of stacked elements no longer exists.</p><p>
+
+</p><h4>Exceptions Thrown by <code>T</code></h4>
+
+The member functions of <code>Stack<t></t></code> create and copy arbitrary <code>T</code> objects. If <code>T</code> is a built-in type, such as <code>int</code> or <code>double</code>, then operations that copy <code>T</code> objects do not throw exceptions. However, if <code>T</code> is another class type there is no such guarantee. The default constructor, copy constructor and assignment operator of <code>T</code> may throw exceptions just as the corresponding members of <code>Stack</code> do. Even if our program contains no other classes, client code might instantiate <code>Stack<stack<int>&gt;</stack<int></code>. We must therefore analyze the effect of an operation on a <code>T</code> object that throws an exception when called from a member function of <code>Stack</code>.<p>
+
+The behavior of <code>Stack</code> should be ""exception neutral"" with respect to <code>T</code>. The <code>Stack</code> class must let exceptions propagate correctly through its member functions without causing a failure of <code>Stack</code>. This is much easier said than done.</p><p>
+
+Consider an exception thrown by the assignment operation in the <code>for</code> loop of the copy constructor:</p><p>
+</p><pre>template <class t="">
+Stack<t>::Stack(const Stack<t>&amp; s)
+{
+  v = new T[nelems = s.nelems]; // leak
+  if( v == 0 )
+    throw ""out of memory"";
+  if( s.top &gt; -1 ){
+    for(top = 0; top &lt;= s.top; top++)
+      v[top] = s.v[top]; // throw 
+    top--;
+  }
+}
+</t></t></class></pre>
+<p>
+Since the copy constructor does not catch it, the exception propagates to the context in which the <code>Stack</code> object is being created. Because the exception came from a constructor, the creating context assumes that no object has been constructed. The destructor for <code>Stack</code> does not execute. Therefore, no attempt is made to delete the array of <code>T</code> objects allocated by the copy constructor. This array has leaked. The memory can never be recovered. Perhaps some programs can tolerate limited memory leaks. Many others cannot. A long-lived system, one that catches and successfully recovers from this exception, may eventually be throttled by the memory leaked in the copy constructor.</p><p>
+
+A second memory leak can be found in <code>push</code>. An exception thrown from the assignment of <code>T</code> in the <code>for</code> loop in <code>push</code> propagates out of the function, thereby leaking the newly allocated array, to which only <code>new_buffer.</code> points:</p><p>
+</p><pre>template <class t="">
+void Stack<t>::push(T element)
+{
+  top++;
+  if( top == nelems-1 ){
+    T* new_buffer = new T[nelems+=10]; // leak
+    if( new_buffer == 0 )
+      throw ""out of memory"";
+    for(int i = 0; i &lt; top; i++)
+      new_buffer[i] = v[i]; // throw
+    delete [] v;
+    v = new_buffer;
+  }
+  v[top] = element;
+}
+</t></class></pre>
+<p>
+
+The next operation on <code>T</code> we examine is the copy construction of the <code>T</code> object returned from <code>pop</code>:</p><p>
+</p><pre>template <class t="">
+T Stack<t>::pop()
+{
+  if( top &lt; 0 )
+    throw ""pop on empty stack"";
+  return v[top--]; // throw
+}
+</t></class></pre>
+<p>
+What happens if the copy construction of this object throws an exception? The <code>pop</code> operation fails because the object at the top of the stack cannot be copied (not because the stack is empty). Clearly, the caller does not receive a <code>T</code> object. But what should happen to the state of the stack object on which a <code>pop</code> operation fails in this way? A simple policy would be that if an operation on a stack throws an exception, the state of the stack is unchanged. A caller that removes the exception's cause can then repeat the <code>pop</code> operation, perhaps successfully.</p><p>
+
+However, <code>pop</code> does change the state of the stack when the copy construction of its result fails. The post-decrement of <code>top</code> appears in an argument expression to the copy constructor for <code>T</code>. Argument expressions are fully evaluated before their function is called. So <code>top</code> is decremented before the copy construction. It is therefore impossible for a caller to recover from this exception and repeat the <code>pop</code> operation to retrieve that element off the stack.</p><p>
+
+Finally, consider an exception thrown by the default constructor for <code>T</code> during the creation of the dynamic array of <code>T</code> in <code>operator=:</code></p><p>
+</p><pre>template <class t="">
+Stack<t>&amp;
+Stack<t>::operator=(const Stack<t>&amp; s)
+{
+  delete [] v;  // v undefined
+  v = new T[nelems=s.nelems]; // throw
+  if( v == 0 )
+    throw ""out of memory"";
+  if( s.top &gt; -1 ){
+    for(top = 0; top &lt;= s.top; top++)
+      v[top] = s.v[top];
+    top--;
+  }
+  return *this;
+}
+</t></t></t></class></pre>
+<p>
+The <code>delete</code> expression in <code>operator=</code> deletes the old array for the object on the left-hand side of the assignment. The <code>delete</code> operator leaves the value of <code>v</code> undefined. Mostimplementations leave <code>v</code> dangling unchanged, still pointing to the old array that has been returned to the heap. Suppose the exception from <code>T::T()</code> is thrown from within this assignment:</p><p>
+</p><pre>{
+  Stack<thing> x, y;
+  y = x;  // throw
+} // double delete
+</thing></pre>
+<p>
+As the exception propagates out of <code>y.operator=</code>, <code>y.v</code> is left pointing to the deallocated array. When the destructor for <code>y</code> executes at the end of the block, <code>y.v</code> still points to the deallocated array. The <code>delete</code> in the <code>Stack</code> destructor therefore has undefined results - it is illegal to delete the array twice.</p><p>
+
+</p><h4>An Invitation</h4>
+
+Regular readers of this column might now expect to see a presentation of my version of <code>Stack</code>. In this case, I have no code to offer, at least at present. Although I can see how to correct many of the faults in Reed's <code>Stack</code>, I am not confident that I can produce a exception-correct version. Quite simply, I don't think that I understand all the exception related interactions against which <code>Stack</code> must defend itself. Rather, I invite Reed (or anyone else) to publish an exception-correct version of <code>Stack</code>. This task involves more than just addressing the faults I have enumerated here, because I have chosen not to identify all the problems that I found in <code>Stack</code>. This omission is intended to encourage others to think exhaustively about the issues, and perhaps uncover situations that I have missed. If I did offer all of my analysis, while there is no guarantee of it completeness, it might discourage others from looking further. I don't know for sure how many bugs must be corrected in <code>Stack</code> to make it exception-correct.<p>
+"
+</p></body></html>
