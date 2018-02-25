@@ -1,0 +1,299 @@
+
+<!-- saved from url=(0049)http://www.cs.wustl.edu/~schmidt/editorial-3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>C++ Report Editorial</title>
+</head>
+
+<body text="#000000" link="#ff0f0f" vlink="#00ffff" bgcolor="#ffffff">
+
+<hr>
+<h3>Reality Check</h3>
+
+<dt>Douglas C. Schmidt
+</dt><dt>Editor-in-chief 
+</dt><dt>C++ Report
+</dt><dt>March 1996<p>
+
+	If your life is anything like mine, you're bombarded daily
+with a barrage of technical information from journals, email,
+newpapers, and netnews.  In these hectic times, I consider it a luxury
+to read an entire magazine cover-to-cover.  In fact, one of the best
+things about being the editor of C++ Report is that I'm "forced" to
+read all the articles and columns carefully each month.  In addition
+to keeping me plugged in to the state-of-the-art in C++ and
+object-oriented system development, I frequently gain new insights
+that save much significant software development effort.  I'd like to
+relate an experience along these lines that happened last week while I
+was reviewing John Vlissides "Patterns Hatching" column for the April
+'96 issue of C++ Report. </p><p>
+
+	As I'm sure you know, John's been describing various design
+patterns from the GoF (GoF stands for "Gang of Four," which is the
+name affectionately given to the authors of "Design Patterns: Elements
+of Reusable Object-Oriented Software") book [1] (such as Visitor and
+Template method) that arise when developing a file system.  In his
+April '96 column, John will discuss a pattern for protecting files
+from unauthorized access in multiuser environments.  Without giving
+away too much of his column's plot, the pattern John focuses on is
+Singleton.  The Singleton pattern ensures a class has only one
+instance and provides a global point of access to that instance. </p><p>
+
+	I began reading John's draft while taking a break from some
+marathon C++ debugging sessions.  We'd been having some mysterious
+problems with memory leaks when running a multi-threaded version of my
+ACE C++ network programming framework on our 20-CPU SPARCcenter 2000
+multi-processor at Washington University.  Needlesstosay, tracking
+down bugs in complex concurrent programs is about as much fun as
+debugging device drivers written in assembly language.</p><p>
+
+	As I read John's column, however, I suddenly realized the
+problems we'd observed were due to race conditions in our Singleton
+initialization code.  It turns out the canonical implementation of the
+Singleton pattern in the GoF book does not work in the presence of
+preemptive multi-tasking or true parallelism, which our 20-CPU
+SPARCcenter 2000 has in spades.  This is a classic example of how
+changes in underlying forces (e.g., the addition of multi-threading
+and parallelism to Singleton) can significantly affect the form and
+content of patterns we use to develop software.</p><p>
+
+	Fortunately, the solution is straightforward -- we dubbed it
+the "Double-Check" pattern for reasons that will become clear below.
+After we applied the fixes to ACE, Tim Harrison and I documented our
+solution in pattern form so that others could learn from our
+experience (and avoid the headaches... ;-)).  I've enclosed an
+abridged version of the Double-Check pattern below.  The complete
+description of the Double-Check pattern is available online in
+postscript form at WWW URL <a href="http://www.cs.wustl.edu/~schmidt/TSS-pattern.ps.gz">http://www.cs.wustl.edu/~schmidt/TSS-pattern.ps.gz</a>.</p><p>
+ 
+</p><hr>
+<h4>Double-Check</h4>
+
+<ol>
+<li> Intent<p>
+
+Allow atomic initialization, regardless of initialization order, and
+eliminates subsequent locking overhead.
+
+</p></li><li> Motivation and Implementation<p>
+
+The Singleton pattern ensures a class has only one instance and
+provides a global point of access to that instance.  Dynamically
+allocating Singletons in C++ programs is common since the order of
+initialization of global static objects in C++ programs is not
+well-defined and is thus non-portable.  Moreover, dynamic allocation
+avoids the cost of initializing a Singleton if it is never used. </p><p>
+
+Defining a Singleton is straightforward:
+
+</p><pre>class Singleton
+{
+public:
+  static Singleton *instance (void) {
+    if (instance_ == NULL)
+      instance_ = new Singleton;
+
+    return instance_;
+  }
+
+  void method (void);
+  // Other methods omitted.
+
+private:
+  static Singleton *instance_;
+
+  // Other data members omitted.
+};
+</pre>
+
+Application code uses the static Singleton instance() method to
+retrieve a reference to the Singleton before performing operations, as
+follows:<p>
+
+</p><pre>  // ...
+  Singleton::instance ()-&gt;method ();
+  // ...
+</pre>
+
+Unfortunately, if multiple threads executing on a parallel machine
+call Singleton::instance() simultaneously before it is initialized,
+the Singleton constructor can be called multiple times.  This, at
+best, will cause a memory leak and, at worst, may have disastrous
+consequences if initialization is not idempotent (idempotent
+initialization can occur multiple times without ill effects). <p>
+
+One way to solve this problem is to add a static Mutex to the class.
+This Mutex ensures that the allocation and initialization of the
+Singleton occurs atomically, as follows: </p><p>
+
+</p><pre>class Singleton
+{
+public:
+  static Singleton *instance (void)
+  {
+    // Constructor of guard acquires 
+    // lock_ automatically.
+    Guard<mutex> guard (lock_);
+
+    // Only one thread in the 
+    // critical section at a time.
+
+    if (instance_ == NULL)
+        instance_ = new Singleton;
+
+    return instance_;
+    // Destructor of guard releases
+    // lock_ automatically.
+  }
+
+private:
+  static Mutex lock_;
+  static Singleton *instance_;
+};
+</mutex></pre>
+
+The Guard class employs a C++ idiom (first described in [2]) that uses
+the constructor to acquire a resource automatically when an object of
+the class is created and uses the destructor to release the resource
+automatically when it goes out of scope.  Since Guard is parameterized
+by the type of lock (such as Mutex), this class can be used with a
+family of synchronization wrappers that conform to a uniform
+acquire()/release() interface.  By using Guard, every access to
+Singleton::instance() will automatically acquire and release the
+lock_. <p>
+
+Although this implementation is now thread-safe, this approach will
+cause excessive locking overhead and decrease performance.  One
+obvious (though incorrect) optimization is to place the Guard inside
+the conditional check of instance_: </p><p>
+
+</p><pre>static Singleton *instance (void)
+{
+  if (instance_ == NULL)
+  {
+    Guard<mutex> guard (lock_);
+
+    // Only come here if instance_
+    // hasn't been initialized yet.
+
+    instance_ = new Singleton;
+  }
+  return instance_;
+}
+</mutex></pre>
+
+Although this reduces locking overhead it doesn't provide thread-safe
+initialization.  There is still a race condition in multi-threaded
+applications that can cause multiple initializations of instance_. <p>
+
+Therefore, the best way to solve this problem is to use the
+Double-Check pattern.  This pattern allows dynamic allocation and
+initialization of Singletons to occur atomically, while eliminating
+locking overhead for each access.  Ironically, this solution is almost
+identical to the previous one.  Unnecessary locking is avoided by
+wrapping the previous implementation with one addition conditional
+test, as follows: </p><p>
+
+</p><pre>class Singleton
+{
+public:
+  static Singleton *instance (void)
+  {
+    // First check
+    if (instance_ == NULL)
+    {
+      // Ensure serialization (guard
+      // constructor acquires lock_).
+      Guard<mutex> guard (lock_);
+
+      // Double check
+      if (instance_ == NULL)
+        instance_ = new Singleton;
+    }
+    return instance_;
+    // guard destructor releases lock_.
+  }
+
+private:
+  static Mutex lock_;
+  static Singleton *instance_;
+};
+</mutex></pre>
+
+The first thread that acquires lock_ will construct Singleton and
+assign the pointer to instance_.  All threads that subsequently call
+instance() will find instance_ != NULL and skip the initialization
+step.  The second check prevents a race condition if multiple threads
+try to initialize the Singleton simultaneously.  This handles the case
+where multiple threads execute in parallel.  In the code above, these
+threads will queue up at lock_.  When the queued threads finally
+obtain the mutex lock_, they will find instance_ != NULL and not try
+to reinitialize Singleton. <p>
+
+Note that the implementation of Singleton::instance() above only
+incurs locking overhead for threads that are active inside of
+instance() when the Singleton is first initialized.  Subsequent calls
+to Singleton::instance(), singleton_ is not NULL and the lock_ is not
+acquired or released. </p><p>
+
+</p></li><li> Applicability <p>
+
+Use the Double-Check Pattern when an application has the following
+characteristics: </p><p>
+
+</p><ul>
+<li> The application is multi-threaded and uses Singletons; <p>
+
+</p></li><li> Singleton initialization is either dynamic and/or not
+	  idempotent; <p>
+
+</p></li><li> The Singleton instance() method can potentially be called
+	  simultaneously by multiple threads; <p>
+
+</p></li><li> The memory architecture of the OS/platform and the compiler
+	  support atomic tests for NULL.
+</li></ul>
+</li></ol>
+
+<p></p><hr><p>
+
+	My experience with Singleton, ACE, and Double-Check over the
+past week reinforced several important points.  First, it's
+interesting to observe how patterns generate solutions to programming
+problems.  Once I recognized the connection between Singleton and ACE
+memory leaks, and factored out the key forces (e.g., preemptive
+multi-threading, no locking overhead for normal use of the Singleton,
+etc.)  the solution jumped right out.  This illustrates the generative
+nature of patterns.  I was able to solve a vexing problem by
+recognizing how to extend an existing pattern (Singleton) to yield a
+newly documented pattern (Double-Check).  It's instructive to note how
+the need for Double-Check emerged from a change in forces, i.e., the
+addition of multi-threading and parallelism "broke" Singleton. </p><p>
+		
+	Second, keeping up-to-date with technical literature is an
+investment in yourself that can really pay off.  I saved myself many
+hours of frustration by taking the time to read John's column.  Of
+course, it was serendipitous that his column appeared just when I'd
+reached my wits end trying to debug memory leaks in multi-threaded ACE
+software.  In general, however, I'm impressed by how much useful
+knowledge I gain each month reading articles and columns in the C++
+Report. </p><p>
+
+	Speaking of columns, I'd like to welcome two new columnists to
+the C++ Report this month.  Jack Reeves and Doug Forguson are joining
+the team -- starting off with feature articles, as is our custom now.
+Both are very talented developers and authors, who will cover topics
+ranging from C++ error handling to graphical user interfaces.  I hope
+you can find time in your hectic lives to keep plugged in to the
+state-of-the-art in C++ and object-oriented systems in the C++ Report. </p><p>
+
+</p></dt><dt>[1] Erich Gamma, Richard Helm, Ralph Johnson and John
+    Vlissides. Design Patterns: Elements of Reusable Object-Oriented 
+    Software. Reading, MA: Addison-Wesley, 1995. <p>
+
+</p></dt><dt>[2] Stroustrup, B. The C++ Programming Language, 2nd    
+    Edition. Reading, Mass: Addison-Wesley, 1991.
+
+<p></p><hr><p>
+Back to <a href="http://www.cs.wustl.edu/~schmidt/report-edit.html">
+C++ Report Editorials</a> home page.
+</p></dt></body></html>
