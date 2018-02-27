@@ -32,4 +32,5 @@ Extracted from [books](https://github.com/kuzminrobin/code_review_notes/blob/mas
 ---
 TODO:  
 + [MC++D]: Loki Library direct link (and local copy).  
++ [Alexandrescu's Articles](http://erdani.com/index.php/articles/).  
 + Alexandrescu, asserts.  
