@@ -40,9 +40,9 @@ Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).
 `2004.12.10` [C++TM] [David Abrahams, Aleksey Gurtovoy. _C++ Template Metaprogramming: Concepts, Tools, and Techniques from Boost and Beyond_ (1st Edition)](https://www.amazon.com/Template-Metaprogramming-Concepts-Techniques-Beyond/dp/0321227255) ([MC++D] Front List).  
 `2005.??.??` __[EC++3]__ [Scott Meyers. _Effective C++: 55 Specific Ways to Improve Your Programs and Designs_ (3rd Edition)](https://www.amazon.com/gp/product/0321334876?ie=UTF8&tag=aristeia.com-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321334876).  
 `2010.??.??` [D] Andrei Alexandrescu. _The D Programming Language_.  
-`2012.??.??` __[C++CinA]__ [Anthony Williams. _C++ Concurrency in Action_ (1st Edition)](https://www.manning.com/books/c-plus-plus-concurrency-in-action).  
-`2014.11.07` __[EMC++]__ [Scott Meyers. _Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).  
-  
+`2012.??.??` __[C++CinA]__ [Anthony Williams. _C++ Concurrency in Action_ (1st Edition)](https://www.manning.com/books/c-plus-plus-concurrency-in-action).  
+`2014.11.07` __[EMC++]__ [Scott Meyers. _Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).   
+ 
 ---
 Extracted from:  
 [EMC++]: Book References Not Found.  
