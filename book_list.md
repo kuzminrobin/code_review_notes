@@ -7,7 +7,7 @@ This is a list of C++ (and other system programming) books _sorted by publicatio
 `1990.??.??` [AC++RM] [Margaret A. Ellis, Bjarne Stroustrup. _The Annotated C++ Reference Manual_](https://www.amazon.com/Annotated-C-Reference-Manual/dp/0201514591) (more info: [MEC++]).  
 `1992.??.??` [AC++PS&I] James Coplien. _Advanced C++: Programming Styles and Idioms_. Addison-Wesley, 1992, ISBN 0-201-54855-0 (more info: [MEC++])  
 `1992.??.??` [C++PS] [Tom Cargill. _C++ Programming Style_ (1st Edition)](https://www.amazon.com/C-Programming-Style-Tom-Cargill/dp/0201563657).  
-`1992.12.??` __[C++S&T]__ [Robert B. Murray. _C++ strategies and tactics_](https://www.amazon.com/Strategies-Tactics-Robert-B-Murray/dp/0201563827). The date is based on section 10.1, p.249.  
+`1992.12.??` __[C++S&T]__ [Robert B. Murray. _C++ strategies and tactics_](https://www.amazon.com/Strategies-Tactics-Robert-B-Murray/dp/0201563827). The date is based on section 10.1, p.249. (I have in paper, gave to Shweta)  
 `1994.??.??` [D&EoC++] Bjarne Stroustrup. _The Design and Evolution of C++_. Addison-Wesley, 1994, ISBN 0-201-54330-3 (more info: [MEC++]).  
 `1994.??.??` [S&EC++] John J. Barton, Lee R. Nackman. _Scientific and Engineering C++_. Addison-Wesley, 1994, ISBN 0-201-53393-6 (more info: [MEC++]).  
 `1994.??.??` [IC++OM] Stanley B. Lippman. _Inside the C++ Object Model_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
