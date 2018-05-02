@@ -9,3 +9,7 @@ Another confirmation is in [[eses]](https://github.com/kuzminrobin/code_review_n
 
 The Meyers' [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), Item 14: Declare functions `noexcept` if they won’t emit exceptions,  
 in the beginning makes me think that `noexcept` helps to optimize in certain cases (by means of replacing the copy operations with the move operations). But in the end still shows that there are no any copile-time guarantees (a `noexcept`-function can call the functions without the exception specification, and the compilers (so far) don't complain) but there are run-time checks ("_your program will be terminated if an exception tries to leave the function_").
+
+----
+See also:  
+* [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md)
