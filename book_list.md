@@ -2,7 +2,7 @@ While reading the C++ books, articles, etc. from time to time I notice that the 
 This is a list of C++ (and other system programming) books _sorted by publication date_.  
 
 ### Chronological List of C++ (and other system programming) Books.
-(the articles and other resources are in a [separate file](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md))  
+(the _articles_ and _other resources_ are in a [separate file](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md))  
 
 `1990.??.??` [AC++RM] [Margaret A. Ellis, Bjarne Stroustrup. _The Annotated C++ Reference Manual_](https://www.amazon.com/Annotated-C-Reference-Manual/dp/0201514591) (more info: [MEC++]).  
 `1992.??.??` [AC++PS&I] James Coplien. _Advanced C++: Programming Styles and Idioms_. Addison-Wesley, 1992, ISBN 0-201-54855-0 (more info: [MEC++])  
