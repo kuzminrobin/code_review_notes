@@ -24,6 +24,7 @@ I call _key_ those articles and resources that are referred to in the books or t
 + `2002.07.??` __[pl@es]__ [Herb Sutter. _A Pragmatic Look at Exception Specifications_](http://www.gotw.ca/publications/mill22.htm) (referred to from [t15c++ehm]).  
 + `2002-2004 ` __[eses]__ [Herb Sutter. _Exception Safety and Exception Specifications: Are They Worth It?_](http://www.gotw.ca/gotw/082.htm).  
 + `2005.03.??` [fttc] [Herb Sutter. _The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software_](http://www.gotw.ca/publications/concurrency-ddj.htm), Dr. Dobb’s Journal 30, no. 3 (March 2005), [local copy](https://github.com/kuzminrobin/code_review_notes/blob/master/local_copies/turn_toward_concurrency.tar.bz2) ([C++CinA] Print resources).  
++ `2011.01.10` [.eh_f] [Airs – Ian Lance Taylor. _.eh_frame_](https://www.airs.com/blog/archives/460).  
 + `2015.??.??` __[e&su]__ [MSDN. _Exceptions and Stack Unwinding in C++_](https://msdn.microsoft.com/en-us/library/hh254939.aspx) (from [t15c++ehm]).  
 + `2016.08.03` __[t15c++ehm]__ [Deb Haldar. _Top 15 C++ Exception handling mistakes and how to avoid them_](http://www.acodersjourney.com/2016/08/top-15-c-exception-handling-mistakes-avoid/) (from [here](https://blog.tartanllama.xyz/optional-expected/)).
 
@@ -37,4 +38,4 @@ Extracted from [books](https://github.com/kuzminrobin/code_review_notes/blob/mas
 TODO:  
 + [MC++D]: Loki Library direct link (and local copy).  
 + [Alexandrescu's Articles](http://erdani.com/index.php/articles/).  
-+ Alexandrescu, asserts.  
++ Alexandrescu's, asserts.  
