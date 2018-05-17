@@ -1,10 +1,20 @@
-Everything About the Exceptions
+Info Sources About the Exceptions
 -
-See Haldar's [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md), _Where do we go from here?_ section. In case the article dies the links are repeated [and complemented] below:
-* [C++ Exception FAQ](https://isocpp.org/wiki/faq/exceptions) on isocpp.org
-* [More Effective C++ – 35 new ways to improve your programs and designs](https://www.amazon.com/More-Effective-Improve-Programs-Designs/dp/020163371X/ref=sr_1_1?ie=UTF8&qid=1470238686&sr=8-1&keywords=more+effective+c+meyers) – items 9 through 15 [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).
-* [C++ Coding Standards – 101 Rules, Guidelines and Best Practices](https://www.amazon.com/Coding-Standards-Rules-Guidelines-Practices/dp/0321113586/ref=sr_1_1?ie=UTF8&qid=1470238746&sr=8-1&keywords=C%2B%2B+Coding+standards) – items 68 through 75 [[C++CS]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).
-* [Exceptional C++ – 47 Engineering puzzles, programming problems and solutions](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622/ref=sr_1_1?ie=UTF8&qid=1470238861&sr=8-1&keywords=Exceptional+C%2B%2B) – items 8 through 19 [[ExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).
+Partially based on Deb Haldar's _Top 15 C++ Exception handling mistakes and how to avoid them_ [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md), _Where do we go from here?_ section.
+
+__Books and Articles at a High Level__
+* `(Ongoing )` [C++ Exception FAQ](https://isocpp.org/wiki/faq/exceptions) on isocpp.org (still TODO).
+* `1996.??.??` [More Effective C++ – 35 new ways to improve your programs and designs](https://www.amazon.com/More-Effective-Improve-Programs-Designs/dp/020163371X/ref=sr_1_1?ie=UTF8&qid=1470238686&sr=8-1&keywords=more+effective+c+meyers) – items 9 through 15 [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).
+* `1999.11.18` [Exceptional C++ – 47 Engineering puzzles, programming problems and solutions](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622/ref=sr_1_1?ie=UTF8&qid=1470238861&sr=8-1&keywords=Exceptional+C%2B%2B) – items 8 through 19 [[ExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).
+* `2004.10.??` [C++ Coding Standards – 101 Rules, Guidelines and Best Practices](https://www.amazon.com/Coding-Standards-Rules-Guidelines-Practices/dp/0321113586/ref=sr_1_1?ie=UTF8&qid=1470238746&sr=8-1&keywords=C%2B%2B+Coding+standards) – items 68 through 75 [[C++CS]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).
+* `2015.??.??` [[e&su]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) MSDN. _Exceptions and Stack Unwinding in C++_.
+* `2016.08.03` [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Deb Haldar. Top 15 C++ Exception handling mistakes and how to avoid them.
+
+__Videos__
+* `2018.05.09` C++Now 2018: Michael Spencer, ["How Compilers Reason About Exceptions"](https://cppnow2018.sched.com/event/EC7V/how-compilers-reason-about-exceptions?iframe=no&w=100%&sidebar=yes&bg=no) (to go online in 2018.06).
+
+__Internals and ABIs__
+* `2011.01.10` [[.eh_f]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Airs – Ian Lance Taylor. _".eh_frame"_.
 
 Certain Code Fragments Should Not Throw Exceptions
 -
@@ -34,3 +44,11 @@ See also [t15c++ehm], [_Mistake # 9: Not realizing the implications of "noexcept
 ----
 See also:  
 * [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md); [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), _Item 14: Use exception specifications judiciously_.
+
+C++ Exceptions: TODO.
+-
+* Concise high-level explanation of what the C++ exceptions are for, is it possible to live without the exceptions (with the exceptions completely disabled at compile time)? If yes then what is the cost?  
+(Member vars that are arrays are inited by calling the default Ctor for each array element, if those Ctors acquire the resources then that acquisition can fail, how to return such a failure from the default Ctor?  
+How and to who to return the failure from a Ctor of a global var? What happens if the global var Ctor throws?)
+* In which cases is it _impossible_ to use the exceptions? Bare metal? (no OS to terminate the code that does not handle the exc)
+* Some articles state that today's compilers generate such a code that the exceptions have _zero-cost in successful case_ (i.e. the exception is not thrown), but [Walter Bright](https://en.wikipedia.org/wiki/Walter_Bright) (creator of D) said (at http://nwcpp.org/ [November 2017 meeting](http://nwcpp.org/november-2017.html)) that _zero-cost exceptions are a myth_. Who is right? What particularly stands behind (what code is generated upon) `try`, `catch(T)`, `catch(...)`, `throw`, thrown-case, not-thrown-case, etc.? At C++Now2018's ["How Compilers Reason About Exceptions"](https://cppnow2018.sched.com/event/EC7V/how-compilers-reason-about-exceptions) session it has been recommended to read the ABI docs and the [[.eh_f]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Airs – Ian Lance Taylor. _".eh_frame"_ (still TODO).
