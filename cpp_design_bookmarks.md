@@ -1,3 +1,45 @@
+Know the Danger of Overflowing (and Underflowing) the Signed Types
+-
+The _signed_ and _unsigned_ integer types behave differently when overflown or underflown.  
+
+First let's consider by the example of the _unsigned_ types.  
+If we have an _unsigned_ 8-bit integer (whose range is from 0 (0x00) to 255 (0xFF)) with value 0, and we decrement it (thus causing the underflow), then we get the value 255 (0xFF). Fully defined value and fully defined behavior.
+In the same way incrementing the value 255 (0xFF) (thus causing the overflow) will result in the value 0 (0x00). Also a fully defined value and fully defined behavior.  
+
+C++98:  
+> __3.9.1 Fundamental types__  
+> 4: Unsigned integers, declared unsigned, shall obey the laws of arithmetic modulo 2^n where n is the number of bits in the value representation of that particular size of integer. Footnote 41)  
+> 41) This implies that unsigned arithmetic does not overflow because a result that cannot be represented by the resulting unsigned integer type is reduced modulo the number that is one greater than the largest value that can be represented by the resulting unsigned integer type.
+
+But for the _signed_ integers the picture is completely different.  
+If we have a signed 8-bit integer, e.g. `int8_t` (with the range  
+from `std::numeric_limits<int8_t>::min()` in C++, or `INT8_MIN` in C,  
+to `std::numeric_limits<int8_t>::max()` in C++, or `INT8_MAX` in C),  
+with the lowest value `std::numeric_limits<int8_t>::min()` (`INT8_MIN`) and we decrement such a value then we get the _Undefined Behavior_!  
+The same is for incrementing the highest value `std::numeric_limits<int8_t>::max()` (`INT8_MAX`).  
+It is emphasized, not just the _value_ is undefined, but the whole _behavior_ is undefined.  
+
+The same is for the floating point types.  
+
+C++98:  
+> __5 Expressions__  
+5: If during the evaluation of an expression, the result is not mathematically defined or not in the range of representable values for its type, the behavior is undefined, unless such an expression is a constant expression (5.19), in which case the program is ill-formed.
+
+__This all means the following:__  
+All the calculations that rely on the integer type overflowing, e.g. the checksums (CRC), hash codes, ring buffer indices, must use the _unsigned_ types.  
+Negating the signed value (`-signedValue`) and  
+  + assigning such a value to oneself (`x = -x;`) or to a variable of the same type (`y = -x;`)
+  + or passing such a value as an argument (corresponding to the parameter of the same type), e.g.  
+    `void foo(int y); main() { int x =..; foo(-x); }`  
+
+can cause overflow, i.e. Undefined Behavior, if before the negation the value was `std::numeric_limits<int??_t>::min()` (`INT??_MIN`). This is because negating such a value can result in a value (`std::numeric_limits<int??_t>::max()` + 1) (`INT??_MIN` + 1) which does not fit in the type.  
+
+One of the reasons why unsigend and signed integers behave so differently is the fact that the signed integers have at least [3 implementation-dependent representations](https://softwareengineering.stackexchange.com/questions/239036/how-are-negative-signed-values-stored/239039#239039) in C. [This paper](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2218.htm) tells that there is an intention to use in C and C++ only one representation for the signed integers (which allows using the same algorithms and/or hardware logic both for signed and unsigned integer arithmetic (at least addition and subtraction, and very likely multiplication and division)). After that intention ends up in the C and C++ Standards the overflow and underflow of the signed integers are expected to become fully defined (the same way as for the unsigned integers).  
+
+__More Info:__  
+* C++Now 2018 Closing Keynote: Undefined Behavior and Compiler Optimizations, _John Regehr_ ([abstract](http://sched.co/ELaF), [slides](https://github.com/boostcon/cppnow_presentations_2018/blob/master/05-11-2018_friday/undefined_behavior_and_compiler_optimizations__john_regehr__cppnow__05112018.pdf), [video](https://youtu.be/AeEwxtEOgH0)).  
+* C++Now 2014 Undefined Behavior in C++: What is it, and why do you care? _Marshall Clow_ ([video](https://www.youtube.com/watch?v=uHCLkb1vKaY)).  
+
 Info Sources About the Exceptions
 -
 Partially based on Deb Haldar's _Top 15 C++ Exception handling mistakes and how to avoid them_ [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md), _Where do we go from here?_ section.
