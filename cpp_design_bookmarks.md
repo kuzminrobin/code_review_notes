@@ -26,7 +26,9 @@ C++98:
 5: If during the evaluation of an expression, the result is not mathematically defined or not in the range of representable values for its type, the behavior is undefined, unless such an expression is a constant expression (5.19), in which case the program is ill-formed.
 
 __This all means the following:__  
+
 All the calculations that rely on the integer type overflowing, e.g. the checksums (CRC), hash codes, ring buffer indices, must use the _unsigned_ types.  
+
 Negating the signed value (`-signedValue`) and  
   + assigning such a value to oneself (`x = -x;`) or to a variable of the same type (`y = -x;`)
   + or passing such a value as an argument (corresponding to the parameter of the same type), e.g.  
