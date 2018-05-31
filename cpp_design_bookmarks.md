@@ -36,12 +36,15 @@ Negating the signed value (`-signedValue`) and
 
 can cause overflow, i.e. Undefined Behavior, if before the negation the value was `std::numeric_limits<int??_t>::min()` (`INT??_MIN`). This is because negating such a value in some representations (see below) can result in a value (`std::numeric_limits<int??_t>::max()` + 1) (`INT??_MIN` + 1) which does not fit in the type.  
 
-One of the reasons why unsigend and signed integers behave so differently is the fact that the signed integers have at least [3 implementation-dependent representations](https://softwareengineering.stackexchange.com/questions/239036/how-are-negative-signed-values-stored/239039#239039) in C. [This paper](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2218.htm) tells that there is an intention to use in C and C++ only one representation for the signed integers (which allows applying the same algorithms and/or hardware logic both for signed and unsigned integer arithmetic (at least addition and subtraction, and very likely multiplication and division)). After that intention ends up in the C and C++ Standards the overflow and underflow of the signed integers are expected to become fully defined (the same way as for the unsigned integers).  
+One of the reasons why unsigend and signed integers behave so differently is the fact that the signed integers have at least [3 implementation-dependent representations](https://softwareengineering.stackexchange.com/questions/239036/how-are-negative-signed-values-stored/239039#239039) in C.  
+
+The Proposals [to C](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2218.htm) and [C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0907r1.html) named "Signed Integers are Two’s Complement" tell that there is an intention to use in C and C++ only one representation for the signed integers (which allows applying the same algorithms and/or hardware logic both for signed and unsigned integer arithmetic (at least addition and subtraction, and very likely multiplication and division)). After those Proposals end up in the C and C++ Standards the overflow and underflow of the signed integers are expected to become fully defined (the same way as for the unsigned integers).  
+The same fully defined effect for signed integers in [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) can be achieved _now_ by using the `-fwrapv` command line argument.  
 
 __More Info:__  
 * C++Now 2018 Closing Keynote: Undefined Behavior and Compiler Optimizations, _John Regehr_ ([abstract](http://sched.co/ELaF), [slides](https://github.com/boostcon/cppnow_presentations_2018/blob/master/05-11-2018_friday/undefined_behavior_and_compiler_optimizations__john_regehr__cppnow__05112018.pdf), [video](https://youtu.be/AeEwxtEOgH0)).  
 * C++Now 2014 Undefined Behavior in C++: What is it, and why do you care? _Marshall Clow_ ([video](https://www.youtube.com/watch?v=uHCLkb1vKaY)).  
-* [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) flags: -fstrict-overflow, -Wstrict-overflow[=n], -Wno-overflow, -fwrapv, -fsanitize=signed-integer-overflow, -fsanitize=float-cast-overflow, -ftrapv, also search for "overflow".
+* [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) command line arguments: -fstrict-overflow, -Wstrict-overflow[=n], -Wno-overflow, -fwrapv, -fsanitize=signed-integer-overflow, -fsanitize=float-cast-overflow, -ftrapv, also search for "overflow".
 
 Info Sources About the Exceptions
 -
