@@ -27,7 +27,7 @@ C++98:
 
 __For the portable code this all means the following:__  
 
-All the calculations that rely on the integer type overflowing, e.g. the checksums (CRC), hash codes, ring buffer indices, must use the _unsigned_ types.  
+All the calculations that rely on the integer type overflowing, e.g. the checksums (CRC), hash codes, ring buffer indices, must use the _unsigned_ types (this is also applicable to all the unsigned concepts such as size in bytes, length of the sequence (e.g. the number of elements in an array), array/container index, offset, pointer arithmetic, bitmasks (and shifts for them)).
 
 Negating the signed value (`-signedValue`) and  
   + assigning such a value to oneself (`x = -x;`) or to a variable of the same type (`y = -x;`)
