@@ -15,7 +15,7 @@ But for the _signed_ integers the picture is different.
 If we have a signed 8-bit integer, e.g. `int8_t` (with the range  
 from `std::numeric_limits<int8_t>::min()` in C++, or `INT8_MIN` in C,  
 to `std::numeric_limits<int8_t>::max()` in C++, or `INT8_MAX` in C),  
-with the lowest value `std::numeric_limits<int8_t>::min()` (`INT8_MIN`) and we decrement such a value then we can get the _Undefined Behavior_! (Here and below, for brevity and simplicity, the integer promotion rules are ignored, i.e. it is assumed that the 8-bit value is not extended to 16-bit or 32-bit value then decremented without the overflow and then the least significant byte is saved back to the integer, all in fully defined way)  
+with the lowest value `std::numeric_limits<int8_t>::min()` (`INT8_MIN`) and we decrement such a value then we can get the _Undefined Behavior_! (Here and below, for brevity and simplicity, the integer promotion rules are ignored, i.e. it is assumed that the 8-bit value is _not_ extended to 16-bit or 32-bit value then decremented _without the overflow_ and then the least significant byte is saved back to the 8-bit integer, all in _fully defined_ way. We assume that any sigend integer type (`int8_t`, `int16_t`, etc.) and/or all of those types can be implemented using `int` (or using a type larger than `int`) on some implementations)  
 The same is for incrementing the highest value `std::numeric_limits<int8_t>::max()` (`INT8_MAX`).  
 It is emphasized, not just the _value_ is undefined, but the whole _behavior_ is undefined.  
 
@@ -39,7 +39,7 @@ can cause overflow, i.e. Undefined Behavior, if before the negation the value wa
 One of the reasons why unsigend and signed integers behave so differently is the fact that the signed integers have at least [3 implementation-dependent representations](https://softwareengineering.stackexchange.com/questions/239036/how-are-negative-signed-values-stored/239039#239039) in C.  
 
 The Proposals [to C](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2218.htm) and [C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0907r1.html) named "Signed Integers are Two’s Complement" tell that there is an intention to use in C and C++ only one representation for the signed integers (which allows applying the same algorithms and/or hardware logic both for signed and unsigned integer arithmetic (at least addition and subtraction, and very likely multiplication and division)). After those Proposals end up in the C and C++ Standards the overflow and underflow of the signed integers are expected to become fully defined (the same way as for the unsigned integers).  
-The same fully defined effect for signed integers in [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) can be achieved _now_ by using the `-fwrapv` command line argument.  
+The same fully defined effect for signed integers in [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) can be achieved _now_ by using the `-fwrapv` command line argument (but the code relying on such a wrapping behavior is considered _non-portable_ as of C11 and C++17).  
 
 __More Info:__  
 * C++Now 2018 Closing Keynote: Undefined Behavior and Compiler Optimizations, _John Regehr_ ([abstract](http://sched.co/ELaF), [slides](https://github.com/boostcon/cppnow_presentations_2018/blob/master/05-11-2018_friday/undefined_behavior_and_compiler_optimizations__john_regehr__cppnow__05112018.pdf), [video](https://youtu.be/AeEwxtEOgH0)).  
