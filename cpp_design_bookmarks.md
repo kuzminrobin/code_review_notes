@@ -1,3 +1,20 @@
+The `inline` keyword
+-
+[[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):
+* Item 2: Prefer consts, enums, and inlines to #defines.
+* Item 5: Know what functions C++ silently writes and calls, fragment: "_All these functions will be both public and inline_".
+* Item 30: Understand the ins and outs of inlining.
+* Item 44: Factor parameter-independent code out of templates, p. 214(paper)/235(file), Fragment: "_(Provided, of course, you refrain from declaring that function inline. If it’s inlined, each instantiation of SquareMatrix::invert will get a copy of SquareMatrixBase::invert’s code (see Item 30), and you’ll find yourself back in the land of object code replication.)_".
+* Also search for `inline`, `inlining` in the file.
+
+[[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):
+* Item 24: Understand the costs of virtual functions, multiple inheritance, virtual base classes, and RTTI; p.118(paper)/135(file), middle, paragraph starting with: "The real runtime cost of virtual functions has to do with their interaction with inlining. For all practical purposes, virtual functions aren’t inlined.".
+* TODO: Other `inline`, `inlining` occurrencies in Item 26, and other places.
+
+TODO: [ExcC++].
+
+To be continued.
+
 Know the Danger of Overflowing (and Underflowing) the Signed Types
 -
 The _signed_ and _unsigned_ integer types behave differently when overflown or underflown.  
