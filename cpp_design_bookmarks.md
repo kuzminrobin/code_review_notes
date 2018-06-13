@@ -1,4 +1,19 @@
-The `inline` keyword
+Know All the Effects of the Empty Destructor
+-
+Some people were taught to always write the destructor just in case, even if it does nothing (is empty).
+
+Starting in C++11 the explicit destructor 
+* disables the (implicit, by-compiler) generation of the move operations,
+* makes the generation of the copy opertions _deprecated_ (i.e. _disabled_ in some future version of C++).
+
+See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation, fragments:
+* Move operations are generated only for classes lacking explicitly declared move operations, copy operations, and a _destructor_.
+* Generation of the copy operations in classes with an explicitly declared _destructor_ is deprecated.
+
+See also:
+[[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 5: Know what functions C++ silently writes and calls.
+
+The `inline` Keyword
 -
 [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):
 * Item 2: Prefer consts, enums, and inlines to #defines.
@@ -9,7 +24,7 @@ The `inline` keyword
 
 [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):
 * Item 24: Understand the costs of virtual functions, multiple inheritance, virtual base classes, and RTTI; p.118(paper)/135(file), middle, paragraph starting with: "The real runtime cost of virtual functions has to do with their interaction with inlining. For all practical purposes, virtual functions aren’t inlined.".
-* TODO: Other `inline`, `inlining` occurrencies in Item 26, and other places.
+* TODO: Other `inline`, `inlining` occurrences in Item 26, and other places.
 
 TODO: [ExcC++].
 
