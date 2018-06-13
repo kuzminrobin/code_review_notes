@@ -38,7 +38,7 @@ First let's consider by the example of the _unsigned_ types.
 If we have an _unsigned_ 8-bit integer (whose range is from 0 (0x00) to 255 (0xFF)) with value 0, and we decrement it (thus causing the underflow), then we get the value 255 (0xFF). Fully defined value and fully defined behavior.
 In the same way incrementing the value 255 (0xFF) (thus causing the overflow) will result in the value 0 (0x00). Also a fully defined value and fully defined behavior.  
 
-C++98:  
+Confirmation in C++98:  
 > __3.9.1 Fundamental types__  
 > 4: Unsigned integers, declared unsigned, shall obey the laws of arithmetic modulo 2^n where n is the number of bits in the value representation of that particular size of integer. Footnote 41)  
 > 41) This implies that unsigned arithmetic does not overflow because a result that cannot be represented by the resulting unsigned integer type is reduced modulo the number that is one greater than the largest value that can be represented by the resulting unsigned integer type.
