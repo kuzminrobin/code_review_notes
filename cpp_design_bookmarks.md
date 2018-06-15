@@ -10,8 +10,9 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 * Move operations are generated only for classes lacking explicitly declared move operations, copy operations, and a _destructor_.
 * Generation of the copy operations in classes with an explicitly declared _destructor_ is deprecated.
 
-See also:
-[[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 5: Know what functions C++ silently writes and calls.
+Story:  
+* [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 5: Know what functions C++ silently writes and calls.
+* [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation.
 
 The `inline` Keyword
 -
