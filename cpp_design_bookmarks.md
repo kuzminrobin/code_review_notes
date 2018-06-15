@@ -69,7 +69,11 @@ Negating the signed value (`-signedValue`) and
 
 can cause overflow, i.e. Undefined Behavior, if before the negation the value was `std::numeric_limits<int??_t>::min()` (`INT??_MIN`). This is because negating such a value in some representations (see below) can result in a value (`std::numeric_limits<int??_t>::max()` + 1) (`INT??_MIN` + 1) which does not fit in the type.  
 
+__Reasons:__  
+
 One of the reasons why unsigend and signed integers behave so differently is the fact that the signed integers have at least [3 implementation-dependent representations](https://softwareengineering.stackexchange.com/questions/239036/how-are-negative-signed-values-stored/239039#239039) in C.  
+
+__Future:__  
 
 The Proposals [to C](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2218.htm) and [C++](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2018/p0907r1.html) named "Signed Integers are Two’s Complement" tell that there is an intention to use in C and C++ only one representation for the signed integers (which allows applying the same algorithms and/or hardware logic both for signed and unsigned integer arithmetic (at least addition and subtraction, and very likely multiplication and division)). After those Proposals end up in the C and C++ Standards the overflow and underflow of the signed integers are expected to become fully defined (the same way as for the unsigned integers).  
 The same fully defined effect for signed integers in [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) can be achieved _now_ by using the `-fwrapv` command line argument (but the code relying on such a wrapping behavior is considered _non-portable_ as of C11 and C++17).  
@@ -91,6 +95,9 @@ __Books and Articles at a High Level__
 * `2004.10.??` [C++ Coding Standards – 101 Rules, Guidelines and Best Practices](https://www.amazon.com/Coding-Standards-Rules-Guidelines-Practices/dp/0321113586/ref=sr_1_1?ie=UTF8&qid=1470238746&sr=8-1&keywords=C%2B%2B+Coding+standards) – items 68 through 75 [[C++CS]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).
 * `2015.??.??` [[e&su]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) MSDN. _Exceptions and Stack Unwinding in C++_.
 * `2016.08.03` [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Deb Haldar. Top 15 C++ Exception handling mistakes and how to avoid them.
+
+__Q&As__
+* The [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941).
 
 __Videos__
 * `2018.05.09` C++Now 2018: Michael Spencer, ["How Compilers Reason About Exceptions"](https://cppnow2018.sched.com/event/EC7V/how-compilers-reason-about-exceptions?iframe=no&w=100%&sidebar=yes&bg=no) (to go online in 2018.06).
