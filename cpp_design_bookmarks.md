@@ -39,7 +39,7 @@ __Story:__
 
 __Consequences:__
 * [Know All the Effects of the Empty Destructor](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-all-the-effects-of-the-empty-destructor).
-* [Know the Peculiarities of Writing the Assignment Operator](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-how-to-write-the-assignment-operator).
+* [Know the Peculiarities of Writing the Assignment Operator](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-peculiarities-of-writing-the-assignment-operator).
 
 Know All the Effects of the Empty Destructor
 -
