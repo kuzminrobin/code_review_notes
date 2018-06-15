@@ -1,3 +1,17 @@
+The fragments of knowledge to support my notes during the code reviews.
+
+----
+Know the Special Member Functions
+-
+Story:  
+* C++98/03: [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 5: Know what functions C++ silently writes and calls.
+* C++11: [What the Move Semantics Are](https://stackoverflow.com/questions/3106110/what-are-move-semantics) (see both replies by `fredoverflow`).
+* C++11: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation.
+
+Consequences:
+* Know All the Effects of the Empty Destructor.
+* Know How to Write the Assignment Operator.
+
 Know All the Effects of the Empty Destructor
 -
 Some people were taught to always write the destructor just in case, even if it does nothing (is empty).
@@ -10,11 +24,22 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 * Move operations are generated only for classes lacking explicitly declared move operations, copy operations, and a _destructor_.
 * Generation of the copy operations in classes with an explicitly declared _destructor_ is deprecated.
 
-Story:  
-* [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 5: Know what functions C++ silently writes and calls.
-* [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation.
+Broader Picture:  
+* Know the Special Member Functions.
 
-The `inline` Keyword
+Know How to Write the Assignment Operator
+-
+When writing the Copy-Assignment Operator the following logic needs to be applied.
+* Know the Special Member Functions and try to avoid writing the explicit assignment operator.
+* If you have to write then try to avoid the Copy-and-Swap Idiom (e.g. if your Assignment Operator does not make throwing calls) since the idiom creates a copy thus lowering down the performance.
+* Use the Copy-and-Swap Idiom as the last resort.
+
+TODO: Review for the Move-Assignment Operator.  
+
+Broader Picture:  
+* Know the Special Member Functions.
+
+Inlining
 -
 [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):
 * Item 2: Prefer consts, enums, and inlines to #defines.
