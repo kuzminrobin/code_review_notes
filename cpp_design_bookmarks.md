@@ -39,7 +39,7 @@ __Story:__
 
 __Consequences:__
 * [Know All the Effects of the Empty Destructor](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-all-the-effects-of-the-empty-destructor).
-* [Know How to Write the Assignment Operator](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-how-to-write-the-assignment-operator).
+* [Know the Peculiarities of Writing the Assignment Operator](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-how-to-write-the-assignment-operator).
 
 Know All the Effects of the Empty Destructor
 -
@@ -56,7 +56,7 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 __Broader Picture:__  
 * [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
 
-Know How to Write the Assignment Operator
+Know the Peculiarities of Writing the Assignment Operator
 -
 When writing the _Copy-Assignment Operator_ the following logic needs to be applied.
 * Know the [Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions) and try to avoid writing the explicit assignment operator.
