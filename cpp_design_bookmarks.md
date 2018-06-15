@@ -1,14 +1,43 @@
 The fragments of knowledge to support my notes during the code reviews.
 
 ----
+Variable Length Arrays are C99 Feature, But Not C++
+-
+This item is applicable to (_strictly_) _Standard C++_ only.
+
+Variable Length Arrays are the arrays whose length (number of elements) is a _run-time_ value (as opposed to _compile-time_ value). E.g.
+```c++
+void f(size_t runTimeValue)
+{
+  int stackBasedArray[runTimeValue];  // Variable Length Array.
+```
+By default the g++ (4.6) does not complain. But if we get pedantic (`-Wextra -pedantic`) then we get
+* [ARM gcc 4.6.4 (linux) #1] warning: ISO C++ forbids variable length array .. [-Wvla]
+* [x86-64 clang 5.0.0 #1] warning: variable length arrays are a C99 feature [-Wvla-extension]
+
+Thus strictly speaking the Variable Length Arrays are not a C++ feature as of C++17 (but are C99 feature). The (strictly) Standard C++ code should not use them.
+
+__Reasons:__  
+One of the reasons why the Variable Length Arrays are not a C++ feature is the fact that C++ in general does not encourage the C-style arrays. Some other reasons are connected with uses in C++ different than in C, e.g. the arrays inside of classes, arrays of class instances, references to arrays, etc. See more details in the "See Also" section.
+
+__Future:__  
+There is an ongoing discussion about the alternatives for the Variable Length Arrays. See [[P0785R0] Runtime-sized arrays and a C++ wrapper](http://open-std.org/JTC1/SC22/WG21/docs/papers/2017/p0785r0.html), [[n3810] Alternatives for Array Extensions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3810.pdf).
+
+
+__See Also:__
+* [C99], search for "variable length".
+* [g++](http://man7.org/linux/man-pages/man1/gcc.1.html): `-Wvla`, `-Wvla-larger-than=n`.
+* [[P0785R0] Runtime-sized arrays and a C++ wrapper](http://open-std.org/JTC1/SC22/WG21/docs/papers/2017/p0785r0.html).
+* [[n3810] Alternatives for Array Extensions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3810.pdf).
+
 Know the Special Member Functions
 -
-Story:  
+__Story:__  
 * C++98/03: [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 5: Know what functions C++ silently writes and calls.
 * C++11: [What the Move Semantics Are](https://stackoverflow.com/questions/3106110/what-are-move-semantics) (see both replies by `fredoverflow`).
 * C++11: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation.
 
-Consequences:
+__Consequences:__
 * [Know All the Effects of the Empty Destructor](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-all-the-effects-of-the-empty-destructor).
 * [Know How to Write the Assignment Operator](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-how-to-write-the-assignment-operator).
 
@@ -24,7 +53,7 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 * Move operations are generated only for classes lacking explicitly declared move operations, copy operations, and a _destructor_.
 * Generation of the copy operations in classes with an explicitly declared _destructor_ is deprecated.
 
-Broader Picture:  
+__Broader Picture:__  
 * [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
 
 Know How to Write the Assignment Operator
@@ -36,7 +65,7 @@ When writing the _Copy-Assignment Operator_ the following logic needs to be appl
 
 TODO: Review for the _Move-Assignment Operator_.  
 
-Broader Picture:  
+__Broader Picture:__  
 * [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
 
 Inlining
