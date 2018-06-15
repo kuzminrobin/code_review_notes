@@ -9,8 +9,8 @@ Story:
 * C++11: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation.
 
 Consequences:
-* Know All the Effects of the Empty Destructor.
-* Know How to Write the Assignment Operator.
+* [Know All the Effects of the Empty Destructor](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-all-the-effects-of-the-empty-destructor).
+* [Know How to Write the Assignment Operator](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-how-to-write-the-assignment-operator).
 
 Know All the Effects of the Empty Destructor
 -
@@ -25,19 +25,19 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 * Generation of the copy operations in classes with an explicitly declared _destructor_ is deprecated.
 
 Broader Picture:  
-* Know the Special Member Functions.
+* [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
 
 Know How to Write the Assignment Operator
 -
-When writing the Copy-Assignment Operator the following logic needs to be applied.
-* Know the Special Member Functions and try to avoid writing the explicit assignment operator.
-* If you have to write then try to avoid the Copy-and-Swap Idiom (e.g. if your Assignment Operator does not make throwing calls) since the idiom creates a copy thus lowering down the performance.
-* Use the Copy-and-Swap Idiom as the last resort.
+When writing the _Copy-Assignment Operator_ the following logic needs to be applied.
+* Know the [Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions) and try to avoid writing the explicit assignment operator.
+* If you have to write then try to avoid the [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941) (e.g. if your Assignment Operator does not make throwing calls) since the idiom creates a copy thus lowering down the performance.
+* Use the [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941) as the last resort.
 
-TODO: Review for the Move-Assignment Operator.  
+TODO: Review for the _Move-Assignment Operator_.  
 
 Broader Picture:  
-* Know the Special Member Functions.
+* [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
 
 Inlining
 -
