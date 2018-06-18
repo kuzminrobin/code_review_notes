@@ -59,9 +59,10 @@ __Broader Picture:__
 Know the Peculiarities of Writing the Assignment Operator
 -
 When writing the _Copy-Assignment Operator_ the following logic needs to be applied.
-* Know the [Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions) and try to avoid writing the explicit assignment operator.
-* If you have to write then try to avoid the [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941) (e.g. if your Assignment Operator does not make throwing calls) since the idiom creates a copy thus lowering down the performance.
-* Use the [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941) as the last resort.
+* Know the [Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions) (in particular [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 5: Know what functions C++ silently writes and calls, [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation) and _try to avoid writing the explicit assignment operator_.
+* If you have to write then _try to avoid the [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941)_ (e.g. if your Assignment Operator does not make throwing calls) since the idiom creates a copy thus lowering down the performance.
+* Use the [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941) _as the last resort_.
+* Don't forget to _call the parent class' Assignment Operator_, see [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 12: Copy all parts of an object.
 
 TODO: Review for the _Move-Assignment Operator_.  
 
