@@ -1,6 +1,55 @@
 The fragments of knowledge to support my notes during the code reviews.
 
 ----
+System Calls Failing with EINTR
+-
+_Linux-specific_.  
+
+A number of system calls upon failure return `-1` (or a negative value) and specify the reason of failre by setting the [`errno`](http://man7.org/linux/man-pages/man3/errno.3.html) to some value.
+
+The `errno` value of [`EINTR`](http://man7.org/linux/man-pages/man3/errno.3.html) is a _special case_, it is not a failure as such, it can happen when _everything is correct_.  
+E.g. our thread launches a child process (and continues the execution), then our thread calls [`select()`](http://man7.org/linux/man-pages/man2/select.2.html) with a 10-second time-out (and gets suspended), after 3 seconds the child process terminates (returns from its `main()`) which causes the `SIGCHLD` signal to be sent to our thread, a signal handler is executed by the OS (within the context of our thread), the signal handler does nothing special (nothing related to `select()`), then the signal handler returns, and the suspended `select()` returns `-1` to our thread, with `errno` equal to `EINTR`.  
+To summarize, our thread has called `select()` with a 10-second time-out, but the call has returned after 3 seconds; in general case this means that our thread should call `select()` again but this time with a 7-second time-out (and repeat the attempts as long as the `EINTR` happens, until the time-out is exhausted).  
+
+Another example of when a system call can fail with the `EINTR` is when running a Linux console application in a terminal and re-sizing (or minimizing) the terminal window.
+
+In general case I would handle the system call failures something like this:
+```c++
+do
+{
+    int retVal = select(..);   // The system call.
+    int errNum = errno;        // Read `errno` immediately after the system call.
+
+    if(retVal == -1)
+    {
+        switch(errNum) 
+        {
+            case EINTR:
+                .. // Adjust the time-out.
+                continue;
+            case ENOMEM:
+                WARN(..);
+                .. // Failure Handling.
+                return NULL;
+            case EBADF:
+            case EINVAL:
+                ASSERT(.."Bug in our code! .." .. errNum ..);
+                return NULL;
+            default:
+                ASSERT(.."Unknown or Unhandled Failure!" .. errNum ..);
+                return NULL;
+        }
+    }
+    else
+        break;  // Exit from the `while()` loop.
+}   
+while(1);
+```
+__Info:__
+* [`errno` Man Page](http://man7.org/linux/man-pages/man3/errno.3.html).
+* [`select()` Man Page](http://man7.org/linux/man-pages/man2/select.2.html).
+* [Alphabetic list of all Linux man pages](http://man7.org/linux/man-pages/dir_all_alphabetic.html).
+
 Variable Length Arrays are C99 Feature, But Not C++
 -
 This item is applicable to (_strictly_) _Standard C++_ only.
