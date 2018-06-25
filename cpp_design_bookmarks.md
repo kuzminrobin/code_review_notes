@@ -1,6 +1,76 @@
 The fragments of knowledge to support my notes during the code reviews.
 
 ----
+Know About the Compiler's Resource Allocation and Deallocation Order
+-
+
+__Conclusion__  
+For the consistency with the compiler-generated code deinitialize the data in the reverse order of initialization.  
+
+__Rationale__
+Let's say we have a class `D` derived from the base classes `B1` and `B2`. The `D` class also has member variables `m1` and `m2` of some classes `C1` and `C2`, and a default consructor:
+```c++
+class D : public B1, public B2
+{
+  C1 m1;
+  C2 m2;
+public:
+  D();
+};
+```
+Let's say we define the constructor like this:
+```c++
+D::D() :
+  // Member Initialization List starts here:
+  B2(),
+  B1(),
+  m2(),
+  m1()
+  // End of Member Initialization List.
+{}
+```
+By default the g++ 4.6 (C++98/03) compiler will keep silent about the inconsistency  
+between the order of calls in the programmer-written Member Initialization List  
+and the actual compiler-generated code.
+
+The order of calls in the actual compiler-generated code will be like this:
+```c++
+D::D() :
+  // Member Initialization List starts here:
+  B1(),
+  B2(),
+  m1(),
+  m2(),
+  // End of Member Initialization List.
+{}
+```
+To get a warning/error about such an inconsistency one can use the compiler flags `-Wreorder`/`-Werror=reorder`.
+
+The compiler orders the calls in the Member Initialization List (of all the constructors) to strictly correspond to the class definition (see the first-most listing in this topic) in order to be able to guarantee the strict REVERSE order of DEinitialization in the destructor.
+
+Confirmation in C++98:
+> __12.6.2 Initializing bases and members__  
+> 5:  Initialization shall proceed in the following order:  
+— First, and only for the constructor of the most derived class as described below, virtual base classes shall be initialized in the order they appear on a depth-first left-to-right traversal of the directed acyclic graph of base classes, where “left-to-right” is the order of appearance of the base class names in the derived class _base-specifier-list_.  
+— Then, direct base classes shall be initialized in declaration order as they appear in the _base-specifier-list_ (regardless of the order of the _mem-initializers_).  
+— Then, nonstatic data members shall be initialized in the order they were declared in the class definition (again regardless of the order of the _mem-initializers_).  
+— Finally, the body of the constructor is executed.  
+\[_Note:_ __the declaration order is mandated to ensure that base and member subobjects are destroyed in the reverse order of initialization__. \]  
+
+Also:  
+> __12.6 Initialization__  
+> 3: When an array of class objects is initialized (either explicitly or implicitly), the constructor shall be called for each element of the array, following the subscript order; see 8.3.4. \[_Note:_ __destructors for the array elements are called in reverse order of their construction__. \]  
+
+> __12.4 Destructors__  
+> 6: A destructor for class X calls the destructors for X’s direct members, the destructors for X’s direct base classes and, if X is the type of the most derived class (12.6.2), its destructor calls the destructors for X’s virtual base classes. .. __Bases and members are destroyed in the reverse order of the completion of their constructor__ (see 12.6.2). .. __Destructors for elements of an array are called in reverse order of their construction__ (see 12.6).  
+
+> __5.3.5 Delete__  
+> 6: The delete-expression will invoke the destructor (if any) for the object or the elements of the array being deleted. In the case of an array, the elements will be destroyed in order of decreasing address (that is, in reverse order of the completion of their constructor; see 12.6.2).
+
+__See Also:__
+* Search for "reverse order" in the C++ Standard.
+* [g++ man page](http://man7.org/linux/man-pages/man1/gcc.1.html): `-Wreorder`/`-Werror=reorder`.
+
 System Calls Failing with EINTR
 -
 _Linux-specific_.  
