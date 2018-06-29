@@ -25,8 +25,10 @@ Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).
 __`1998.09.01`__ [C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C++_](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents) (ISO and ANSI C++ standard).__ ([MExcC++] Bibliography)  
 `1999.02.12` [ACPwC++] [Michi Henning, Steve Vinoski. _Advanced CORBA® Programming with C++_](https://www.amazon.com/Advanced-CORBA%C2%AE-Programming-Michi-Henning/dp/0201379279) ([EMC++] Front List).  
 `1999.??.??` [GP&STL] [Matthew H. Austern. _Generic Programming and the STL: Using and Extending the C++ Standard Template Library_ (1st Edition)](https://www.amazon.com/Generic-Programming-STL-Extending-Standard/dp/0201309564) ([EMC++] Front List).  
+`1999.??.??` [EC++CD] Scott Meyers. _Effective C++ CD: 85 Specific Ways to Improve Your Programs and Designs_ (Addison-Wesley, 1999).  
 `1999.11.18` __[ExcC++]__ [Herb Sutter. _Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions_](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622).  
-`2000.??.??` [AC++] [ Andrew Koenig, Barbara E. Moo. _Accelerated C++: Practical Programming by Example_ (1st Edition)](https://www.amazon.com/Accelerated-C-Practical-Programming-Example/dp/020170353X) ([MC++D] Front List).  
+`2000.??.??` [AC++] [Andrew Koenig, Barbara E. Moo. _Accelerated C++: Practical Programming by Example_ (1st Edition)](https://www.amazon.com/Accelerated-C-Practical-Programming-Example/dp/020170353X) ([MC++D] Front List).  
+`2000.??.??` [C++PLSE] B. Stroustrup. The C++ Programming Language, Special Edition (Addison-Wesley, 2000).  
 `2000.??.??` [GP:MT&A] Krzysztof Czarnecki, Ulrich Eisenecker. _Generative Programming: Methods, Tools, and Applications_. Reading, MA: Addison-Wesley ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?  
 `2000.??.??` [ACE] Douglas C. Schmidt. _The ADAPTIVE Communication Environment (ACE)_. Available at http://www.cs.wustl.edu/~schmidt/ACE.html ([MC++D] Bibliography).  
 `2001.02.01` __[MC++D]__ [Andrei Alexandrescu. _Modern C++ Design: Generic Programming and Design Patterns Applied_ (1st Edition)](https://www.amazon.com/Modern-Design-Generic-Programming-Patterns/dp/0201704315).  
@@ -47,6 +49,7 @@ __`1998.09.01`__ [C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C+
  
 ---
 Extracted from:  
+[MExcC++] Bibliography, p.271 - 272.  
 [EMC++]: Book References Not Found.  
 [MEC++]: Recommended Reading (p.285), Front List (Addison-Wesley Professional Computing Series), p.5.  
 [MC++D]: Bibliography, p.311, Front List, p.4.
