@@ -11,7 +11,7 @@ This is a list of C++ (and other system programming) books _sorted by publicatio
 `1994.??.??` [D&EoC++] Bjarne Stroustrup. _The Design and Evolution of C++_. Addison-Wesley, 1994, ISBN 0-201-54330-3 (more info: [MEC++]).  
 `1994.??.??` [S&EC++] John J. Barton, Lee R. Nackman. _Scientific and Engineering C++_. Addison-Wesley, 1994, ISBN 0-201-53393-6 (more info: [MEC++]).  
 `1994.??.??` [IC++OM] Stanley B. Lippman. _Inside the C++ Object Model_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
-`1995.??.??` [DP] Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. _Design Patterns: Elements of Reusable Object-Oriented Software_. Addison-Wesley, 1995, ISBN 0-201-63361-2 (more info: [MEC++]).  
+`1995.??.??` __[DP]__ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. _Design Patterns: Elements of Reusable Object-Oriented Software_. Addison-Wesley, 1995, ISBN 0-201-63361-2 (more info: [MEC++]).  
 `1995.??.??` [D&CRC++] Martin D. Carroll, Margaret A. Ellis. _Designing and Coding Reusable C++_. Addison-Wesley, 1995, ISBN 0-201-51284-X (more info: [MEC++]).  
 `1996.??.??` [RoC++] Andrew Koenig, Barbara Moo. _Ruminations on C++_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
 `1996.??.??` [LSC++SD] [John Lakos. _Large-Scale C++ Software Design_](https://www.amazon.com/Large-Scale-Software-Design-John-Lakos/dp/0201633620) ([EMC++] Front List).  
@@ -20,7 +20,9 @@ This is a list of C++ (and other system programming) books _sorted by publicatio
 `1997.??.??` [CI&I] [David R. Hanson. _C Interfaces and Implementations: Techniques for Creating Reusable Software_ (1st Edition)](https://www.amazon.com/Interfaces-Implementations-Techniques-Creating-Reusable/dp/0201498413) ([EMC++] Front List).  
 `1998.??.??` [EC++2] Scott Meyers. _Effective C++, Second Edition: 50 Specific Ways to Improve Your Programs and Designs_.
 Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).  
+`1998.??.??` [C++P3] S. Lippmn and J. Lajoie. C++ Primer, 3rd Edition (Addison-Wesley, 1998).  
 `1998.??.??` [PH] John Vlissides. _Pattern Hatching_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
+__`1998.09.01`__ [C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C++_](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents) (ISO and ANSI C++ standard).__ ([MExcC++] Bibliography)  
 `1999.02.12` [ACPwC++] [Michi Henning, Steve Vinoski. _Advanced CORBA® Programming with C++_](https://www.amazon.com/Advanced-CORBA%C2%AE-Programming-Michi-Henning/dp/0201379279) ([EMC++] Front List).  
 `1999.??.??` [GP&STL] [Matthew H. Austern. _Generic Programming and the STL: Using and Extending the C++ Standard Template Library_ (1st Edition)](https://www.amazon.com/Generic-Programming-STL-Extending-Standard/dp/0201309564) ([EMC++] Front List).  
 `1999.11.18` __[ExcC++]__ [Herb Sutter. _Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions_](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622).  
@@ -31,7 +33,7 @@ Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).
 `2001.??.??` [STLT&RG2] [David R. Musser, Gillmer J. Derge, Atul Saini. _STL Tutorial and Reference Guide: C++ Programming with the Standard Template Library_ (2nd Edition)](https://www.amazon.com/STL-Tutorial-Reference-Guide-Addison-Wesley/dp/0321702123) ([EMC++] Front List).  
 `2001.??.??` __[ESTL]__ [Scott Meyers. _Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template Library_ (1st Edition)](https://www.amazon.com/gp/product/0201749629?ie=UTF8tag=aristeia.com-20linkCode=as2camp=1789creative=9325creativeASIN=0201749629).  
 `2001.12.??` [BGL] [Jeremy G. Siek, Lie-Quan Lee, Andrew Lumsdaine. _The Boost Graph Library: User Guide and Reference Manual_](https://www.amazon.com/Boost-Graph-Library-Reference-Manual/dp/0201729148) ([MC++D] Front List).  
-`2001.12.17` [MExcC++] [Herb Sutter. _More Exceptional C++: 40 New Engineering Puzzles, Programming Problems, and Solutions_ (1st Edition)](https://www.amazon.com/More-Exceptional-Engineering-Programming-Solutions/dp/020170434X).  
+`2001.12.17` __[MExcC++]__ [Herb Sutter. _More Exceptional C++: 40 New Engineering Puzzles, Programming Problems, and Solutions_ (1st Edition)](https://www.amazon.com/More-Exceptional-Engineering-Programming-Solutions/dp/020170434X).  
 `2002.09.12` [EssC++] [Stanley B. Lippman. _Essential C++_](https://www.amazon.com/Essential-C-Stanley-B-Lippman/dp/0201485184) ([MC++D] Front List).  
 `2003.05.01` [AC++PT] [Philip Romanik, Amy Muntz. _Applied C++: Practical Techniques for Building Better Software_](https://www.amazon.com/Applied-Practical-Techniques-Building-Software/dp/0321108949) ([MC++D] Front List).  
 `2003.??.??` [C++G] [Stephen C. Dewhurst _C++ Gotchas: Avoiding Common Problems in Coding and Design_ (1st Edition)](https://www.amazon.com/Gotchas-Avoiding-Common-Problems-Coding/dp/0321125185) ([EMC++] Front List).  
