@@ -7,7 +7,7 @@ Know About the Compiler's Resource Allocation and Deallocation Order
 __Conclusion__  
 For the consistency with the compiler-generated code deinitialize the data in the reverse order of initialization.  
 
-__Rationale__
+__Rationale__  
 Let's say we have a class `D` derived from the base classes `B1` and `B2`. The `D` class also has member variables `m1` and `m2` of some classes `C1` and `C2`, and a default consructor:
 ```c++
 class D : public B1, public B2
@@ -174,6 +174,9 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 
 __Broader Picture:__  
 * [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
+* Pimpl-Idiom-specific, when the empty destructor may be needed: [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):
+  + _Item 30: Smart Pointer Members, Part 1: A Problem with `auto_ptr`_, section "What About `auto_ptr` Memebers?", last but one paragraph on page 185: "If you don't want to provide the definition of Y, you must write the X2 destructor explicitly, even if it's empty".
+  + _Item 31: Smart Pointer Members, Part 2: Toward a `ValuePtr`_, section "A Simple `ValuePtr`: Strict Ownershipt Only", first regular paragraph: "Either the full definition of Y must accompany X, or the X destructor must be explicitly provided, even if it's empty".
 
 Know the Peculiarities of Writing the Assignment Operator
 -
