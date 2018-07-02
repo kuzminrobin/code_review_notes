@@ -1,6 +1,13 @@
-The fragments of knowledge to support my notes during the code reviews.
+The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
+The `Clone()` member function (or Virtual Copy Constructor)
+-
+* [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), Item 25: Virtualizing constructors and non-member functions.
+* [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), _Item 31: Smart Pointer Members, Part 2: Toward a ValuePtr_
+  + p.188 top, item (c);
+  + p.193, first paragraph of section "Adding Extensibility Using Traits".
+
 Know About the Compiler's Resource Allocation and Deallocation Order
 -
 
