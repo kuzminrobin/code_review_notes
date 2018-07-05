@@ -1,6 +1,75 @@
 The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
+Nested (Local) Functions
+-
+[Walter Bright](https://en.wikipedia.org/wiki/Walter_Bright) (the creator of the D programming language) told during [November 2017 meeting](http://nwcpp.org/november-2017.html) of http://nwcpp.org/ how the nested (local) functions (that do not exist in C and C++) can help to avoid using `goto`. If I remember it right the approach looks like this:
+```c++
+// Not a valid C or C++ code:
+bool enclosingFunc(..)  // A function that contains a nested function.
+{
+  char *c = NULL;       // Some resource pointers/descriptors/handles of the enclosingFunc().
+  FILE *fileDescriptor = NULL;
+  
+  void nestedFunc(..)   // The nested function, is used to deallocate 
+                        // the resources of the enclosingFunc().
+  {                     // Has access to the enclosingFunc()'s local variables (c, fileDescriptor).
+                        // Those resources are "global" for the nestedFunc().
+    if(fileDescriptor != NULL)      // Deallocates the resources.
+    {
+      .. fclose(fileDescriptor)..
+    }
+    if(c != NULL)
+    {
+      delete[] c;
+    }
+  };
+  
+  // The regular code of the enclosingFunc():
+  ..
+  c = new char [..];  // Allocates a resource.
+  ..
+  if(..)
+  {
+    fileDescriptor = fopen(..);   // Allocates another resource.
+    ..
+        if(<someFailure>)
+        {
+          nestedFunc();  // Instead of `goto` deallocates the resources using the nested function,
+          return false;  // returns in-place.
+        }
+        ..
+            if(<someOtherFailure>)
+            {
+              nestedFunc(); // Instead of `goto` deallocates the resources using the nested function,
+              return false; // returns in-place.
+            }
+  }
+  
+  return true;
+}
+```
+The effect of the nested (local) functions can be simulated in C++ by using the following approaches.  
+
+__1. The static function of the local class.__
+```c++
+bool enclosingFunc(..)
+{ ..
+  class localClass
+  {
+    static nestedFunc(..) { .. }
+  };
+  
+  // The regular code of the enclosingFunc().
+}
+```
+Example:  
+[[MC++D]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), 11.6.2 The Logarithmic Dispatcher and Casts, p.281.  
+Features:  
+Very simple but the `localClass::nestedFunc()` has no access to the `enclosingFunc()`'s local variables (but the pointers to those can be passed as the arguments).  
+
+__2. [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), Item 33: Simulating Nested Functions.__
+
 Distinguish Between Size and Length
 -
 Sometimes I see the code similar to this:
