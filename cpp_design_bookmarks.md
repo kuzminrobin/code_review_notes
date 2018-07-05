@@ -1,6 +1,65 @@
 The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
+Distinguish Between Size and Length
+-
+Sometimes I see the code similar to this:
+```c++
+char buffer[6]; // The buffer to read the chars to.
+int bytesRead;  // The number of chars that have been read.
+if((bytesRead = read(.., buffer, 5)) > 0)  // Read up to 5 chars to the buffer (instead of `5` 
+    // there can be `sizeof(buffer) - sizeof((char)'\0')` but that's not the point).
+{   // The `bytesRead` contains the number of chars actually read (1..5).
+    buffer[bytesRead] = '\0';  // Null-terminate the sequence of chars in the buffer.
+```
+At some point in the future we can make a change like this:
+```diff
+< char buffer[6];
+---
+> wchar_t buffer[6];
+
+```
+(we replace `char` with `wchar_t`)  
+Here, for simplicity, I assume that `wchar_t` is 2 bytes and `char` is 1 byte in size (but in reality their size is implementation-dependent).
+
+After such a change we get problems:
+* the call `read(.., buffer, 5)` (or `read(.., buffer, sizeof(buffer) - sizeof((char)'\0'))`) requests the _odd_ number of bytes, this can partially update one of the `whchar_t`s in the `buffer` (if the `read()` reads all 5 bytes (of the 5 requested) then the first 4 bytes will update the `buffer[0]` and `buffer[1]`, and the 5th byte will update the _half_ of the `buffer[2]`);
+* The call `bytesRead = read(..)` updates the `bytesRead` variable with the _number of bytes_. But the subsequent fragment `buffer[bytesRead] = '\0'` requires the _index_ which in general case should be twice smaller than the _number of bytes_.
+E.g. if the `bytesRead = read(..)` reads 4 bytes (of the 5 requested) and thus updates the `buffer[0]` and `buffer[1]` then we need to null-terminate the `buffer[2]` but the line `buffer[bytesRead] = '\0'` will null-terminate `buffer[4]`, and the `buffer[3]` will stay _UNinitialized_.
+
+Based on similar observations I strictly distinguish between the _size_ and _length_.
+* I use the concept of _size_ to designate the _size in bytes only_ (typically it is a result of the `sizeof()` operator).
+* To designate the number of elements in a container/array, number of (char/wchar_t) characters in a string, I use the concept of _length_.
+* The _length_ is always less than or equal to the _size_.
+* The concept of _index_ (e.g. array index) originates from the concept of _length_ (but not from the concept of _size_).
+
+E.g. for the declaration `wchar_t buffer[6]`
+* the `buffer` _length_ is 6, the _index_ originates from _length_ and has a range from `0` to `(length - 1)` (from `0` to `5`);
+* the `buffer` _size_ is at least 12 (and includes the optional alignment padding between (and probably before and after) the array elements).
+
+The calls `read()`/`write()` expect as the last argument (and return) _the number of bytes_ - a concept originating from _size_ (not from the _length_).
+If we want to use _index_ in the last argument then the _index_ needs to be multipled by the size of the element (`index * sizeof(buffer[0])`)
+and if we want to use the value returned to index the buffer then the value needs to be divided by the size of the element (`bytesRead / sizeof(buffer[0])`).
+```c++
+char /* or wchar_t */ buffer[6]; // The buffer to read the chars to.
+int bytesRead;  // The number of bytes that have been read.
+if((bytesRead = read(.., buffer,
+                     sizeof(buffer) - sizeof(buffer[0]))) 
+   > 0)
+    // Read to the buffer up to 5 (char or wchar_t) characters
+    // (up to 5 bytes for char or up to (>=10) bytes for wchar_t).
+{   // The `bytesRead` contains the number of bytes actually read
+    // (1..5 bytes for char, 1..(>=10) bytes for wchar_t).
+    
+    size_t index = bytesRead / sizeof(buffer[0]); // Calculate the index (to null-terminate).
+    
+    // Make sure the bytesRead is even for wchar_t case:
+    // ASSERT((index * sizeof(buffer[0])) == bytesRead);
+    
+    buffer[index] = '\0';  // Null-terminate the sequence of
+                           // (char or wchar_t) characters in the buffer.
+```
+
 The `Clone()` member function (or Virtual Copy Constructor)
 -
 * [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), Item 25: Virtualizing constructors and non-member functions.
@@ -36,9 +95,9 @@ D::D() :
   // End of Member Initialization List.
 {}
 ```
-By default the g++ 4.6 (C++98/03) compiler will keep silent about the inconsistency  
-between the order of calls in the programmer-written Member Initialization List  
-and the actual compiler-generated code.
+By default the g++ 4.6 (C++98/03) compiler will keep silent about the inconsistency between  
+the order of calls in the programmer-written Member Initialization List and  
+the code the compiler actually generates.
 
 The order of calls in the actual compiler-generated code will be like this:
 ```c++
@@ -53,7 +112,7 @@ D::D() :
 ```
 To get a warning/error about such an inconsistency one can use the compiler flags `-Wreorder`/`-Werror=reorder`.
 
-The compiler orders the calls in the Member Initialization List (of all the constructors) to strictly correspond to the class definition (see the first-most listing in this topic) in order to be able to guarantee the strict REVERSE order of DEinitialization in the destructor.
+The compiler orders the calls in the Member Initialization List (in all the constructors) to strictly correspond to the class definition (see the first-most listing in this topic) in order to guarantee the strict _REVERSE order of DEinitialization in the destructor_.
 
 Confirmation in C++98:
 > __12.6.2 Initializing bases and members__  
