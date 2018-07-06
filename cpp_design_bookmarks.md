@@ -57,7 +57,7 @@ bool enclosingFunc(..)
 { ..
   class localClass
   {
-    static nestedFunc(..) { .. }
+    static void nestedFunc(..) { .. }
   };
   
   // The regular code of the enclosingFunc().
@@ -66,7 +66,7 @@ bool enclosingFunc(..)
 Example:  
 [[MC++D]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), 11.6.2 The Logarithmic Dispatcher and Casts, p.281.  
 Features:  
-Very simple but the `localClass::nestedFunc()` has no access to the `enclosingFunc()`'s local variables (but the pointers to those can be passed as the arguments).  
+Very simple however the `localClass::nestedFunc()` has no access to the `enclosingFunc()`'s local variables (but the pointers/references to those can be passed to `nestedFunc()` as the arguments).  
 
 __2. [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), Item 33: Simulating Nested Functions.__
 
@@ -106,9 +106,9 @@ E.g. for the declaration `wchar_t buffer[6]`
 * the `buffer` _length_ is 6, the _index_ originates from _length_ and has a range from `0` to `(length - 1)` (from `0` to `5`);
 * the `buffer` _size_ is at least 12 (and includes the optional alignment padding between (and probably before and after) the array elements).
 
-The calls `read()`/`write()` expect as the last argument (and return) _the number of bytes_ - a concept originating from _size_ (not from the _length_).
-If we want to use _index_ in the last argument then the _index_ needs to be multipled by the size of the element (`index * sizeof(buffer[0])`)
-and if we want to use the value returned to index the buffer then the value needs to be divided by the size of the element (`bytesRead / sizeof(buffer[0])`).
+The calls `read()`/`write()` expect as the last argument (and they return) _the number of bytes_ - a concept originating from _size_ (not from the _length_).
+If we want to use _index_ as the last argument to `read()`/`write()` then the _index_ needs to be multipled by the size of the element (`index * sizeof(buffer[0])`)
+and if we want to use the value returned by `read()`/`write()` to index the buffer then the value needs to be divided by the size of the element (`bytesRead / sizeof(buffer[0])`).
 ```c++
 char /* or wchar_t */ buffer[6]; // The buffer to read the chars to.
 int bytesRead;  // The number of bytes that have been read.
