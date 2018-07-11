@@ -93,11 +93,11 @@ Here, for simplicity, I assume that `wchar_t` is 2 bytes and `char` is 1 byte in
 
 After such a change we get problems:
 * the call `read(.., buffer, 5)` (or `read(.., buffer, sizeof(buffer) - sizeof((char)'\0'))`) requests the _odd_ number of bytes, this can partially update one of the `whchar_t`s in the `buffer` (if the `read()` reads all 5 bytes (of the 5 requested) then the first 4 bytes will update the `buffer[0]` and `buffer[1]`, and the 5th byte will update the _half_ of the `buffer[2]`);
-* The call `bytesRead = read(..)` updates the `bytesRead` variable with the _number of bytes_. But the subsequent fragment `buffer[bytesRead] = '\0'` requires the _index_ which in general case should be twice smaller than the _number of bytes_.
+* The call `bytesRead = read(..)` updates the `bytesRead` variable with the _number of bytes_ (not the _number of characters_). But the subsequent fragment `buffer[bytesRead] = '\0'` requires the _index_ which in general case should be twice less than the _number of bytes_.
 E.g. if the `bytesRead = read(..)` reads 4 bytes (of the 5 requested) and thus updates the `buffer[0]` and `buffer[1]` then we need to null-terminate the `buffer[2]` but the line `buffer[bytesRead] = '\0'` will null-terminate `buffer[4]`, and the `buffer[3]` will stay _UNinitialized_.
 
 Based on similar observations I strictly distinguish between the _size_ and _length_.
-* I use the concept of _size_ to designate the _size in bytes only_ (typically it is a result of the `sizeof()` operator).
+* I use the concept of _size_ to designate the _size in bytes only_ (typically it is a result of the `sizeof()` operator), and I always prefer writing "size (in bytes)" rather than just "size".
 * To designate the number of elements in a container/array, number of (char/wchar_t) characters in a string, I use the concept of _length_.
 * The _length_ is always less than or equal to the _size_.
 * The concept of _index_ (e.g. array index) originates from the concept of _length_ (but not from the concept of _size_).
@@ -128,6 +128,13 @@ if((bytesRead = read(.., buffer,
     buffer[index] = '\0';  // Null-terminate the sequence of
                            // (char or wchar_t) characters in the buffer.
 ```
+----
+The considered problem is easy to spot when replacing `char` with `wchar_t`. But it is harder to spot this problem when we port our code  
+from the implementation where the `char` is 1 byte in size  
+to the implementation where the `char` is 2 or more bytes in size.
+
+Some man pages (e.g. `man strncpy` in Ubuntu 12.04, 16.04, [this one](http://man7.org/linux/man-pages/man3/strncpy.3.html)) specify that the last argument of `strncpy()` is the number of _bytes_ (not the number of _characters_). Don't get mislead. It is the number of _characters_ ([[C99]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) (_C11_): 7.21.2.4 (_7.24.2.4_) The `strncpy` function: _The `strncpy` function copies not more than `n`_ characters ...). So write your code such that it still works if it is ported to the implementation where the `char` is 2 bytes in size.  
+This man page error has been reported to the owners of [this](http://man7.org/linux/man-pages/man3/strncpy.3.html) man page on `2018.07.11`.
 
 The `Clone()` member function (or Virtual Copy Constructor)
 -
