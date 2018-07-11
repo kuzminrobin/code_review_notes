@@ -27,7 +27,7 @@ __`1998.09.01`__ [C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C+
 `1999.??.??` [GP&STL] [Matthew H. Austern. _Generic Programming and the STL: Using and Extending the C++ Standard Template Library_ (1st Edition)](https://www.amazon.com/Generic-Programming-STL-Extending-Standard/dp/0201309564) ([EMC++] Front List).  
 `1999.??.??` [EC++CD] Scott Meyers. _Effective C++ CD: 85 Specific Ways to Improve Your Programs and Designs_ (Addison-Wesley, 1999).  
 `1999.11.18` __[ExcC++]__ [Herb Sutter. _Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions_](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622).  
-`1999.12.01` [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents) (ISO C standard).__  
+__`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents) (ISO C standard).__  
 `2000.??.??` [AC++] [Andrew Koenig, Barbara E. Moo. _Accelerated C++: Practical Programming by Example_ (1st Edition)](https://www.amazon.com/Accelerated-C-Practical-Programming-Example/dp/020170353X) ([MC++D] Front List).  
 `2000.??.??` [C++PLSE] B. Stroustrup. The C++ Programming Language, Special Edition (Addison-Wesley, 2000).  
 `2000.??.??` [GP:MT&A] Krzysztof Czarnecki, Ulrich Eisenecker. _Generative Programming: Methods, Tools, and Applications_. Reading, MA: Addison-Wesley ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?  
