@@ -27,6 +27,7 @@ I call _key_ those articles and resources that are referred to in the books or t
 + `2000.10.01` [mbt&v] (Probably the same as [ombt&v]) Andrei Alexandrescu. [_Mappings between types and values_](http://www.drdobbs.com/genericprogramming-mappings-between-type/184403750). _C/C++ Users Journal_ C++ Experts Forum, 18(10), October 2000. ([MExcC++] Bibliography).  
 + `2000.10.??` [ombt&v] Andrei Alexandrescu. _On mappings between types and values_. C/C++ Users Journal, October. ([MC++D] Bibliography).  
 + `2000.10.??` [osoisc] T. Niec. "Optimizing Substring Operations in String Classes" (C/C++ Users Journal, 18(10), October 2000).  
++ `2000.12.01` __[gcwywescf]__ Andrei Alexandrescu and Petru Marginean. ["Generic: Change the Way You Write Exception-Safe Code — Forever"](http://www.drdobbs.com/cpp/generic-change-the-way-you-write-excepti/184403758). Dr. Dobb's, December 01, 2000.  
 + `2001.09.??` [v] H. Sutter. "Virtuality" (C/C++ Users Journal, 19(9), September 2001).  ([MExcC++] Bibliography)
 + `2002.07.??` __[pl@es]__ [Herb Sutter. _A Pragmatic Look at Exception Specifications_](http://www.gotw.ca/publications/mill22.htm) (referred to from [t15c++ehm]).  
 + `2002-2004 ` __[eses]__ [Herb Sutter. _Exception Safety and Exception Specifications: Are They Worth It?_](http://www.gotw.ca/gotw/082.htm).  
