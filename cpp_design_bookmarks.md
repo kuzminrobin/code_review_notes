@@ -300,6 +300,7 @@ __Story:__
 
 __Consequences:__
 * [Know All the Effects of the Empty Destructor](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-all-the-effects-of-the-empty-destructor).
+* There Should Be a Strong Reason for Writing the Destructor.
 * [Know the Peculiarities of Writing the Assignment Operator](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-peculiarities-of-writing-the-assignment-operator).
 
 Know All the Effects of the Empty Destructor
@@ -319,6 +320,24 @@ __Broader Picture:__
 * Pimpl-Idiom-specific, when the empty destructor may be needed: [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):
   + _Item 30: Smart Pointer Members, Part 1: A Problem with `auto_ptr`_, section "What About `auto_ptr` Memebers?", last but one paragraph on page 185: "If you don't want to provide the definition of Y, you must write the X2 destructor explicitly, even if it's empty".
   + _Item 31: Smart Pointer Members, Part 2: Toward a `ValuePtr`_, section "A Simple `ValuePtr`: Strict Ownershipt Only", first regular paragraph: "Either the full definition of Y must accompany X, or the X destructor must be explicitly provided, even if it's empty".
+
+There Should Be a Strong Reason for Writing the Destructor
+-
+If you use Smart Pointers and other Smart Resource Releasers (see below) then you don't need the explicit (i.e. manually written) destructor, the implicit (i.e. the compiler-generated) one will do the right thing in the [right order](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-about-the-compilers-resource-allocation-and-deallocation-order).  
+
+_The explicit destructor is a warning sign._
+
+__Broader Picture:__  
+* [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
+* Smart Pointers:
+  * C++98/03: [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md)
+    * Chapter 3: Resource Management
+    * Item 29: Strive for exception-safe code
+    * Item 45: Use member function templates to accept "all compatible types."
+    * Search for "smart" in the book
+  * C++98/03: [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) _Item 28: Smart pointers_ and other items referred to in Item 28.
+  * C++11/14: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Chapter 4. Smart Pointers
+* Smart Resource Releasers: C++98/03: [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md).
 
 Know the Peculiarities of Writing the Assignment Operator
 -
