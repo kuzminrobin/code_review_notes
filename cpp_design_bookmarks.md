@@ -300,7 +300,7 @@ __Story:__
 
 __Consequences:__
 * [Know All the Effects of the Empty Destructor](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-all-the-effects-of-the-empty-destructor).
-* There Should Be a Strong Reason for Writing the Destructor.
+* [There Should Be a Strong Reason for Writing the Destructor](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#there-should-be-a-strong-reason-for-writing-the-destructor).
 * [Know the Peculiarities of Writing the Assignment Operator](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-peculiarities-of-writing-the-assignment-operator).
 
 Know All the Effects of the Empty Destructor
