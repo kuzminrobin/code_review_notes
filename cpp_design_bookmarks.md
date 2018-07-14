@@ -131,10 +131,10 @@ if((bytesRead = read(.., buffer,
 ----
 The considered problem is easy to spot when replacing `char` with `wchar_t`. But it is harder to spot this problem when we port our code  
 from the implementation where the `char` is 1 byte in size  
-to the implementation where the `char` is 2 or more bytes in size.
+to the implementation where the `char` is 2 or more bytes in size (see below).
 
-Some man pages (e.g. `man strncpy` in Ubuntu 12.04, 16.04, [this one](http://man7.org/linux/man-pages/man3/strncpy.3.html)) specify that the last argument of `strncpy()` is the number of _bytes_ (not the number of _characters_). Don't get mislead. It is the number of _characters_ ([[C99]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) (_C11_): 7.21.2.4 (_7.24.2.4_) The `strncpy` function: _The `strncpy` function copies not more than `n`_ characters ...). So write your code such that it still works if it is ported to the implementation where the `char` is 2 bytes in size.  
-This man page error has been reported to the owners of [this](http://man7.org/linux/man-pages/man3/strncpy.3.html) man page on `2018.07.11`.
+Some man pages (e.g. `man strncpy` in Ubuntu 12.04, 16.04, [this one](http://man7.org/linux/man-pages/man3/strncpy.3.html)) specify that the last argument of `strncpy()` is the number of _bytes_ (not the number of _characters_). Don't get mislead. It is the number of _characters_ ([[C99]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) (_C11_): 7.21.2.4 (_7.24.2.4_) The `strncpy` function: _The `strncpy` function copies not more than `n`_ __characters__ ...). So write your code such that it still works if it is ported to the implementation where the `char` is 2 bytes in size.  
+This man page error has been reported to the owners of [this](http://man7.org/linux/man-pages/man3/strncpy.3.html) man page on `2018.07.11`. The first reaction by Jakub was that _it is a common misconception that `char` type can have a size other than 1 byte_, I'm still workging on proofs pro or con.  
 
 The `Clone()` member function (or Virtual Copy Constructor)
 -
