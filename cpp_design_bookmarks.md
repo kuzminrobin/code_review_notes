@@ -335,7 +335,7 @@ __Broader Picture:__
     * Item 29: Strive for exception-safe code
     * Item 45: Use member function templates to accept "all compatible types."
     * Search for "smart" in the book
-  * C++98/03: [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) _Item 28: Smart pointers_ and other items referred to in Item 28.
+  * C++98/03: [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) _Item 28: Smart pointers_ (and other items referred to in Item 28).
   * C++11/14: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Chapter 4. Smart Pointers
 * Smart Resource Releasers: C++98/03: [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md).
 
