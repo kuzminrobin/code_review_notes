@@ -94,9 +94,12 @@ At some point in the future we can make a change like this:
 ```
 (we replace `char` with `wchar_t`)  
 Here, for simplicity, I assume that  
-`wchar_t` is 2 bytes in size (but in reality its size is implementation-dependent, TODO: Proof from the Standard),  
-whereas `char` is 1 byte in size (see
-* C++11 Late Working Paper n3242, 5.3.3 Sizeof, item 1, fragment "`sizeof(char)`, `sizeof(signed char)` and `sizeof(unsigned char)` are 1",
+`wchar_t` is 2 bytes in size (but in reality its size is implementation-defined, see below),  
+whereas `char` is 1 byte in size,  
+see
+* C++11 Late Working Paper n3242, 5.3.3 Sizeof, item 1, fragments 
+  * "`sizeof(char)`, `sizeof(signed char)` and `sizeof(unsigned char)` are 1",
+  * "in particular, `sizeof(..)`, .. , and `sizeof(wchar_t)` are implementation-defined".
 * C11 (N1570) 6.5.3.4 The `sizeof` and `_Alignof` operators, item 4, fragment "When `sizeof` is applied to an operand that has type `char`, `unsigned char`, or `signed char`, (or a qualified version thereof) the result is 1").
 
 After such a change we get problems:
