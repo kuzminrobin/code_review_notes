@@ -74,13 +74,17 @@ Distinguish Between Size and Length
 -
 Sometimes I see the code similar to this:
 ```c++
+#include <unistd.h>  // Declares `read()`.
+
 char buffer[6]; // The buffer to read the chars to.
 int bytesRead;  // The number of chars that have been read.
-if((bytesRead = read(.., buffer, 5)) > 0)  // Read up to 5 chars to the buffer (instead of `5` 
+if((bytesRead = read(.., buffer, 5)) > 0)  // Read up to 5 bytes to the buffer (instead of `5` 
     // there can be `sizeof(buffer) - sizeof((char)'\0')` but that's not the point).
-{   // The `bytesRead` contains the number of chars actually read (1..5).
+{   // The `bytesRead` contains the number of bytes actually read (1..5).
     buffer[bytesRead] = '\0';  // Null-terminate the sequence of chars in the buffer.
 ```
+(Here is the `read()` [man page](http://man7.org/linux/man-pages/man2/read.2.html))
+
 At some point in the future we can make a change like this:
 ```diff
 < char buffer[6];
@@ -89,11 +93,15 @@ At some point in the future we can make a change like this:
 
 ```
 (we replace `char` with `wchar_t`)  
-Here, for simplicity, I assume that `wchar_t` is 2 bytes and `char` is 1 byte in size (but in reality their size is implementation-dependent).
+Here, for simplicity, I assume that  
+`wchar_t` is 2 bytes in size (but in reality its size is implementation-dependent, TODO: Proof from the Standard),  
+whereas `char` is 1 byte in size (see
+* C++11 Late Working Paper n3242, 5.3.3 Sizeof, item 1, fragment "`sizeof(char)`, `sizeof(signed char)` and `sizeof(unsigned char)` are 1",
+* C11 (N1570) 6.5.3.4 The `sizeof` and `_Alignof` operators, item 4, fragment "When `sizeof` is applied to an operand that has type `char`, `unsigned char`, or `signed char`, (or a qualified version thereof) the result is 1").
 
 After such a change we get problems:
-* the call `read(.., buffer, 5)` (or `read(.., buffer, sizeof(buffer) - sizeof((char)'\0'))`) requests the _odd_ number of bytes, this can partially update one of the `whchar_t`s in the `buffer` (if the `read()` reads all 5 bytes (of the 5 requested) then the first 4 bytes will update the `buffer[0]` and `buffer[1]`, and the 5th byte will update the _half_ of the `buffer[2]`);
-* The call `bytesRead = read(..)` updates the `bytesRead` variable with the _number of bytes_ (not the _number of characters_). But the subsequent fragment `buffer[bytesRead] = '\0'` requires the _index_ which in general case should be twice less than the _number of bytes_.
+* the call `read(.., buffer, 5)` (or `read(.., buffer, sizeof(buffer) - sizeof((char)'\0'))`) requests the _odd_ number of bytes, this can _partially_ (incompletely) update one of the `whchar_t`s in the `buffer` (if the `read()` reads all 5 bytes (of the 5 requested) then the first 4 bytes will update the `buffer[0]` and `buffer[1]`, and the 5th byte will update the _half_ of the `buffer[2]`);
+* The call `bytesRead = read(..)` updates the `bytesRead` variable with the _number of bytes_ (not the _number of characters_). But the subsequent fragment `buffer[bytesRead] = '\0'` requires the _index_ which (for our `wchar_t`) should be twice less than the _number of bytes_.
 E.g. if the `bytesRead = read(..)` reads 4 bytes (of the 5 requested) and thus updates the `buffer[0]` and `buffer[1]` then we need to null-terminate the `buffer[2]` but the line `buffer[bytesRead] = '\0'` will null-terminate `buffer[4]`, and the `buffer[3]` will stay _UNinitialized_.
 
 Based on similar observations I strictly distinguish between the _size_ and _length_.
@@ -106,19 +114,21 @@ E.g. for the declaration `wchar_t buffer[6]`
 * the `buffer` _length_ is 6, the _index_ originates from _length_ and has a range from `0` to `(length - 1)` (from `0` to `5`);
 * the `buffer` _size_ is at least 12 (and includes the optional alignment padding between (and probably before and after) the array elements).
 
-The calls `read()`/`write()` expect as the last argument (and they return) _the number of bytes_ - a concept originating from _size_ (not from the _length_).
+The functions `read()`/`write()` take as the last argument (and they return) _the number of bytes_ - a concept originating from _size_ (not from the _length_).
 If we want to use _index_ as the last argument to `read()`/`write()` then the _index_ needs to be multipled by the size of the element (`index * sizeof(buffer[0])`)
 and if we want to use the value returned by `read()`/`write()` to index the buffer then the value needs to be divided by the size of the element (`bytesRead / sizeof(buffer[0])`).
 ```c++
+#include <unistd.h>  // Declares `read()`.
+
 char /* or wchar_t */ buffer[6]; // The buffer to read the chars to.
 int bytesRead;  // The number of bytes that have been read.
 if((bytesRead = read(.., buffer,
                      sizeof(buffer) - sizeof(buffer[0]))) 
    > 0)
     // Read to the buffer up to 5 (char or wchar_t) characters
-    // (up to 5 bytes for char or up to (>=10) bytes for wchar_t).
+    // (up to 5 bytes for `char` or up to (>=10) bytes for `wchar_t`).
 {   // The `bytesRead` contains the number of bytes actually read
-    // (1..5 bytes for char, 1..(>=10) bytes for wchar_t).
+    // (1..5 bytes for `char`, 1..(>=10) bytes for `wchar_t`).
     
     size_t index = bytesRead / sizeof(buffer[0]); // Calculate the index (to null-terminate).
     
@@ -128,13 +138,6 @@ if((bytesRead = read(.., buffer,
     buffer[index] = '\0';  // Null-terminate the sequence of
                            // (char or wchar_t) characters in the buffer.
 ```
-----
-The considered problem is easy to spot when replacing `char` with `wchar_t`. But it is harder to spot this problem when we port our code  
-from the implementation where the `char` is 1 byte in size  
-to the implementation where the `char` is 2 or more bytes in size (see below).
-
-Some man pages (e.g. `man strncpy` in Ubuntu 12.04, 16.04, [this one](http://man7.org/linux/man-pages/man3/strncpy.3.html)) specify that the last argument of `strncpy()` is the number of _bytes_ (not the number of _characters_). Don't get mislead. It is the number of _characters_ ([[C99]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) (_C11_): 7.21.2.4 (_7.24.2.4_) The `strncpy` function: _The `strncpy` function copies not more than `n`_ __characters__ ...). So write your code such that it still works if it is ported to the implementation where the `char` is 2 bytes in size.  
-This man page error has been reported to the owners of [this](http://man7.org/linux/man-pages/man3/strncpy.3.html) man page on `2018.07.11`. The first reaction by Jakub was that _it is a common misconception that `char` type can have a size other than 1 byte_, I'm still workging on proofs pro or con.  
 
 The `Clone()` member function (or Virtual Copy Constructor)
 -
