@@ -103,7 +103,7 @@ see
 * C11 (N1570) 6.5.3.4 The `sizeof` and `_Alignof` operators, item 4, fragment "When `sizeof` is applied to an operand that has type `char`, `unsigned char`, or `signed char`, (or a qualified version thereof) the result is 1").
 
 After such a change we get problems:
-* the call `read(.., buffer, 5)` (or `read(.., buffer, sizeof(buffer) - sizeof((char)'\0'))`) requests the _odd_ number of bytes, this can _partially_ (incompletely) update one of the `whchar_t`s in the `buffer` (if the `read()` reads all 5 bytes (of the 5 requested) then the first 4 bytes will update the `buffer[0]` and `buffer[1]`, and the 5th byte will update the _half_ of the `buffer[2]`);
+* the call `read(.., buffer, 5)` (or `read(.., buffer, sizeof(buffer) - sizeof((char)'\0'))`) requests the _odd_ number of bytes, this can _partially_ (incompletely) update one of the `wchar_t`s in the `buffer` (if the `read()` reads all 5 bytes (of the 5 requested) then the first 4 bytes will update the `buffer[0]` and `buffer[1]`, and the 5th byte will update the _half_ of the `buffer[2]`);
 * The call `bytesRead = read(..)` updates the `bytesRead` variable with the _number of bytes_ (not the _number of characters_). But the subsequent fragment `buffer[bytesRead] = '\0'` requires the _index_ which (for our `wchar_t`) should be twice less than the _number of bytes_.
 E.g. if the `bytesRead = read(..)` reads 4 bytes (of the 5 requested) and thus updates the `buffer[0]` and `buffer[1]` then we need to null-terminate the `buffer[2]` but the line `buffer[bytesRead] = '\0'` will null-terminate `buffer[4]`, and the `buffer[3]` will stay _UNinitialized_.
 
@@ -118,7 +118,7 @@ E.g. for the declaration `wchar_t buffer[6]`
 * the `buffer` _size_ is at least 12 (and includes the optional alignment padding between (and probably before and after) the array elements).
 
 The functions `read()`/`write()` take as the last argument (and they return) _the number of bytes_ - a concept originating from _size_ (not from the _length_).
-If we want to use _index_ as the last argument to `read()`/`write()` then the _index_ needs to be multipled by the size of the element (`index * sizeof(buffer[0])`)
+If we want to use _index_ as the last argument to `read()`/`write()` then the _index_ needs to be multiplied by the size of the element (`index * sizeof(buffer[0])`)
 and if we want to use the value returned by `read()`/`write()` to index the buffer then the value needs to be divided by the size of the element (`bytesRead / sizeof(buffer[0])`).
 ```c++
 #include <unistd.h>  // Declares `read()`.
@@ -223,7 +223,7 @@ System Calls Failing with EINTR
 -
 _POSIX/Linux-specific_.  
 
-A number of system calls upon failure return `-1` (or a negative value) and specify the reason of failre by setting the [`errno`](http://man7.org/linux/man-pages/man3/errno.3.html) to some value.
+A number of system calls upon failure return `-1` (or a negative value) and specify the reason of failure by setting the [`errno`](http://man7.org/linux/man-pages/man3/errno.3.html) to some value.
 
 The `errno` value of [`EINTR`](http://man7.org/linux/man-pages/man3/errno.3.html) is a _special case_, it is not a failure as such, it can happen when _everything is correct_.  
 E.g. our thread launches a child process (and continues the execution), then our thread calls [`select()`](http://man7.org/linux/man-pages/man2/select.2.html) with a 10-second time-out (and gets suspended), after 3 seconds the child process terminates (returns from its `main()`) which causes the [`SIGCHLD`](http://man7.org/linux/man-pages/man7/signal.7.html) signal to be sent to our thread, a signal handler is executed by the OS (within the context of our thread), the signal handler does nothing special (nothing related to `select()`), then the signal handler returns, and the suspended `select()` returns `-1` to our thread, with `errno` equal to `EINTR`.  
@@ -315,7 +315,7 @@ Some people were taught to always write the destructor just in case, even if it 
 
 Starting in C++11 the explicit destructor 
 * disables the (implicit, by-compiler) generation of the move operations,
-* makes the generation of the copy opertions _deprecated_ (i.e. _disabled_ in some future version of C++).
+* makes the generation of the copy operations _deprecated_ (i.e. _disabled_ in some future version of C++).
 
 See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation, fragments:
 * Move operations are generated only for classes lacking explicitly declared move operations, copy operations, and a _destructor_.
@@ -324,8 +324,8 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 __Broader Picture:__  
 * [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
 * Pimpl-Idiom-specific, when the empty destructor may be needed: [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):
-  + _Item 30: Smart Pointer Members, Part 1: A Problem with `auto_ptr`_, section "What About `auto_ptr` Memebers?", last but one paragraph on page 185: "If you don't want to provide the definition of Y, you must write the X2 destructor explicitly, even if it's empty".
-  + _Item 31: Smart Pointer Members, Part 2: Toward a `ValuePtr`_, section "A Simple `ValuePtr`: Strict Ownershipt Only", first regular paragraph: "Either the full definition of Y must accompany X, or the X destructor must be explicitly provided, even if it's empty".
+  + _Item 30: Smart Pointer Members, Part 1: A Problem with `auto_ptr`_, section "What About `auto_ptr` Members?", last but one paragraph on page 185: "If you don't want to provide the definition of Y, you must write the X2 destructor explicitly, even if it's empty".
+  + _Item 31: Smart Pointer Members, Part 2: Toward a `ValuePtr`_, section "A Simple `ValuePtr`: Strict Ownership Only", first regular paragraph: "Either the full definition of Y must accompany X, or the X destructor must be explicitly provided, even if it's empty".
 
 There Should Be a Strong Reason for Writing the Destructor
 -
@@ -392,7 +392,7 @@ But for the _signed_ integers the picture is different.
 If we have a signed 8-bit integer, e.g. `int8_t` (with the range  
 from `std::numeric_limits<int8_t>::min()` in C++, or `INT8_MIN` in C,  
 to `std::numeric_limits<int8_t>::max()` in C++, or `INT8_MAX` in C),  
-with the lowest value `std::numeric_limits<int8_t>::min()` (`INT8_MIN`) and we decrement such a value then we can get the _Undefined Behavior_! (Here and below, for brevity and simplicity, the integer promotion rules are ignored, i.e. it is assumed that the 8-bit value is _not_ extended to 16-bit or 32-bit value then decremented _without the overflow_ and then the least significant byte is saved back to the 8-bit integer, all in _fully defined_ way. We assume that any sigend integer type (`int8_t`, `int16_t`, etc.) and/or all of those types can be implemented using `int` (or using a type larger than `int`) on some implementations)  
+with the lowest value `std::numeric_limits<int8_t>::min()` (`INT8_MIN`) and we decrement such a value then we can get the _Undefined Behavior_! (Here and below, for brevity and simplicity, the integer promotion rules are ignored, i.e. it is assumed that the 8-bit value is _not_ extended to 16-bit or 32-bit value then decremented _without the overflow_ and then the least significant byte is saved back to the 8-bit integer, all in _fully defined_ way. We assume that any signed integer type (`int8_t`, `int16_t`, etc.) and/or all of those types can be implemented using `int` (or using a type larger than `int`) on some implementations)  
 The same is for incrementing the highest value `std::numeric_limits<int8_t>::max()` (`INT8_MAX`).  
 It is emphasized, not just the _value_ is undefined, but the whole _behavior_ is undefined.  
 
@@ -452,7 +452,7 @@ __Internals and ABIs__
 
 Certain Code Fragments Should Not Throw Exceptions
 -
-In general that's the code that is executed from the moment when the execption is thrown and until entering the `catch`-handler (i.e. during the _stack unwinding process_, see [[e&su]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md)). Some of that code is implicitly generated by the compiler (hiddenly from the programmer).  
+In general that's the code that is executed from the moment when the exception is thrown and until entering the `catch`-handler (i.e. during the _stack unwinding process_, see [[e&su]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md)). Some of that code is implicitly generated by the compiler (hiddenly from the programmer).  
 The programmer-written code fragments are  
 * _destructors_, see  
 Meyers' [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), _Item 8: Prevent exceptions from leaving destructors_,  
@@ -466,7 +466,7 @@ C++ Exception Specifications
 -
 
 The Herb Sutter's article ["A Pragmatic Look at Exception Specifications"](http://www.gotw.ca/publications/mill22.htm) ([[pl@es]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md)) makes think that the exception specifications  
-* instead of providing the _compile-time_ nothrow-guarantee (`throw()`) or throws-only-these-ones-gaurantee (`throw(A, B)`)  
+* instead of providing the _compile-time_ nothrow-guarantee (`throw()`) or throws-only-these-ones-guarantee (`throw(A, B)`)  
 * provide the _run-time_ checks/asserts (which are _pessimization_, i.e. they lower down the performance).  
 
 Another confirmation is in [[eses]](https://github.com/kuzminrobin/code_review_notes/edit/master/article_list.md).  
