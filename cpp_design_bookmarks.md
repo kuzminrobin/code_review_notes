@@ -1,6 +1,10 @@
 The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
+Know the Danger of `printf()` and Similar Functions
+-
+* PVS Articles: (About how hackers exploit `printf()`) [Wade not in unknown waters. Part two](https://www.viva64.com/en/b/0129/).  
+
 Nested (Local) Functions
 -
 [Walter Bright](https://en.wikipedia.org/wiki/Walter_Bright) (the creator of the D programming language) told during [November 2017 meeting](http://nwcpp.org/november-2017.html) of http://nwcpp.org/ how the nested (local) functions (that do not exist in C and C++) can help to avoid using `goto`. If I remember it right the approach looks like this:
