@@ -3,7 +3,7 @@ The fragments of knowledge to support my notes during the code reviews (and the 
 ----
 Know the Danger of `printf()` and Similar Functions
 -
-* PVS Articles: (About how hackers exploit `printf()`) [Wade not in unknown waters. Part two](https://www.viva64.com/en/b/0129/).  
+* PVS Articles: (About how hackers exploit `printf()`) [Wade not in unknown waters. Part two](https://www.viva64.com/en/b/0129/) (also [in Russian](https://www.viva64.com/ru/b/0129/)).  
 
 Nested (Local) Functions
 -
