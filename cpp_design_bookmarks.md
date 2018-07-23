@@ -423,6 +423,7 @@ The Proposals [to C](http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2218.htm) 
 The same fully defined effect for signed integers in [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) can be achieved _now_ by using the `-fwrapv` command line argument (but the code relying on such a wrapping behavior is considered _non-portable_ as of C11 and C++17).  
 
 __More Info:__  
+* (Expected at/after CppCon 2018) Talk/Video: JF Bastien, "Signed integers are two's complement".  
 * C++Now 2018 Closing Keynote: Undefined Behavior and Compiler Optimizations, _John Regehr_ ([abstract](http://sched.co/ELaF), [slides](https://github.com/boostcon/cppnow_presentations_2018/blob/master/05-11-2018_friday/undefined_behavior_and_compiler_optimizations__john_regehr__cppnow__05112018.pdf), [video](https://youtu.be/AeEwxtEOgH0)).  
 * C++Now 2014 Undefined Behavior in C++: What is it, and why do you care? _Marshall Clow_ ([video](https://www.youtube.com/watch?v=uHCLkb1vKaY)).  
 * [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) command line arguments: -fstrict-overflow, -Wstrict-overflow[=n], -Wno-overflow, -fwrapv, -fsanitize=signed-integer-overflow, -fsanitize=float-cast-overflow, -ftrapv, also search for "overflow".
