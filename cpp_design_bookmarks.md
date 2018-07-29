@@ -1,5 +1,6 @@
 The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
-Contains contributions from: Jakub Wilk (@jwilk).  
+Contains contributions from:
+* [Jakub Wilk](https://github.com/jwilk) (@jwilk).  
 
 ----
 Know the Danger of `printf()` and Similar Functions
