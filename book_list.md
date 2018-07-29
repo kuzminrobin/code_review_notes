@@ -47,7 +47,7 @@ __`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](htt
 `2010.??.??` [D] Andrei Alexandrescu. _The D Programming Language_.  
 `2012.??.??` __[C++CinA]__ [Anthony Williams. _C++ Concurrency in Action_ (1st Edition)](https://www.manning.com/books/c-plus-plus-concurrency-in-action).  
 `2014.11.07` __[EMC++]__ [Scott Meyers. _Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).  
-`2018.??.??` [C++TCG] David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. [_C++ Templates: The Complete Guide (2nd Edition)_](http://www.tmplbook.com/index.html).  
+`2018.??.??` _[C++TCG]_ David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. [_C++ Templates: The Complete Guide (2nd Edition)_](http://www.tmplbook.com/index.html).  
  
 ---
 Extracted from:  
@@ -62,4 +62,4 @@ TODO:
 [GP:MT&A]: Is it C++ (or other system programming)?  
 
 ---
-__[HAS_BEEN_READ]__, [NOT_YET_READ]  
+__[HAS_BEEN_READ]__, [NOT_YET_READ], _[IS_BEING_READ]_  
