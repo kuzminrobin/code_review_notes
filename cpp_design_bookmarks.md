@@ -114,12 +114,12 @@ E.g. if the `bytesRead = read(..)` reads 4 bytes (of the 5 requested) and thus u
 Based on similar observations I strictly distinguish between the _size_ and _length_.
 * I use the concept of _size_ to designate the _size in bytes only_ (typically it is a result of the `sizeof()` operator), and I always prefer writing "size (in bytes)" rather than just "size".
 * To designate the number of elements in a container/array, number of (char/wchar_t) characters in a string, I use the concept of _length_.
-* The _length_ is always less than or equal to the _size_.
+* The _length_ is always less than or equal to the _size_ (in bytes).
 * The concept of _index_ (e.g. array index) originates from the concept of _length_ (but not from the concept of _size_).
 
 E.g. for the declaration `wchar_t buffer[6]`
 * the `buffer` _length_ is 6, the _index_ originates from _length_ and has a range from `0` to `(length - 1)` (from `0` to `5`);
-* the `buffer` _size_ is at least 12 (and includes the optional alignment padding between (and probably before and after) the array elements).
+* the `buffer` _size (in bytes)_ is at least 12 (and includes the optional alignment padding between (and probably before and after) the array elements).
 
 The functions `read()`/`write()` take as the last argument (and they return) _the number of bytes_ - a concept originating from _size_ (not from the _length_).
 If we want to use _index_ as the last argument to `read()`/`write()` then the _index_ needs to be multiplied by the size of the element (`index * sizeof(buffer[0])`)
