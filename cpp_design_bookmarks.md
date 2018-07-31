@@ -1,6 +1,4 @@
 The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
-Contains contributions from:
-* [Jakub Wilk](https://github.com/jwilk) (@jwilk).  
 
 ----
 Know the Danger of `printf()` and Similar Functions
@@ -495,3 +493,6 @@ How and to who to return the failure from a Ctor of a global var? What happens i
 * Some articles state that today's compilers generate such a code that the exceptions have _zero-cost in successful case_ (i.e. the exception is not thrown), but [Walter Bright](https://en.wikipedia.org/wiki/Walter_Bright) (creator of D) said (at http://nwcpp.org/ [November 2017 meeting](http://nwcpp.org/november-2017.html)) that _zero-cost exceptions are a myth_. Who is right? What particularly stands behind (what code is generated upon) `try`, `catch(T)`, `catch(...)`, `throw`, thrown-case, not-thrown-case, etc.? At C++Now2018's ["How Compilers Reason About Exceptions"](https://cppnow2018.sched.com/event/EC7V/how-compilers-reason-about-exceptions) session it has been recommended to read the ABI docs and the [[.eh_f]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Airs – Ian Lance Taylor. _".eh_frame"_ (still TODO).
 * The Niall Douglas' talks about the exceptions, see the presentation [links](http://levelofindirection.com/refs/cpp-optional.html) recommended by Phil Nash during ["Option(al) Is Not a Failure"](https://cppnow2018.sched.com/event/EC7P/optional-is-not-a-failure) (TODO).
 
+----
+This page contains contributions from:
+* [Jakub Wilk](https://github.com/jwilk) (@jwilk).  
