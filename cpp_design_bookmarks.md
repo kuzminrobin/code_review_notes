@@ -1,6 +1,7 @@
 The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
+
 Know the Danger of `printf()` and Similar Functions
 -
 * PVS Articles: (About how hackers exploit `printf()`) [Wade not in unknown waters. Part two](https://www.viva64.com/en/b/0129/) (also [in Russian](https://www.viva64.com/ru/b/0129/)).  
@@ -492,6 +493,10 @@ How and to who to return the failure from a Ctor of a global var? What happens i
 * In which cases is it _impossible_ to use the exceptions? Bare metal? (no OS to terminate the code that does not handle the exc)
 * Some articles state that today's compilers generate such a code that the exceptions have _zero-cost in successful case_ (i.e. the exception is not thrown), but [Walter Bright](https://en.wikipedia.org/wiki/Walter_Bright) (creator of D) said (at http://nwcpp.org/ [November 2017 meeting](http://nwcpp.org/november-2017.html)) that _zero-cost exceptions are a myth_. Who is right? What particularly stands behind (what code is generated upon) `try`, `catch(T)`, `catch(...)`, `throw`, thrown-case, not-thrown-case, etc.? At C++Now2018's ["How Compilers Reason About Exceptions"](https://cppnow2018.sched.com/event/EC7V/how-compilers-reason-about-exceptions) session it has been recommended to read the ABI docs and the [[.eh_f]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Airs – Ian Lance Taylor. _".eh_frame"_ (still TODO).
 * The Niall Douglas' talks about the exceptions, see the presentation [links](http://levelofindirection.com/refs/cpp-optional.html) recommended by Phil Nash during ["Option(al) Is Not a Failure"](https://cppnow2018.sched.com/event/EC7P/optional-is-not-a-failure) (TODO).
+
+# Curious Questions
+## In Which Cases Do the Constructors of an Abstract Class Need to Be `public`?
+The abstract class (i.e. the one having at least one pure virtual function) is not intended for instantiation (but for inheriting from it only). I.e. its constructors do not need to be `public`, right? Thus by default the constructors of an abstract class should be `protected`. Are there any cases when it makes sense to make such constructors `private`?
 
 ----
 This page contains contributions from:
