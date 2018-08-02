@@ -14,7 +14,7 @@ I call _key_ those articles and resources that are referred to in the books or t
 + `1998.05.??` [dah] B. Liskov. "Data Abstraction and Hierarchy" (SIGPLAN Notices, 23(5), May 1998).  ([MExcC++] Bibliography)  
 + `1998.11.??` [u/rr] Al Stevens. _Undo/Redo redux_. Dr. Dobb's Journal, November ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?   
 + `1999.02.??` [cci] A. Koenig. "Changing Containers Iteratively" (C++ Report, 11(2), February 1999). ([MExcC++] Bibliography)
-+ `1999.02.??` [ctvtc] [Dan Saks. _const T vs. T const_](http://www.dansaks.com/articles/1999-02%20const%20T%20vs%20T%20const.pdf) Embedded Systems Programming, FEBRUARY 1999.  
++ `1999.02.??` __[ctvtc]__ [Dan Saks. _const T vs. T const_](http://www.dansaks.com/articles/1999-02%20const%20T%20vs%20T%20const.pdf) Embedded Systems Programming, FEBRUARY 1999.  
 + `1999.03.??` [t&mrvic++] Jaakko Järvi. _Tuples and Multiple Return Values in C++_. TUCS Technical Report No. 249, March ([MC++D] Bibliography).  
 + `1999.??.??` [ll] [Jaakko Järvi. _The Lambda Library_](http://lambda.cs.utu.fi) (dead link) ([MC++D] Bibliography).  
 + `1999.??.??` [au] [Scott Meyers. _auto_ptr update_](http://www.awl.com/cseng/titles/0-201-63371-X/auto_ptr.html) (dead link). _Note: The Colvin/Gibbons trick is not described as-is in any paper. Meyers's notes on auto_ptr are the most accurate description of the solution that Greg Colvin and Bill Gibbons found. The trick uses auto_ptr to solve the function return problem_ ([MC++D] Bibliography).  
