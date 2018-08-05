@@ -1,6 +1,19 @@
 The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
+const T vs. T const (aka `const West` vs. `East const`)
+-
+__Story And Grounds:__  
+`1999.02.??` [[ctvtc]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Dan Saks. const T vs. T const. Embedded Systems Programming, FEBRUARY 1999.
+
+__Where It Can Matter:__  
+`2018.??.??` [[C++TCG]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. _C++ Templates: The Complete Guide_ (2nd Edition), section _Some Remarks About Programming Style_, paper pages _xxxi - xxxii_.
+
+__Videos:__  
+(About _East const_ vs. _const West_, mostly for fun)  
+* East const: [C++Now 2018: Jon Kalb "This is Why We Can't Have Nice Things"](https://www.youtube.com/watch?v=fovPSk8ixK4) (5:29).
+* const West: [C++Now 2018: Jonathan Müller "A Fool's Consistency"](https://www.youtube.com/watch?v=_27NHB1OlNI) (4:21).
+
 
 Know the Danger of `printf()` and Similar Functions
 -
