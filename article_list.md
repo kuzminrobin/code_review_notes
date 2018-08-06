@@ -1,7 +1,6 @@
 ### Chronological List of _key_ C++ (and other system programming) Articles and Other Resources, Except Books
 The books are in a [separate list](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).  
 I call _key_ those articles and resources that are referred to in the books or those that were used in the sources I dealt with.  
-
 + `1994.11.09` [exc_h:fsos] [Tom Cargill. _"Exception Handling: A False Sense of Security"_](http://ptgmedia.pearsoncmg.com/images/020163371x/supplements/Exception_Handling_Article.html), C++ Report, Volume 6, Number 9, November-December 1994, pages 21-24 (more info: [MEC++]), ([C++CinA] Print resources), [local copy](https://github.com/kuzminrobin/code_review_notes/blob/master/local_copies/Exception_Handling_Article.html).  
 + `1995.02.??` [rtp] James O. Coplien. _The column without a name: A curiously recurring template pattern_. C++ Report, February ([MC++D] Bibliography).  
 + `1995.05.??` [tm] [Todd Veldhuizen. _Template metaprograms_](http://extreme.indiana.edu/~tveldhui/papers/Template-Metaprograms/meta-art.html) (Forbidden, No Permission), C++ Report, May ([MC++D] Bibliography).  
@@ -33,11 +32,11 @@ I call _key_ those articles and resources that are referred to in the books or t
 + `2002.07.??` __[pl@es]__ [Herb Sutter. _A Pragmatic Look at Exception Specifications_](http://www.gotw.ca/publications/mill22.htm) (referred to from [t15c++ehm]).  
 + `2002-2004 ` __[eses]__ [Herb Sutter. _Exception Safety and Exception Specifications: Are They Worth It?_](http://www.gotw.ca/gotw/082.htm).  
 + `2005.03.??` [fttc] [Herb Sutter. _The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software_](http://www.gotw.ca/publications/concurrency-ddj.htm), Dr. Dobb’s Journal 30, no. 3 (March 2005), [local copy](https://github.com/kuzminrobin/code_review_notes/blob/master/local_copies/turn_toward_concurrency.tar.bz2) ([C++CinA] Print resources).  
-+ `2010.06.24` __[ms1]__ [fredoverflow. _What the Move Semantics Are. Part 1_](https://stackoverflow.com/a/3109981/6362941). See also Part 2 [ms2].
+##### `2010.06.24` __[ms1]__ [fredoverflow. _What the Move Semantics Are. Part 1_](https://stackoverflow.com/a/3109981/6362941). See also Part 2 [ms2].
 + `2011.01.10` [.eh_f] [Airs – Ian Lance Taylor. _.eh_frame_](https://www.airs.com/blog/archives/460) (about C++ exceptions ABI in `gcc`).  
 + `2011.09.26` __[scs]__ [Dan Saks. _Simplifying `const` Syntax_](http://www.drdobbs.com/cpp/simplifying-const-syntax/231601151). Dr.Dobb's, September 26, 2011.  
 + `2012.02.01` __[wnuw]__ PVS Articles: [Andrey Karpov. _Wade not in unknown waters. Part two_](https://www.viva64.com/en/b/0129/) (also [in Russian](https://www.viva64.com/ru/b/0129/)) (about how hackers exploit `printf()`).  
-+ `2012.07.18` __[ms2]__ [fredoverflow. _What the Move Semantics Are. Part 2_](https://stackoverflow.com/a/11540204/6362941). See also Part 1 [ms1].
+##### `2012.07.18` __[ms2]__ [fredoverflow. _What the Move Semantics Are. Part 2_](https://stackoverflow.com/a/11540204/6362941). See also Part 1 [ms1].
 + `2015.??.??` __[e&su]__ [MSDN. _Exceptions and Stack Unwinding in C++_](https://msdn.microsoft.com/en-us/library/hh254939.aspx) (from [t15c++ehm]).  
 + `2016.03.23` __[crto]__ [Jacek Galowicz. _Const References to Temporary Objects_](https://blog.galowicz.de/2016/03/23/const_reference_to_temporary_object/).  
 + `2016.08.03` __[t15c++ehm]__ [Deb Haldar. _Top 15 C++ Exception handling mistakes and how to avoid them_](http://www.acodersjourney.com/2016/08/top-15-c-exception-handling-mistakes-avoid/) (from [here](https://blog.tartanllama.xyz/optional-expected/)).
