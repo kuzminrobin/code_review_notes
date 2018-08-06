@@ -21,7 +21,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [C++ Exception Specifications](#c-exception-specifications)
   + [C++ Exceptions: TODO](#c-exceptions-todo)
 + [Curious Questions](#curious-fragments-and-questions)
-  + [In Which Cases Do the Constructors of an Abstract Class Need to Be `public`?](#in-which-cases-do-the-constructors-of-an-abstract-class-need-to-be-public)
+  + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
 Overload Resolution
