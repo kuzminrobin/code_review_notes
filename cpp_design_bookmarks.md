@@ -19,7 +19,8 @@ __Videos:__
 
 Know the Danger of `printf()` and Similar Functions
 -
-* PVS Articles: (About how hackers exploit `printf()`) [Wade not in unknown waters. Part two](https://www.viva64.com/en/b/0129/) (also [in Russian](https://www.viva64.com/ru/b/0129/)).  
+How hackers exploit `printf()`:  
+`2012.02.01` [[wnuw]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) PVS Articles: Andrey Karpov. _Wade not in unknown waters. Part two_.  
 
 Nested (Local) Functions
 -
