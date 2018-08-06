@@ -1,6 +1,7 @@
-The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
+The unsorted fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
++ [Overload Resolution](#overload-resolution)
 + [const T vs. T const (aka `const West` vs. `East const`)](#const-t-vs-t-const-aka-const-west-vs-east-const)
 + [Know the Danger of `printf()` and Similar Functions](#know-the-danger-of-printf-and-similar-functions)
 + [Nested (Local) Functions](#nested-local-functions)
@@ -23,6 +24,10 @@ The fragments of knowledge to support my notes during the code reviews (and the 
   + [In Which Cases Do the Constructors of an Abstract Class Need to Be `public`?](#in-which-cases-do-the-constructors-of-an-abstract-class-need-to-be-public)
 
 ----
+Overload Resolution
+-
+`2018.??.??` [[C++TCG]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. _C++ Templates: The Complete Guide_ (2nd Edition), Appendix C: Overload Resolution, paper page 681.
+
 const T vs. T const (aka `const West` vs. `East const`)
 -
 __Story, Grounds, and Mechanism:__  
