@@ -13,8 +13,8 @@ __Where It Can Matter:__
 
 __Videos:__  
 (About `East const` vs. `const West`, mostly _for fun_)  
-* East const: [C++Now 2018: Jon Kalb "This is Why We Can't Have Nice Things"](https://www.youtube.com/watch?v=fovPSk8ixK4) (5:29).
-* const West: [C++Now 2018: Jonathan Müller "A Fool's Consistency"](https://www.youtube.com/watch?v=_27NHB1OlNI) (4:21).
+* `East const`: [C++Now 2018: Jon Kalb "This is Why We Can't Have Nice Things"](https://www.youtube.com/watch?v=fovPSk8ixK4) (5:29).
+* `const West`: [C++Now 2018: Jonathan Müller "A Fool's Consistency"](https://www.youtube.com/watch?v=_27NHB1OlNI) (4:21).
 
 
 Know the Danger of `printf()` and Similar Functions
