@@ -349,7 +349,7 @@ __See Also:__
 Know the Special Member Functions
 -
 * C++98/03: [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Chapter 2: Constructors, Destructors, and Assignment Operators.
-* C++11: [What the Move Semantics Are](https://stackoverflow.com/questions/3106110/what-are-move-semantics) (see both replies by `fredoverflow`).
+* C++11: What the Move Semantics Are. Part 1 [[ms1]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#20100624-ms1-fredoverflow-what-the-move-semantics-are-part-1-see-also-part-2-ms2), Part 2 [[ms2]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#20120718-ms2-fredoverflow-what-the-move-semantics-are-part-2-see-also-part-1-ms1).
 * C++11: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation.
 
 Know All the Effects of the Empty Destructor
