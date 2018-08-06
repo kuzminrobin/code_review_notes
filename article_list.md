@@ -37,6 +37,7 @@ I call _key_ those articles and resources that are referred to in the books or t
 + `2011.09.26` __[scs]__ [Dan Saks. _Simplifying `const` Syntax_](http://www.drdobbs.com/cpp/simplifying-const-syntax/231601151). Dr.Dobb's, September 26, 2011.  
 + `2012.02.01` __[wnuw]__ PVS Articles: [Andrey Karpov. _Wade not in unknown waters. Part two_](https://www.viva64.com/en/b/0129/) (also [in Russian](https://www.viva64.com/ru/b/0129/)). About how hackers exploit `printf()`.  
 + `2015.??.??` __[e&su]__ [MSDN. _Exceptions and Stack Unwinding in C++_](https://msdn.microsoft.com/en-us/library/hh254939.aspx) (from [t15c++ehm]).  
++ `2016.03.23` __[crto]__ [Jacek Galowicz. _Const References to Temporary Objects_](https://blog.galowicz.de/2016/03/23/const_reference_to_temporary_object/).  
 + `2016.08.03` __[t15c++ehm]__ [Deb Haldar. _Top 15 C++ Exception handling mistakes and how to avoid them_](http://www.acodersjourney.com/2016/08/top-15-c-exception-handling-mistakes-avoid/) (from [here](https://blog.tartanllama.xyz/optional-expected/)).
 
 ### Unknown Date
