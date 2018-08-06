@@ -20,7 +20,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Certain Code Fragments Should Not Throw Exceptions](#certain-code-fragments-should-not-throw-exceptions)
   + [C++ Exception Specifications](#c-exception-specifications)
   + [C++ Exceptions: TODO](#c-exceptions-todo)
-+ [Curious Questions](#curious-questions)
++ [Curious Questions](#curious-fragments-and-questions)
   + [In Which Cases Do the Constructors of an Abstract Class Need to Be `public`?](#in-which-cases-do-the-constructors-of-an-abstract-class-need-to-be-public)
 
 ----
@@ -537,9 +537,13 @@ How and to who to return the failure from a Ctor of a global var? What happens i
 * Some articles state that today's compilers generate such a code that the exceptions have _zero-cost in successful case_ (i.e. the exception is not thrown), but [Walter Bright](https://en.wikipedia.org/wiki/Walter_Bright) (creator of D) said (at http://nwcpp.org/ [November 2017 meeting](http://nwcpp.org/november-2017.html)) that _zero-cost exceptions are a myth_. Who is right? What particularly stands behind (what code is generated upon) `try`, `catch(T)`, `catch(...)`, `throw`, thrown-case, not-thrown-case, etc.? At C++Now2018's ["How Compilers Reason About Exceptions"](https://cppnow2018.sched.com/event/EC7V/how-compilers-reason-about-exceptions) session it has been recommended to read the ABI docs and the [[.eh_f]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Airs – Ian Lance Taylor. _".eh_frame"_ (still TODO).
 * The Niall Douglas' talks about the exceptions, see the presentation [links](http://levelofindirection.com/refs/cpp-optional.html) recommended by Phil Nash during ["Option(al) Is Not a Failure"](https://cppnow2018.sched.com/event/EC7P/optional-is-not-a-failure) (TODO).
 
-# Curious Questions
-## In Which Cases Do the Constructors of an Abstract Class Need to Be `public`?
-The abstract class (i.e. the one having at least one pure virtual function) is not intended for instantiation (but for inheriting from it only). I.e. its constructors do not need to be `public`, right? Thus by default the constructors of an abstract class should be `protected`. Are there any cases when it makes sense to make such constructors `private`?
+# Curious Fragments and Questions
+## Abstract Class Constructors: `public`? `private`?
+By default the constructors of an abstract class should be `protected`.  
+
+The abstract class (i.e. the one having at least one pure virtual function) is not suitable for instantiation but for inheriting from it only. I.e. its constructors do not need to be `public`, right? Are there any cases when they _do_?  
+
+Are there any cases (other than disabling the copy functions, etc.) when it makes sense to make such constructors `private`?
 
 ----
 This page contains contributions from:
