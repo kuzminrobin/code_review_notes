@@ -13,6 +13,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 + [Know the Special Member Functions](#know-the-special-member-functions)
   + [Know All the Effects of the Empty Destructor](#know-all-the-effects-of-the-empty-destructor)
   + [There Should Be a Strong Reason for Writing the Destructor](#there-should-be-a-strong-reason-for-writing-the-destructor)
+  + [Polymorphic Behavior of Non-Virtual Destructor]()
   + [Know the Peculiarities of Writing the Assignment Operator](#know-the-peculiarities-of-writing-the-assignment-operator)
 + [Inlining](#inlining)
 + [Know the Danger of Overflowing (and Underflowing) the Signed Types](#know-the-danger-of-overflowing-and-underflowing-the-signed-types)
@@ -347,15 +348,9 @@ __See Also:__
 
 Know the Special Member Functions
 -
-__Story:__  
 * C++98/03: [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Chapter 2: Constructors, Destructors, and Assignment Operators.
 * C++11: [What the Move Semantics Are](https://stackoverflow.com/questions/3106110/what-are-move-semantics) (see both replies by `fredoverflow`).
 * C++11: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation.
-
-__Consequences:__
-* [Know All the Effects of the Empty Destructor](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-all-the-effects-of-the-empty-destructor).
-* [There Should Be a Strong Reason for Writing the Destructor](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#there-should-be-a-strong-reason-for-writing-the-destructor).
-* [Know the Peculiarities of Writing the Assignment Operator](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-peculiarities-of-writing-the-assignment-operator).
 
 Know All the Effects of the Empty Destructor
 -
@@ -370,9 +365,9 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 * Generation of the copy operations in classes with an explicitly declared _destructor_ is deprecated.
 
 __Broader Picture:__  
-* [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
+* [Know the Special Member Functions](#know-the-special-member-functions).
 * Pimpl-Idiom-specific, when the empty destructor may be needed: [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md):
-  + _Item 30: Smart Pointer Members, Part 1: A Problem with `auto_ptr`_, section "What About `auto_ptr` Members?", last but one paragraph on page 185: "If you don't want to provide the definition of Y, you must write the X2 destructor explicitly, even if it's empty".
+  + _Item 30: Smart Pointer Members, Part 1: A Problem with `auto_ptr`_, section "What About `auto_ptr` Members?", last but one paragraph on paper page 185: "If you don't want to provide the definition of Y, you must write the X2 destructor explicitly, even if it's empty".
   + _Item 31: Smart Pointer Members, Part 2: Toward a `ValuePtr`_, section "A Simple `ValuePtr`: Strict Ownership Only", first regular paragraph: "Either the full definition of Y must accompany X, or the X destructor must be explicitly provided, even if it's empty".
 
 There Should Be a Strong Reason for Writing the Destructor
@@ -382,16 +377,21 @@ If you use Smart Pointers and other Smart Resource Releasers (see below) then yo
 _The explicit destructor is a warning sign._
 
 __Broader Picture:__  
-* [Know the Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions).
+* [Know the Special Member Functions](#know-the-special-member-functions).
 * Smart Pointers:
   * C++98/03: [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md)
     * Chapter 3: Resource Management
     * Item 29: Strive for exception-safe code
     * Item 45: Use member function templates to accept "all compatible types."
-    * Search for "smart" in the book
+    * Search for "smart" in the e-book
   * C++98/03: [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) _Item 28: Smart pointers_ (and other items referred to in Item 28).
   * C++11/14: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Chapter 4. Smart Pointers
 * Smart Resource Releasers: C++98/03: [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md).
+
+Polymorphic Behavior of Non-Virtual Destructor
+-
+`2016.03.23` [[crto]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Jacek Galowicz. _Const References to Temporary Objects_.  
+`2000.12.01` [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Andrei Alexandrescu and Petru Marginean. _"Generic: Change the Way You Write Exception-Safe Code — Forever"_. Search for "how to achieve polymorphic behavior of the destructor" on page 2 of 3.
 
 Know the Peculiarities of Writing the Assignment Operator
 -
