@@ -12,6 +12,7 @@ I call _key_ those articles and resources that are referred to in the books or t
 + `1997.10.??` [ctaic++] [Kevin S. Van Horn. _Compile-time assertions in C++_](http://www.xmission.com/~ksvhsoft/ctassert/ctassert.html) (dead link), C/C++ Users Journal, October ([MC++D] Bibliography).  
 + `1998.04.??` [coic++] Scott Meyers. _Counting objects in C++_. C/C++ Users Journal, April ([MC++D] Bibliography).  
 + `1998.05.??` [dah] B. Liskov. "Data Abstraction and Hierarchy" (SIGPLAN Notices, 23(5), May 1998).  ([MExcC++] Bibliography)  
++ `1998.06.??` __[pcd]__ [Dan Saks. _Placing `const` in Declarations_](https://www.dansaks.com/articles/1998-06%20Placing%20const%20in%20Declarations.pdf). EMBEDDED SYSTEMS PROGRAMMING, JUNE 1998.  
 + `1998.11.??` [u/rr] Al Stevens. _Undo/Redo redux_. Dr. Dobb's Journal, November ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?   
 + `1999.02.??` [cci] A. Koenig. "Changing Containers Iteratively" (C++ Report, 11(2), February 1999). ([MExcC++] Bibliography)
 + `1999.02.??` __[ctvtc]__ [Dan Saks. _const T vs. T const_](http://www.dansaks.com/articles/1999-02%20const%20T%20vs%20T%20const.pdf). Embedded Systems Programming, FEBRUARY 1999.  
