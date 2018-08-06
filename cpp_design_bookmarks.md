@@ -32,12 +32,12 @@ Overload Resolution
 const T vs. T const (aka `const West` vs. `East const`)
 -
 __Story, Grounds, and Mechanism:__  
-`1999.02.??` [[ctvtc]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Dan Saks. _const T vs. T const_. Embedded Systems Programming, FEBRUARY 1999.  
-`1998.06.??` [[pcd]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Dan Saks. _Placing `const` in Declarations_. Embedded Systems Programming, JUNE 1998.  
+`1999.02.??` [[ctvtc]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-199902-ctvtc-dan-saks-const-t-vs-t-const-embedded-systems-programming-february-1999) Dan Saks. _const T vs. T const_. Embedded Systems Programming, FEBRUARY 1999.  
+`1998.06.??` [[pcd]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-199806-pcd-dan-saks-placing-const-in-declarations-embedded-systems-programming-june-1998) Dan Saks. _Placing `const` in Declarations_. Embedded Systems Programming, JUNE 1998.  
 
 __Where It Can Matter:__  
 `2018.??.??` [[C++TCG]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. _C++ Templates: The Complete Guide_ (2nd Edition), section _Some Remarks About Programming Style_, paper pages _xxxi - xxxii_.  
-`2011.09.26` [[scs]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Dan Saks. _Simplifying `const` Syntax_. Dr.Dobb's, September 26, 2011.  
+`2011.09.26` [[scs]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20110926-scs-dan-saks-simplifying-const-syntax-drdobbs-september-26-2011) Dan Saks. _Simplifying `const` Syntax_. Dr.Dobb's, September 26, 2011.  
 
 __Videos:__  
 (About `East const` vs. `const West`, mostly _for fun_)  
@@ -48,7 +48,7 @@ __Videos:__
 Know the Danger of `printf()` and Similar Functions
 -
 How hackers exploit `printf()`:  
-`2012.02.01` [[wnuw]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) PVS Articles: Andrey Karpov. _Wade not in unknown waters. Part two_.  
+`2012.02.01` [[wnuw]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20120201-wnuw-pvs-articles-andrey-karpov-wade-not-in-unknown-waters-part-two-also-in-russian-about-how-hackers-exploit-printf) PVS Articles: Andrey Karpov. _Wade not in unknown waters. Part two_.  
 
 Nested (Local) Functions
 -
@@ -349,7 +349,7 @@ __See Also:__
 Know the Special Member Functions
 -
 * C++98/03: [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Chapter 2: Constructors, Destructors, and Assignment Operators.
-* C++11: What the Move Semantics Are. Part 1 [[ms1]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#20100624-ms1-fredoverflow-what-the-move-semantics-are-part-1-see-also-part-2-ms2), Part 2 [[ms2]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#20120718-ms2-fredoverflow-what-the-move-semantics-are-part-2-see-also-part-1-ms1).
+* C++11: What the Move Semantics Are. Part 1 [[ms1]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20100624-ms1-fredoverflow-what-the-move-semantics-are-part-1-see-also-part-2-ms2), Part 2 [[ms2]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20120718-ms2-fredoverflow-what-the-move-semantics-are-part-2-see-also-part-1-ms1).
 * C++11: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation.
 
 Know All the Effects of the Empty Destructor
@@ -386,17 +386,17 @@ __Broader Picture:__
     * Search for "smart" in the e-book
   * C++98/03: [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) _Item 28: Smart pointers_ (and other items referred to in Item 28).
   * C++11/14: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Chapter 4. Smart Pointers
-* Smart Resource Releasers: C++98/03: [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md).
+* Smart Resource Releasers: C++98/03: [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20001201-gcwywescf-andrei-alexandrescu-and-petru-marginean-generic-change-the-way-you-write-exception-safe-code--forever-dr-dobbs-december-01-2000).
 
 Polymorphic Behavior of Non-Virtual Destructor
 -
-`2016.03.23` [[crto]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Jacek Galowicz. _Const References to Temporary Objects_.  
-`2000.12.01` [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Andrei Alexandrescu and Petru Marginean. _"Generic: Change the Way You Write Exception-Safe Code — Forever"_. Search for "how to achieve polymorphic behavior of the destructor" on page 2 of 3.
+`2016.03.23` [[crto]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20160323-crto-jacek-galowicz-const-references-to-temporary-objects) Jacek Galowicz. _Const References to Temporary Objects_.  
+`2000.12.01` [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20001201-gcwywescf-andrei-alexandrescu-and-petru-marginean-generic-change-the-way-you-write-exception-safe-code--forever-dr-dobbs-december-01-2000) Andrei Alexandrescu and Petru Marginean. _"Generic: Change the Way You Write Exception-Safe Code — Forever"_. Search for "how to achieve polymorphic behavior of the destructor" on page 2 of 3.
 
 Know the Peculiarities of Writing the Assignment Operator
 -
 When writing the _Copy-Assignment Operator_ the following logic needs to be applied.
-* Know the [Special Member Functions](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-the-special-member-functions) (in particular [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 5: Know what functions C++ silently writes and calls, [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation) and _try to avoid writing the explicit assignment operator_.
+* Know the [Special Member Functions](#know-the-special-member-functions) (in particular [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 5: Know what functions C++ silently writes and calls, [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 17: Understand special member function generation) and _try to avoid writing the explicit assignment operator_.
 * If you have to write then _try to avoid the [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941)_ (e.g. if your Assignment Operator does not make throwing calls) since the idiom creates a copy thus lowering down the performance.
 * Use the [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941) _as the last resort_.
 * Don't forget to _call the parent class' Assignment Operator_, see [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Item 12: Copy all parts of an object.
@@ -486,8 +486,8 @@ __Books and Articles at a High Level__
 * `1999.11.18` [Exceptional C++ – 47 Engineering puzzles, programming problems and solutions](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622/ref=sr_1_1?ie=UTF8&qid=1470238861&sr=8-1&keywords=Exceptional+C%2B%2B) – items 8 through 19 [[ExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).
 * `2001.12.17` [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), Chapter "Exception Safety Issues and Techniques", Items 17 - 23.
 * `2004.10.??` [C++ Coding Standards – 101 Rules, Guidelines and Best Practices](https://www.amazon.com/Coding-Standards-Rules-Guidelines-Practices/dp/0321113586/ref=sr_1_1?ie=UTF8&qid=1470238746&sr=8-1&keywords=C%2B%2B+Coding+standards) – items 68 through 75 [[C++CS]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).
-* `2015.??.??` [[e&su]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) MSDN. _Exceptions and Stack Unwinding in C++_.
-* `2016.08.03` [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Deb Haldar. Top 15 C++ Exception handling mistakes and how to avoid them.
+* `2015.??.??` [[e&su]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-2015-esu-msdn-exceptions-and-stack-unwinding-in-c-from-t15cehm) MSDN. _Exceptions and Stack Unwinding in C++_.
+* `2016.08.03` [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20160803-t15cehm-deb-haldar-top-15-c-exception-handling-mistakes-and-how-to-avoid-them-from-here) Deb Haldar. Top 15 C++ Exception handling mistakes and how to avoid them.
 
 __Q&As__
 * The [Copy-And-Swap Idiom](https://stackoverflow.com/a/3279550/6362941).
@@ -497,36 +497,37 @@ __Videos__
 * `2018.05.09` C++Now 2018: Phil Nash, ["Option(al) Is Not a Failure"](https://cppnow2018.sched.com/event/EC7P/optional-is-not-a-failure) (to go online in 2018.06). Presentation [links](http://levelofindirection.com/refs/cpp-optional.html).
 
 __Internals and ABIs__
-* `2011.01.10` [[.eh_f]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) Airs – Ian Lance Taylor. _".eh_frame"_.
+* `2011.01.10` [[.eh_f]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#white_large_square-20110110-eh_f-airs--ian-lance-taylor-eh_frame-about-c-exceptions-abi-in-gcc) Airs – Ian Lance Taylor. _".eh_frame"_.
 
 Certain Code Fragments Should Not Throw Exceptions
 -
-In general that's the code that is executed from the moment when the exception is thrown and until entering the `catch`-handler (i.e. during the _stack unwinding process_, see [[e&su]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md)). Some of that code is implicitly generated by the compiler (hiddenly from the programmer).  
+In general that's the code that is executed from the moment when the exception is thrown and until entering the `catch`-handler (i.e. during the _stack unwinding process_, see [[e&su]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-2015-esu-msdn-exceptions-and-stack-unwinding-in-c-from-t15cehm)). Some of that code is implicitly generated by the compiler (hiddenly from the programmer).  
 The programmer-written code fragments are  
 * _destructors_, see  
 Meyers' [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), _Item 8: Prevent exceptions from leaving destructors_,  
 Sutter's [[ExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), _Item8: Writing Exception-Safe Code - Part1_.  
 * `operator delete`, `operator delete[]`, see  
-Haldar's [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md), _Mistake # 5: Throwing exceptions in destructors or in overloaded delete or delete[] operator_.  
+Haldar's [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20160803-t15cehm-deb-haldar-top-15-c-exception-handling-mistakes-and-how-to-avoid-them-from-here), _Mistake # 5: Throwing exceptions in destructors or in overloaded delete or delete[] operator_.  
 * _constructors of the exception classes_, see  
-Haldar's [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md), _Mistake # 12: Throwing exception in an exception class constructor_.
+Haldar's [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20160803-t15cehm-deb-haldar-top-15-c-exception-handling-mistakes-and-how-to-avoid-them-from-here), _Mistake # 12: Throwing exception in an exception class constructor_.
 
 C++ Exception Specifications
 -
 
-The Herb Sutter's article ["A Pragmatic Look at Exception Specifications"](http://www.gotw.ca/publications/mill22.htm) ([[pl@es]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md)) makes think that the exception specifications  
+The Herb Sutter's article ["A Pragmatic Look at Exception Specifications"](http://www.gotw.ca/publications/mill22.htm) ([[pl@es]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-200207-ples-herb-sutter-a-pragmatic-look-at-exception-specifications-referred-to-from-t15cehm)) makes think that the exception specifications  
 * instead of providing the _compile-time_ nothrow-guarantee (`throw()`) or throws-only-these-ones-guarantee (`throw(A, B)`)  
 * provide the _run-time_ checks/asserts (which are _pessimization_, i.e. they lower down the performance).  
 
-Another confirmation is in [[eses]](https://github.com/kuzminrobin/code_review_notes/edit/master/article_list.md).  
+Another confirmation is in [[eses]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-2002-2004-eses-herb-sutter-exception-safety-and-exception-specifications-are-they-worth-it).  
 
 The Meyers' [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), _Item 14: Declare functions `noexcept` if they won’t emit exceptions_,  
 in the beginning makes one think that `noexcept` helps to optimize in certain cases (by means of replacing the copy operations with the move operations). But in the end still shows that there are no any _copile-time_ guarantees (a `noexcept`-function can call the functions without the exception specification, and the compilers (so far) don't complain) but there are _run-time_ checks ("_your program will be terminated if an exception tries to leave the function_").  
-See also [t15c++ehm], [_Mistake # 9: Not realizing the implications of "noexcept" specification_](http://www.acodersjourney.com/2016/08/top-15-c-exception-handling-mistakes-avoid/).  
+See also [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20160803-t15cehm-deb-haldar-top-15-c-exception-handling-mistakes-and-how-to-avoid-them-from-here), _Mistake # 9: Not realizing the implications of "noexcept" specification_.  
 
 ----
 See also:  
-* [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md); [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), _Item 14: Use exception specifications judiciously_.
+* [[t15c++ehm]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20160803-t15cehm-deb-haldar-top-15-c-exception-handling-mistakes-and-how-to-avoid-them-from-here) Deb Haldar. _Top 15 C++ Exception handling mistakes and how to avoid them_
+* [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md), _Item 14: Use exception specifications judiciously_.
 
 C++ Exceptions: TODO.
 -
