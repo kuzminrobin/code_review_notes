@@ -20,7 +20,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Certain Code Fragments Should Not Throw Exceptions](#certain-code-fragments-should-not-throw-exceptions)
   + [C++ Exception Specifications](#c-exception-specifications)
   + [C++ Exceptions: TODO](#c-exceptions-todo)
-+ [Curious Questions](#curious-fragments-and-questions)
++ [Curious Fragments and Questions](#curious-fragments-and-questions)
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
