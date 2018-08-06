@@ -1,6 +1,29 @@
 The fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
++ [const T vs. T const (aka `const West` vs. `East const`)](#const-t-vs-t-const-aka-const-west-vs-east-const)
++ [Know the Danger of `printf()` and Similar Functions]()
++ [Nested (Local) Functions]()
++ [Distinguish Between Size and Length]()
++ [The `Clone()` member function (or Virtual Copy Constructor)]()
++ [Know About the Compiler's Resource Allocation and Deallocation Order]()
++ [System Calls Failing with `EINTR`]()
++ [Variable Length Arrays are C99 Feature, But Not C++]()
++ [Know the Special Member Functions]()
+  + [Know All the Effects of the Empty Destructor]()
+  + [There Should Be a Strong Reason for Writing the Destructor]()
+  + [Know the Peculiarities of Writing the Assignment Operator]()
++ [Inlining]()
++ [Know the Danger of Overflowing (and Underflowing) the Signed Types]()
++ [Info Sources About the Exceptions]()
+  + [Certain Code Fragments Should Not Throw Exceptions]()
+  + [C++ Exception Specifications]()
+  + [C++ Exceptions: TODO]()
++ [Curious Questions]()
+  + [In Which Cases Do the Constructors of an Abstract Class Need to Be `public`?]()
+
+
+----
 const T vs. T const (aka `const West` vs. `East const`)
 -
 __Story, Grounds, and Mechanism:__  
