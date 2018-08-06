@@ -26,7 +26,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 ----
 Overload Resolution
 -
-`2018.??.??` [[C++TCG]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. _C++ Templates: The Complete Guide_ (2nd Edition), Appendix C: Overload Resolution, paper page 681.
+`2018.??.??` [[C++TCG]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md) David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. _C++ Templates: The Complete Guide_ (2nd Edition), _Appendix C: Overload Resolution_, paper pages 681 - 696.
 
 const T vs. T const (aka `const West` vs. `East const`)
 -
