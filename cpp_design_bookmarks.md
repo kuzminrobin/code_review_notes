@@ -266,7 +266,7 @@ Also:
 
 __See Also:__
 * Search for "reverse order" in the C++ Standard.
-* [g++ man page](http://man7.org/linux/man-pages/man1/gcc.1.html): `-Wreorder`/`-Werror=reorder`.
+* [g++ man page](http://man7.org/linux/man-pages/man1/gcc.1.html) (or [here](https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Dialect-Options.html#C_002b_002b-Dialect-Options) and [here](https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html)): `-Wreorder`/`-Werror=reorder`.
 
 System Calls Failing with EINTR
 -
