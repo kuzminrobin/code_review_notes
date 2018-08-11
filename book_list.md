@@ -32,7 +32,7 @@ __`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](htt
 `2000.??.??` [C++PLSE] B. Stroustrup. The C++ Programming Language, Special Edition (Addison-Wesley, 2000).  
 `2000.??.??` [GP:MT&A] Krzysztof Czarnecki, Ulrich Eisenecker. _Generative Programming: Methods, Tools, and Applications_. Reading, MA: Addison-Wesley ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?  
 `2000.??.??` [ACE] Douglas C. Schmidt. _The ADAPTIVE Communication Environment (ACE)_. Available at http://www.cs.wustl.edu/~schmidt/ACE.html ([MC++D] Bibliography).  
-`2001.02.01` __[MC++D]__ [Andrei Alexandrescu. _Modern C++ Design: Generic Programming and Design Patterns Applied_ (1st Edition)](https://www.amazon.com/Modern-Design-Generic-Programming-Patterns/dp/0201704315).  
+`2001.02.01` __[MC++D]__ [Andrei Alexandrescu. _Modern C++ Design: Generic Programming and Design Patterns Applied_ (1st Edition)](https://www.amazon.com/Modern-Design-Generic-Programming-Patterns/dp/0201704315). Appendix: [Loki libray](http://erdani.com/index.php/articles/) (search for "Loki"), local copy: [loki-0.1.7.zip](https://github.com/kuzminrobin/code_review_notes/raw/master/local_copies/loki-0.1.7.zip) (2018.08.10).  
 `2001.??.??` [STLT&RG2] [David R. Musser, Gillmer J. Derge, Atul Saini. _STL Tutorial and Reference Guide: C++ Programming with the Standard Template Library_ (2nd Edition)](https://www.amazon.com/STL-Tutorial-Reference-Guide-Addison-Wesley/dp/0321702123) ([EMC++] Front List).  
 `2001.??.??` __[ESTL]__ [Scott Meyers. _Effective STL: 50 Specific Ways to Improve Your Use of the Standard Template Library_ (1st Edition)](https://www.amazon.com/gp/product/0201749629?ie=UTF8tag=aristeia.com-20linkCode=as2camp=1789creative=9325creativeASIN=0201749629).  
 `2001.12.??` [BGL] [Jeremy G. Siek, Lie-Quan Lee, Andrew Lumsdaine. _The Boost Graph Library: User Guide and Reference Manual_](https://www.amazon.com/Boost-Graph-Library-Reference-Manual/dp/0201729148) ([MC++D] Front List).  
@@ -47,7 +47,7 @@ __`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](htt
 `2010.??.??` [D] Andrei Alexandrescu. _The D Programming Language_.  
 `2012.??.??` __[C++CinA]__ [Anthony Williams. _C++ Concurrency in Action_ (1st Edition)](https://www.manning.com/books/c-plus-plus-concurrency-in-action).  
 `2014.11.07` __[EMC++]__ Scott Meyers. [_Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).  
-`2017.09.28` [MC++17STL] Arthur O'Dwyer. [Mastering the C++17 STL: Make full use of the standard library components in C++17](https://www.amazon.com/Mastering-17-STL-standard-components/dp/178712682X/ref=sr_1_1_sspa?ie=UTF8&qid=1533959022&sr=8-1-spons&keywords=mastering+the+c%2B%2B17+stl&psc=1).  
+`2017.09.28` [MC++17STL] Arthur O'Dwyer. [Mastering the C++17 STL: Make full use of the standard library components in C++17](https://www.amazon.com/Mastering-17-STL-standard-components/dp/178712682X/ref=sr_1_1_sspa?ie=UTF8&qid=1533959022&sr=8-1-spons&keywords=mastering+the+c%2B%2B17+stl&psc=1) (CppCon 2018).  
 `2018.??.??` _[C++TCG]_ David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. [_C++ Templates: The Complete Guide (2nd Edition)_](http://www.tmplbook.com/index.html).  
  
 ---
