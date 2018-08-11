@@ -46,7 +46,8 @@ __`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](htt
 `2005.??.??` __[EC++3]__ [Scott Meyers. _Effective C++: 55 Specific Ways to Improve Your Programs and Designs_ (3rd Edition)](https://www.amazon.com/gp/product/0321334876?ie=UTF8&tag=aristeia.com-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321334876).  
 `2010.??.??` [D] Andrei Alexandrescu. _The D Programming Language_.  
 `2012.??.??` __[C++CinA]__ [Anthony Williams. _C++ Concurrency in Action_ (1st Edition)](https://www.manning.com/books/c-plus-plus-concurrency-in-action).  
-`2014.11.07` __[EMC++]__ [Scott Meyers. _Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).  
+`2014.11.07` __[EMC++]__ Scott Meyers. [_Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).  
+`2017.09.28` [MC++17STL] Arthur O'Dwyer. [Mastering the C++17 STL: Make full use of the standard library components in C++17](https://www.amazon.com/Mastering-17-STL-standard-components/dp/178712682X/ref=sr_1_1_sspa?ie=UTF8&qid=1533959022&sr=8-1-spons&keywords=mastering+the+c%2B%2B17+stl&psc=1).  
 `2018.??.??` _[C++TCG]_ David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. [_C++ Templates: The Complete Guide (2nd Edition)_](http://www.tmplbook.com/index.html).  
  
 ---
