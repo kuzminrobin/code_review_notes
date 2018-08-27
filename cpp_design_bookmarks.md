@@ -386,6 +386,7 @@ __Broader Picture:__
     * Search for "smart" in the e-book
   * C++98/03: [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) _Item 28: Smart pointers_ (and other items referred to in Item 28).
   * C++11/14: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Chapter 4. Smart Pointers
+  * [Boost.SmartPtr: The Smart Pointer Library](https://www.boost.org/doc/libs/1_68_0/libs/smart_ptr/doc/html/smart_ptr.html).
 * Smart Resource Releasers: C++98/03: [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20001201-gcwywescf-andrei-alexandrescu-and-petru-marginean-generic-change-the-way-you-write-exception-safe-code--forever-dr-dobbs-december-01-2000).
 
 Polymorphic Behavior of Non-Virtual Destructor
