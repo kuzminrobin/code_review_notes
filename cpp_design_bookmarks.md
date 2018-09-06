@@ -305,7 +305,8 @@ do
                              // and the execution reaches this line.
             default:
                 ASSERT(.."Unknown or Unhandled Failure! "
-                       "Bug in our code or system call API has changed. errno: %d (%s)." .. errNum, strerror(errNum) ..);
+                       "Bug in our code or system call API has changed. errno: %d (%s)." 
+                       .. errNum, strerror(errNum) ..);
                 return NULL;
         }
     }
@@ -314,7 +315,8 @@ do
     else // (retVal <= (-2))
     {
         ASSERT(.."System call has returned an undocumented value, "
-               "Bug in system call or API has changed. retVal: %d, errno: %d (%s)." .. retVal, errNum, strerror(errNum) ..);
+               "Bug in system call or API has changed. retVal: %d, errno: %d (%s)." 
+               .. retVal, errNum, strerror(errNum) ..);
         return NULL;
     }
 }   
