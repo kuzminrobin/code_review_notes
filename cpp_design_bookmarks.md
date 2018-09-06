@@ -293,22 +293,30 @@ do
         {
             case EINTR:
                 .. // Adjust the time-out.
-                continue;
+                continue; // Skip to the end of the loop body and repeat the iteration.
             case ENOMEM:
                 WARN(..);
-                .. // Failure Handling.
-                return NULL;
+                .. // Memory allocation Failure Handling.
+                return NULL; 
             case EBADF:
             case EINVAL:
-                ASSERT(.."Bug in our code! .." .. errNum ..);
-                return NULL;
+                ASSERT(.."Bug in our code! errno: %d (%s)." .. errNum, strerror(errNum) ..);
+                return NULL; // If NDEBUG is defined (Release Version) then the ASSERT() above is ignored
+                             // and the execution reaches this line.
             default:
-                ASSERT(.."Unknown or Unhandled Failure!" .. errNum ..);
+                ASSERT(.."Unknown or Unhandled Failure! "
+                       "Bug in our code or system call API has changed. errno: %d (%s)." .. errNum, strerror(errNum) ..);
                 return NULL;
         }
     }
-    else
+    else if(retVal >= 0)
         break;  // Exit from the `while()` loop.
+    else // (retVal <= (-2))
+    {
+        ASSERT(.."System call has returned an undocumented value, "
+               "Bug in system call or API has changed. retVal: %d, errno: %d (%s)." .. retVal, errNum, strerror(errNum) ..);
+        return NULL;
+    }
 }   
 while(1);
 ```
