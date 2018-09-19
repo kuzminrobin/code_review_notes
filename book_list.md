@@ -50,7 +50,7 @@ __`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](htt
 `2014.11.07` __[EMC++]__ Scott Meyers. [_Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).  
 `2017.08.30` [BC++ADC2] Antony Polukhin. [Boost C++ Application Development Cookbook - Second Edition: Recipes to simplify your application development](https://www.amazon.com/Boost-Application-Development-Cookbook-application/dp/1787282244/ref=sr_1_2?ie=UTF8&qid=1533973003&sr=8-2&keywords=Boost+C%2B%2B+Application+Development+Cookbook).  
 `2017.09.28` [MC++17STL] Arthur O'Dwyer. [Mastering the C++17 STL: Make full use of the standard library components in C++17](https://www.amazon.com/Mastering-17-STL-standard-components/dp/178712682X/ref=sr_1_1_sspa?ie=UTF8&qid=1533959022&sr=8-1-spons&keywords=mastering+the+c%2B%2B17+stl&psc=1) (CppCon 2018).  
-`2018.??.??` _[C++TCG]_ David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. [_C++ Templates: The Complete Guide (2nd Edition)_](http://www.tmplbook.com/index.html).  
+`2018.??.??` <a name="C++TCG"></a>_[C++TCG]_ David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. [_C++ Templates: The Complete Guide (2nd Edition)_](http://www.tmplbook.com/index.html).  
  
 ---
 Extracted from:  
