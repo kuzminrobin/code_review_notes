@@ -36,7 +36,7 @@ __Story, Grounds, and Mechanism:__
 `1998.06.??` [[pcd]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-199806-pcd-dan-saks-placing-const-in-declarations-embedded-systems-programming-june-1998) Dan Saks. _Placing `const` in Declarations_. Embedded Systems Programming, JUNE 1998.  
 
 __Where It Can Matter:__  
-`2018.??.??` [[C++TCG]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. _C++ Templates: The Complete Guide_ (2nd Edition), section _Some Remarks About Programming Style_, paper pages _xxxi - xxxii_.  
+`2018.??.??` [[C++TCG]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C++TCG) David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. _C++ Templates: The Complete Guide_ (2nd Edition), section _Some Remarks About Programming Style_, paper pages _xxxi - xxxii_.  
 `2011.09.26` [[scs]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#heavy_check_mark-20110926-scs-dan-saks-simplifying-const-syntax-drdobbs-september-26-2011) Dan Saks. _Simplifying `const` Syntax_. Dr.Dobb's, September 26, 2011.  
 
 __Videos:__  
