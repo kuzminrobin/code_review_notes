@@ -22,12 +22,12 @@ This is a list of C++ (and other system programming) books _sorted by publicatio
 Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).  
 `1998.??.??` [C++P3] S. Lippmn and J. Lajoie. C++ Primer, 3rd Edition (Addison-Wesley, 1998).  
 `1998.??.??` [PH] John Vlissides. _Pattern Hatching_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
-__`1998.09.01`__ [C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C++_](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents) (ISO and ANSI C++ standard).__ ([MExcC++] Bibliography)  
+__`1998.09.01`__ [C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C++_](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents)__ (ISO and ANSI C++ standard). ([MExcC++] Bibliography)  
 `1999.02.12` [ACPwC++] [Michi Henning, Steve Vinoski. _Advanced CORBA® Programming with C++_](https://www.amazon.com/Advanced-CORBA%C2%AE-Programming-Michi-Henning/dp/0201379279) ([EMC++] Front List).  
 `1999.??.??` [GP&STL] [Matthew H. Austern. _Generic Programming and the STL: Using and Extending the C++ Standard Template Library_ (1st Edition)](https://www.amazon.com/Generic-Programming-STL-Extending-Standard/dp/0201309564) ([EMC++] Front List).  
 `1999.??.??` [EC++CD] Scott Meyers. _Effective C++ CD: 85 Specific Ways to Improve Your Programs and Designs_ (Addison-Wesley, 1999).  
 `1999.11.18` __[ExcC++]__ [Herb Sutter. _Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions_](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622).  
-__`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents) (ISO C standard).__  
+__`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents)__ (ISO C standard).  
 `2000.??.??` [AC++] [Andrew Koenig, Barbara E. Moo. _Accelerated C++: Practical Programming by Example_ (1st Edition)](https://www.amazon.com/Accelerated-C-Practical-Programming-Example/dp/020170353X) ([MC++D] Front List).  
 `2000.??.??` [C++PLSE] B. Stroustrup. The C++ Programming Language, Special Edition (Addison-Wesley, 2000).  
 `2000.??.??` [GP:MT&A] Krzysztof Czarnecki, Ulrich Eisenecker. _Generative Programming: Methods, Tools, and Applications_. Reading, MA: Addison-Wesley ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?  
@@ -45,7 +45,10 @@ __`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](htt
 `2004.12.10` [C++TM] [David Abrahams, Aleksey Gurtovoy. _C++ Template Metaprogramming: Concepts, Tools, and Techniques from Boost and Beyond_ (1st Edition)](https://www.amazon.com/Template-Metaprogramming-Concepts-Techniques-Beyond/dp/0321227255) ([MC++D] Front List).  
 `2005.??.??` <a name="EC++3"></a>__[EC++3]__ [Scott Meyers. _Effective C++: 55 Specific Ways to Improve Your Programs and Designs_ (3rd Edition)](https://www.amazon.com/gp/product/0321334876?ie=UTF8&tag=aristeia.com-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321334876).  
 `2010.??.??` [D] Andrei Alexandrescu. _The D Programming Language_.  
+__`2011.04.12`__ <a name="C11_N1570"></a>[C11_N1570] __ISO/IEC 9899:201x, [Programming languages — C](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents)__ (ISO C standard, Committee Draft).  
 `2012.01.??` <a name="C++PP"></a>[C++PP] Stephen Prata. [_C++ Primer Plus (Sixth Edition)_](https://www.amazon.com/Primer-Plus-6th-Developers-Library/dp/0321776402).  
+__`2012.05.23`__ <a name="ANSI_C11"></a>[ANSI_C11] __INCITS/ISO/IEC 9899-2011[2012]. Information technology — Programming
+languages — C__ (ANSI copy of [C11]).  
 `2012.??.??` __[C++CinA]__ [Anthony Williams. _C++ Concurrency in Action_ (1st Edition)](https://www.manning.com/books/c-plus-plus-concurrency-in-action).  
 `2013.08.26` [BC++ADC] Antony Polukhin. [Boost C++ Application Development Cookbook: Over 80 practical, task-based recipes to create applications using Boost libraries](https://www.amazon.com/Boost-C-Application-Development-Cookbook/dp/1849514887/ref=sr_1_4?ie=UTF8&qid=1533973003&sr=8-4&keywords=Boost+C%2B%2B+Application+Development+Cookbook).  
 `2014.11.07` __[EMC++]__ Scott Meyers. [_Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).  
