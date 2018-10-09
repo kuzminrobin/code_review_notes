@@ -42,7 +42,8 @@ TODO: `Janitor` class.
 ##### :heavy_check_mark: `2015.??.??` _[e&su]_ [MSDN. _Exceptions and Stack Unwinding in C++_](https://msdn.microsoft.com/en-us/library/hh254939.aspx) (from [t15c++ehm]).  
 ##### :heavy_check_mark: `2016.03.23` _[crto]_ [Jacek Galowicz. _Const References to Temporary Objects_](https://blog.galowicz.de/2016/03/23/const_reference_to_temporary_object/).  
 ##### :heavy_check_mark: `2016.08.03` _[t15c++ehm]_ [Deb Haldar. _Top 15 C++ Exception handling mistakes and how to avoid them_](http://www.acodersjourney.com/2016/08/top-15-c-exception-handling-mistakes-avoid/) (from [here](https://blog.tartanllama.xyz/optional-expected/)).
-`2018.00.??` <a name="dsa"></a>__[dsa]__ ?. _[How does dynamic stack allocation work in C, specifically regarding variable-length arrays?](https://www.quora.com/How-does-dynamic-stack-allocation-work-in-C-specifically-regarding-variable-length-arrays)_
+`2018.09.??` <a name="dsa"></a>__[dsa]__ ?. _[How does dynamic stack allocation work in C, specifically regarding variable-length arrays?](https://www.quora.com/How-does-dynamic-stack-allocation-work-in-C-specifically-regarding-variable-length-arrays)_  
+`2018.02.23` <a name="ynovlas"></a>__[ynovlas]__ Ken Gregg. [Why doesn't C++ support variable length arrays (VLAs)?](https://blog.bytellect.com/software-development/cplusplus/why-doesnt-c-support-variable-length-arrays-vlas/)  
 
 ### Unknown Date
 ##### :white_large_square: [c++s&tfaq] B. Stroustrup. "C++ Style and Technique FAQ". Dead link: http://www.gotw.ca/publications/mxc++/bs_constraints.htm. ([MExcC++] Bibliography)  
