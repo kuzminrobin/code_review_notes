@@ -346,12 +346,25 @@ Thus strictly speaking the Variable Length Arrays are not a C++ feature as of C+
 __Reasons:__  
 One of the reasons why the Variable Length Arrays are not a C++ feature is the fact that C++ in general does not encourage the C-style arrays. Some other reasons are connected with uses in C++ different than in C, e.g. the arrays inside of classes, arrays of class instances, references to arrays, etc. See more details in the "See Also" section.
 
-__Future:__  
-There is an ongoing discussion about the alternatives for the Variable Length Arrays. See [[P0785R0] Runtime-sized arrays and a C++ wrapper](http://open-std.org/JTC1/SC22/WG21/docs/papers/2017/p0785r0.html), [[n3810] Alternatives for Array Extensions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3810.pdf).
+Some more reasons are listed in [[ynovlas]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#ynovlas) _Why doesn't C++ support variable length arrays (VLAs)?_  
 
+__Future:__  
+* C++: There is an ongoing discussion about the alternatives for the Variable Length Arrays. See 
+  * [[P0785R0] Runtime-sized arrays and a C++ wrapper](http://open-std.org/JTC1/SC22/WG21/docs/papers/2017/p0785r0.html),
+  * [[n3810] Alternatives for Array Extensions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3810.pdf).  
+* C:  
+  * [[dsa]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#dsa): _Now, keep in mind that VLAs are effectively “on the way out” of the C language. Although they have been present in the standard since C99, in C11 they have been demoted to an “optional” feature. Many compiler implementations never implemented VLAs, and many never will. C++ doesn’t support VLAs, and those compilers that do provide them do so as a non-standard extension. So, if you’re interested in writing highly portable C code, or code that will likely be migrated to C++, VLAs should be off the table, even if your compiler just happens to support them._  
+  * [[ANSI_C11]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#ANSI_C11), [[C11_N1570]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C11_N1570):  
+    * 6.7.6.2 Array declarators. 4. _Variable length arrays are a conditional feature that implementations need not support_.  
+    * Foreword. 6. _Major changes from the previous edition include:  
+— conditional (optional) features (including some that were previously mandatory)_.  
+    * 6.10.8.3 Conditional feature macros. 1. _`__STDC_NO_VLA__` The integer constant 1, intended to indicate that the implementation does not support variable length arrays or variably modified types_.  
 
 __See Also:__
 * [C99], search for "variable length".
+* [[ANSI_C11]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#ANSI_C11), [[C11_N1570]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C11_N1570), search for "variable length", "conditional feature".  
+* [[dsa]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#dsa) How does dynamic stack allocation work in C, specifically regarding variable-length arrays?  
+* [[ynovlas]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#ynovlas) Why doesn't C++ support variable length arrays (VLAs)?  
 * [g++](http://man7.org/linux/man-pages/man1/gcc.1.html): `-Wvla`, `-Wvla-larger-than=n`.
 * [[P0785R0] Runtime-sized arrays and a C++ wrapper](http://open-std.org/JTC1/SC22/WG21/docs/papers/2017/p0785r0.html).
 * [[n3810] Alternatives for Array Extensions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3810.pdf).
