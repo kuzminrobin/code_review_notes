@@ -10,6 +10,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 + [Know About the Compiler's Resource Allocation and Deallocation Order](#know-about-the-compilers-resource-allocation-and-deallocation-order)
 + [System Calls Failing with `EINTR`](#system-calls-failing-with-eintr)
 + [Variable Length Arrays are C99 Feature, But Not C++](#variable-length-arrays-are-c99-feature-but-not-c)
++ [Know the Danger of `alloca()`](#know-the-danger-of-alloca)
 + [Know the Special Member Functions](#know-the-special-member-functions)
   + [Know All the Effects of the Empty Destructor](#know-all-the-effects-of-the-empty-destructor)
   + [There Should Be a Strong Reason for Writing the Destructor](#there-should-be-a-strong-reason-for-writing-the-destructor)
