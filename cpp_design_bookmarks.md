@@ -369,6 +369,86 @@ __See Also:__
 * [[P0785R0] Runtime-sized arrays and a C++ wrapper](http://open-std.org/JTC1/SC22/WG21/docs/papers/2017/p0785r0.html).
 * [[n3810] Alternatives for Array Extensions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3810.pdf).
 
+Know the Danger of `alloca()`
+-
+The `alloca()` function allocates the space on the stack by adjusting the stack pointer and returns the pointer to the allocated block. The allocation is released upon _function return_ but _not when the allocation goes out of scope_. Thus if the `malloca()` is called in the loop then each loop iteration allocates more and more space on the stack which _can easily cause the stack overflow_.
+
+Such a behavior is fundamentally differnt from the behavior of its counterparts -  
+the ordinary arrays (whose number of elements is specified with a compile-time constant),  
+and the [variable length arrays](#variable-length-arrays-are-c99-feature-but-not-c) (whose number of elements is specified with a run-time value).  
+Both of these couterparts _reuse_ the space on the stack during each iteration of the loop.
+
+The other problem with `alloca()` is that it is _non-standard_. The [variable length arrays](#variable-length-arrays-are-c99-feature-but-not-c) seem to be a better alternative since they are standard in at least [C99] and conditional (optional) in [C11].
+
+__Demonstration in C__
+```c
+#include <stdio.h>
+#include <alloca.h>
+
+void F(void)
+{
+  // Do the loop having the `alloca()`:
+  printf("alloca():\n");
+  {
+    int i = 0;
+    do
+    {
+      char a = 'a';
+      void *p = alloca(0xF0);
+      int b = 1;
+
+      printf("&i == %p; &a == %p; p == %p; &b == %p\n", &i, &a, p, &b);
+    }
+    while(++i < 3);
+  }
+
+  // Try to reuse the stack:
+  printf("alloca() repeated:\n");
+  {
+    int i = 0;
+    do
+    {
+      char a = 'a';
+      void *p = alloca(0xF0);
+      int b = 1;
+
+      printf("&i == %p; &a == %p; p == %p; &b == %p\n", &i, &a, p, &b);
+    }
+    while(++i < 3);
+  }
+}
+
+int main(void)
+{
+  F();
+  return 0;
+}
+```
+```bash
+# Save as `alloca.c`.
+make alloca
+# cc     alloca.c   -o alloca
+./alloca 
+# alloca():
+# &i == 0x7ffc5c2a2790; &a == 0x7ffc5c2a278f; p == 0x7ffc5c2a2680; &b == 0x7ffc5c2a2794
+# &i == 0x7ffc5c2a2790; &a == 0x7ffc5c2a278f; p == 0x7ffc5c2a2580; &b == 0x7ffc5c2a2794
+# &i == 0x7ffc5c2a2790; &a == 0x7ffc5c2a278f; p == 0x7ffc5c2a2480; &b == 0x7ffc5c2a2794
+# alloca() repeated:
+# &i == 0x7ffc5c2a2790; &a == 0x7ffc5c2a278f; p == 0x7ffc5c2a2380; &b == 0x7ffc5c2a2794
+# &i == 0x7ffc5c2a2790; &a == 0x7ffc5c2a278f; p == 0x7ffc5c2a2280; &b == 0x7ffc5c2a2794
+# &i == 0x7ffc5c2a2790; &a == 0x7ffc5c2a278f; p == 0x7ffc5c2a2180; &b == 0x7ffc5c2a2794
+cc --version
+# cc (Ubuntu 5.4.0-6ubuntu1~16.04.10) 5.4.0 20160609
+```
+The demonstration shows that all the variables reuse the space on the stack (stay at the same addresses) in different iterations and in different loops, but the allocation made with `alloca()` and pointed to by the `p` pointer _changes_ (consumes more and more space on the stack).
+
+The `alloca()` function is described in Linux man pages (e.g. [here](http://man7.org/linux/man-pages/man3/alloca.3.html), [here](https://linux.die.net/man/3/alloca)) and [MSDN page for `alloca()`](https://docs.microsoft.com/en-us/cpp/build/alloca?view=vs-2017) (which referes to [`_alloca()`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/alloca?view=vs-2017)).
+
+Thanks to [Andrey Karpov](https://www.viva64.com/en/b/a/andrey-karpov/) for explaining and demonstrating this.
+
+__More info__
+* PVS-Studio Diagnostics [V505](https://www.viva64.com/en/w/v505/). The 'alloca' function is used inside the loop. This can quickly overflow stack.  
+
 Know the Special Member Functions
 -
 * C++98/03: [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md) Chapter 2: Constructors, Destructors, and Assignment Operators.
