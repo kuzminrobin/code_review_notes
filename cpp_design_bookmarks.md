@@ -381,7 +381,7 @@ Both of these couterparts _reuse_ the space on the stack during each iteration o
 
 The other problem with `alloca()` is that it is _non-standard_. The [variable length arrays](#variable-length-arrays-are-c99-feature-but-not-c) seem to be a better alternative since they are standard in at least [C99] and conditional (optional) in [C11].
 
-__Demonstration in C__
+__Demonstration in C:__
 ```c
 #include <stdio.h>
 #include <alloca.h>
@@ -447,7 +447,7 @@ The `alloca()` function is described in Linux man pages (e.g. [here](http://man7
 
 Thanks to [Andrey Karpov](https://www.viva64.com/en/b/a/andrey-karpov/) for explaining and demonstrating this.
 
-__More info__
+__More Info:__
 * PVS-Studio Diagnostics [V505](https://www.viva64.com/en/w/v505/). The 'alloca' function is used inside the loop. This can quickly overflow stack.  
 * [gcc](http://man7.org/linux/man-pages/man1/gcc.1.html): `-Walloca`, `-Walloca-larger-than=n` (`This option also warns when "alloca" is used in a loop`), `-fstack-protector` (`Emit extra code to check for buffer overflows, such as stack            smashing attacks`), `-mwarn-dynamicstack` (`Emit a warning if the function calls "alloca" ..`), search for `alloca`.
 
