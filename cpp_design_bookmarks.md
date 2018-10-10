@@ -366,7 +366,7 @@ __See Also:__
 * [[ANSI_C11]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#ANSI_C11), [[C11_N1570]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C11_N1570), search for "variable length", "conditional feature".  
 * [[dsa]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#dsa) How does dynamic stack allocation work in C, specifically regarding variable-length arrays?  
 * [[ynovlas]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#ynovlas) Why doesn't C++ support variable length arrays (VLAs)?  
-* [g++](http://man7.org/linux/man-pages/man1/gcc.1.html): `-Wvla`, `-Wvla-larger-than=n`.
+* [gcc](http://man7.org/linux/man-pages/man1/gcc.1.html): `-Wvla`, `-Wvla-larger-than=n`.
 * [[P0785R0] Runtime-sized arrays and a C++ wrapper](http://open-std.org/JTC1/SC22/WG21/docs/papers/2017/p0785r0.html).
 * [[n3810] Alternatives for Array Extensions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3810.pdf).
 
@@ -449,6 +449,7 @@ Thanks to [Andrey Karpov](https://www.viva64.com/en/b/a/andrey-karpov/) for expl
 
 __More info__
 * PVS-Studio Diagnostics [V505](https://www.viva64.com/en/w/v505/). The 'alloca' function is used inside the loop. This can quickly overflow stack.  
+* [gcc](http://man7.org/linux/man-pages/man1/gcc.1.html): `-Walloca`, `-Walloca-larger-than=n` (`This option also warns when "alloca" is used in a loop`), `-fstack-protector` (`Emit extra code to check for buffer overflows, such as stack            smashing attacks`), `-mwarn-dynamicstack` (`Emit a warning if the function calls "alloca" ..`), search for `alloca`.
 
 Know the Special Member Functions
 -
