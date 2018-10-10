@@ -331,7 +331,7 @@ Variable Length Arrays are C99 Feature, But Not C++
 -
 This item is applicable to (_strictly_) _Standard C++_ only.
 
-Variable Length Arrays are the arrays whose length (number of elements) is a _run-time_ value (as opposed to _compile-time_ value). E.g.
+Variable Length Arrays are the arrays whose length (number of elements) is a _run-time_ value (as opposed to _compile-time constant_). E.g.
 ```c++
 void f(size_t runTimeValue)
 {
