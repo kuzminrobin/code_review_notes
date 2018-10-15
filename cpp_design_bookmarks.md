@@ -372,9 +372,9 @@ __See Also:__
 
 Know the Danger of `alloca()`
 -
-The `alloca()` function allocates the space on the stack by adjusting the stack pointer and returns the pointer to the allocated block. The allocation is released upon _function return_ but _not when the allocation goes out of scope_. Thus if the `malloca()` is called in the loop then each loop iteration allocates more and more space on the stack which _can easily cause the stack overflow_.
+The `alloca()` function allocates the space on the stack by adjusting the stack pointer and returns the pointer to the allocated block. The allocation is released upon _function return_ but _not when the pointer to such an allocation goes out of scope_. Thus if the `alloca()` is called in the loop then each loop iteration allocates more and more space on the stack which _can easily cause the stack overflow_.
 
-Such a behavior is fundamentally differnt from the behavior of its counterparts -  
+Such a behavior is fundamentally differnt from the behavior of its counterparts (the ones that also allocate on the stack) -  
 the ordinary arrays (whose number of elements is specified with a compile-time constant),  
 and the [variable length arrays](#variable-length-arrays-are-c99-feature-but-not-c) (whose number of elements is specified with a run-time value).  
 Both of these couterparts _reuse_ the space on the stack during each iteration of the loop.
