@@ -1,6 +1,7 @@
 ### Chronological List of _key_ C++ (and other system programming) Articles and Other Resources, Except Books
 The books are in a [separate list](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md).  
 I call _key_ those articles and resources that are referred to in the books or those that were used in the sources I dealt with.  
+
 `1994.11.09` [exc_h:fsos] [Tom Cargill. _"Exception Handling: A False Sense of Security"_](http://ptgmedia.pearsoncmg.com/images/020163371x/supplements/Exception_Handling_Article.html), C++ Report, Volume 6, Number 9, November-December 1994, pages 21-24 (more info: [MEC++]), ([C++CinA] Print resources), [local copy](https://github.com/kuzminrobin/code_review_notes/blob/master/local_copies/Exception_Handling_Article.html).  
 `1995.02.??` [rtp] James O. Coplien. _The column without a name: A curiously recurring template pattern_. C++ Report, February ([MC++D] Bibliography).  
 `1995.05.??` [tm] [Todd Veldhuizen. _Template metaprograms_](http://extreme.indiana.edu/~tveldhui/papers/Template-Metaprograms/meta-art.html) (Forbidden, No Permission), C++ Report, May ([MC++D] Bibliography).  
