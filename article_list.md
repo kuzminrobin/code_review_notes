@@ -12,9 +12,9 @@ I call _key_ those articles and resources that are referred to in the books or t
 `1997.10.??` [ctaic++] [Kevin S. Van Horn. _Compile-time assertions in C++_](http://www.xmission.com/~ksvhsoft/ctassert/ctassert.html) (dead link), C/C++ Users Journal, October ([MC++D] Bibliography).  
 `1998.04.??` [coic++] Scott Meyers. _Counting objects in C++_. C/C++ Users Journal, April ([MC++D] Bibliography).  
 `1998.05.??` [dah] B. Liskov. "Data Abstraction and Hierarchy" (SIGPLAN Notices, 23(5), May 1998).  ([MExcC++] Bibliography)  
-`1998.06.??` <a name="pcd"></a> __[pcd]__ [Dan Saks. _Placing `const` in Declarations_](https://www.dansaks.com/articles/1998-06%20Placing%20const%20in%20Declarations.pdf). Embedded Systems Programming, JUNE 1998.
-`1998.11.??` [u/rr] Al Stevens. _Undo/Redo redux_. Dr. Dobb's Journal, November ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?   
-`1999.02.??` [cci] A. Koenig. "Changing Containers Iteratively" (C++ Report, 11(2), February 1999). ([MExcC++] Bibliography)
+`1998.06.??` <a name="pcd"></a> __[pcd]__ [Dan Saks. _Placing `const` in Declarations_](https://www.dansaks.com/articles/1998-06%20Placing%20const%20in%20Declarations.pdf). Embedded Systems Programming, JUNE 1998.  
+`1998.11.??` [u/rr] Al Stevens. _Undo/Redo redux_. Dr. Dobb's Journal, November ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?  
+`1999.02.??` [cci] A. Koenig. "Changing Containers Iteratively" (C++ Report, 11(2), February 1999). ([MExcC++] Bibliography)  
 `1999.02.??` <a name="ctvtc"></a> __[ctvtc]__ [Dan Saks. _const T vs. T const_](http://www.dansaks.com/articles/1999-02%20const%20T%20vs%20T%20const.pdf). Embedded Systems Programming, FEBRUARY 1999.  
 `1999.03.??` [t&mrvic++] Jaakko Järvi. _Tuples and Multiple Return Values in C++_. TUCS Technical Report No. 249, March ([MC++D] Bibliography).  
 `1999.??.??` [ll] [Jaakko Järvi. _The Lambda Library_](http://lambda.cs.utu.fi) (dead link) ([MC++D] Bibliography).  
@@ -30,17 +30,17 @@ I call _key_ those articles and resources that are referred to in the books or t
 `2000.10.??` [osoisc] T. Niec. "Optimizing Substring Operations in String Classes" (C/C++ Users Journal, 18(10), October 2000).  
 `2000.12.01` <a name="gcwywescf"></a> __[gcwywescf]__ Andrei Alexandrescu and Petru Marginean. ["Generic: Change the Way You Write Exception-Safe Code — Forever"](http://www.drdobbs.com/cpp/generic-change-the-way-you-write-excepti/184403758). Dr. Dobb's, December 01, 2000.  
 The `ScopeGuard` has been integrated into the Loki library, see [[MC++D]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#[MC++D]).  
-TODO: `Janitor` class.
-`2001.09.??` [v] H. Sutter. "Virtuality" (C/C++ Users Journal, 19(9), September 2001).  ([MExcC++] Bibliography)
+TODO: `Janitor` class.  
+`2001.09.??` [v] H. Sutter. "Virtuality" (C/C++ Users Journal, 19(9), September 2001).  ([MExcC++] Bibliography)  
 `2002.07.??` <a name="pl@es"></a> __[pl@es]__ [Herb Sutter. _A Pragmatic Look at Exception Specifications_](http://www.gotw.ca/publications/mill22.htm) (referred to from [t15c++ehm]).  
 `2002-2004 ` <a name="eses"></a> __[eses]__ [Herb Sutter. _Exception Safety and Exception Specifications: Are They Worth It?_](http://www.gotw.ca/gotw/082.htm).  
 `2005.03.??` [fttc] [Herb Sutter. _The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software_](http://www.gotw.ca/publications/concurrency-ddj.htm), Dr. Dobb’s Journal 30, no. 3 (March 2005), [local copy](https://github.com/kuzminrobin/code_review_notes/blob/master/local_copies/turn_toward_concurrency.tar.bz2) ([C++CinA] Print resources).  
-`2010.06.24` <a name="ms1"></a> __[ms1]__ [fredoverflow. _What the Move Semantics Are. Part 1_](https://stackoverflow.com/a/3109981/6362941). See also Part 2 [ms2].
+`2010.06.24` <a name="ms1"></a> __[ms1]__ [fredoverflow. _What the Move Semantics Are. Part 1_](https://stackoverflow.com/a/3109981/6362941). See also Part 2 [ms2].  
 `2011.01.10` <a name=".eh_f"></a> [.eh_f] [Airs – Ian Lance Taylor. _.eh_frame_](https://www.airs.com/blog/archives/460) (about C++ exceptions ABI in `gcc`).  
 `2011.09.26` <a name="scs"></a> __[scs]__ [Dan Saks. _Simplifying `const` Syntax_](http://www.drdobbs.com/cpp/simplifying-const-syntax/231601151). Dr.Dobb's, September 26, 2011.  
 `2012.02.01` <a name="wnuw"></a> __[wnuw]__ PVS Articles: [Andrey Karpov. _Wade not in unknown waters. Part two_](https://www.viva64.com/en/b/0129/) (also [in Russian](https://www.viva64.com/ru/b/0129/)) (about how hackers exploit `printf()`).  
 `2012.02.25` <a name="cfpn"></a> __[cfpn]__ [brucedawson](https://randomascii.wordpress.com/author/brucedawson/). [_Comparing Floating Point Numbers, 2012 Edition_](https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/).  
-`2012.07.18` <a name="ms2"></a> __[ms2]__ [fredoverflow. _What the Move Semantics Are. Part 2_](https://stackoverflow.com/a/11540204/6362941). See also Part 1 [ms1].
+`2012.07.18` <a name="ms2"></a> __[ms2]__ [fredoverflow. _What the Move Semantics Are. Part 2_](https://stackoverflow.com/a/11540204/6362941). See also Part 1 [ms1].  
 `2015.??.??` <a name="e&su"></a> __[e&su]__ [MSDN. _Exceptions and Stack Unwinding in C++_](https://msdn.microsoft.com/en-us/library/hh254939.aspx) (from [t15c++ehm]).  
 `2016.03.23` <a name="crto"></a> __[crto]__ [Jacek Galowicz. _Const References to Temporary Objects_](https://blog.galowicz.de/2016/03/23/const_reference_to_temporary_object/).  
 `2016.08.03` <a name="t15c++ehm"></a> __[t15c++ehm]__ [Deb Haldar. _Top 15 C++ Exception handling mistakes and how to avoid them_](http://www.acodersjourney.com/2016/08/top-15-c-exception-handling-mistakes-avoid/) (from [here](https://blog.tartanllama.xyz/optional-expected/)).
