@@ -27,7 +27,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
-Comparing Floating Point Numbers
+Comparing Floating Point Numbers For [In]Equality
 -
 Here is what one needs to know before comparing the floating point numbers for [in]equality.
 * GCC's `-Wfloat-equal` option on [Options to Request or Suppress Warnings](https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html) page or [gcc man page](http://man7.org/linux/man-pages/man1/gcc.1.html).
