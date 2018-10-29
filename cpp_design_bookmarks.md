@@ -1,7 +1,7 @@
 The unsorted fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
-+ [Comparing Floating Point Numbers](#comparing-floating-point-numbers)
++ [Comparing Floating Point Numbers For [In]Equality](#comparing-floating-point-numbers-for-inequality)
 + [Overload Resolution](#overload-resolution)
 + [const T vs. T const (aka `const West` vs. `East const`)](#const-t-vs-t-const-aka-const-west-vs-east-const)
 + [Know the Danger of `printf()` and Similar Functions](#know-the-danger-of-printf-and-similar-functions)
