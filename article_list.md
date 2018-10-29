@@ -38,7 +38,7 @@ TODO: `Janitor` class.
 ##### :white_large_square: `2011.01.10` <a name=".eh_f"></a> [.eh_f] [Airs – Ian Lance Taylor. _.eh_frame_](https://www.airs.com/blog/archives/460) (about C++ exceptions ABI in `gcc`).  
 `2011.09.26` <a name="scs"></a> __[scs]__ [Dan Saks. _Simplifying `const` Syntax_](http://www.drdobbs.com/cpp/simplifying-const-syntax/231601151). Dr.Dobb's, September 26, 2011.  
 `2012.02.01` <a name="wnuw"></a> __[wnuw]__ PVS Articles: [Andrey Karpov. _Wade not in unknown waters. Part two_](https://www.viva64.com/en/b/0129/) (also [in Russian](https://www.viva64.com/ru/b/0129/)) (about how hackers exploit `printf()`).  
-`2012.02.25` <a name="cfpn"></a> __[cfpn]__ [brucedawson](https://randomascii.wordpress.com/author/brucedawson/). [_Comparing Floating Point Numbers, 2012 Edition_](https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/).
+`2012.02.25` <a name="cfpn"></a> __[cfpn]__ [brucedawson](https://randomascii.wordpress.com/author/brucedawson/). [_Comparing Floating Point Numbers, 2012 Edition_](https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/).  
 `2012.07.18` <a name="ms2"></a> __[ms2]__ [fredoverflow. _What the Move Semantics Are. Part 2_](https://stackoverflow.com/a/11540204/6362941). See also Part 1 [ms1].
 `2015.??.??` <a name="e&su"></a> __[e&su]__ [MSDN. _Exceptions and Stack Unwinding in C++_](https://msdn.microsoft.com/en-us/library/hh254939.aspx) (from [t15c++ehm]).  
 `2016.03.23` <a name="crto"></a> __[crto]__ [Jacek Galowicz. _Const References to Temporary Objects_](https://blog.galowicz.de/2016/03/23/const_reference_to_temporary_object/).  
