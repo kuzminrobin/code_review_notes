@@ -29,7 +29,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 ----
 Comparing Floating Point Numbers
 -
-Here is what one needs to know before comparing the floating point numbers.
+Here is what one needs to know before comparing the floating point numbers for [in]equality.
 * GCC's `-Wfloat-equal` option on [Options to Request or Suppress Warnings](https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html) page or [gcc man page](http://man7.org/linux/man-pages/man1/gcc.1.html).
 * [[cfpn]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#cfpn) _Comparing Floating Point Numbers, 2012 Edition_ by brucedawson.
 
