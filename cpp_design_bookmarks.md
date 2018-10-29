@@ -26,6 +26,12 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
+Comparing Floating Point Numbers
+-
+Here is what one needs to know before comparing the floating point numbers.
+* GCC's `-Wfloat-equal` option on [Options to Request or Suppress Warnings](https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html) page or [gcc man page](http://man7.org/linux/man-pages/man1/gcc.1.html).
+* [[cfpn]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#cfpn) _Comparing Floating Point Numbers, 2012 Edition_ by brucedawson.
+
 Overload Resolution
 -
 `2018.??.??` [[C++TCG]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C++TCG) David Vandevoorde, Nicolai M. Josuttis, Douglas Gregor. _C++ Templates: The Complete Guide_ (2nd Edition), _Appendix C: Overload Resolution_, paper pages 681 - 696.
