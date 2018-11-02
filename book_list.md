@@ -69,4 +69,4 @@ TODO:
 [GP:MT&A]: Is it C++ (or other system programming)?  
 
 ---
-__[HAS_BEEN_READ]__, [NOT_YET_READ], _[IS_BEING_READ]_  
+__[HAS_BEEN_READ]__, [NOT_YET_READ], _[IS_BEING_READ_OR_PARTIALLY_READ]_  
