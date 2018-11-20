@@ -46,6 +46,7 @@ TODO: `Janitor` class.
 `2016.08.03` <a name="t15c++ehm"></a> __[t15c++ehm]__ [Deb Haldar. _Top 15 C++ Exception handling mistakes and how to avoid them_](http://www.acodersjourney.com/2016/08/top-15-c-exception-handling-mistakes-avoid/) (from [here](https://blog.tartanllama.xyz/optional-expected/)).
 `2018.09.??` <a name="dsa"></a>__[dsa]__ ?. _[How does dynamic stack allocation work in C, specifically regarding variable-length arrays?](https://www.quora.com/How-does-dynamic-stack-allocation-work-in-C-specifically-regarding-variable-length-arrays)_  
 `2018.02.23` <a name="ynovlas"></a>__[ynovlas]__ Ken Gregg. [Why doesn't C++ support variable length arrays (VLAs)?](https://blog.bytellect.com/software-development/cplusplus/why-doesnt-c-support-variable-length-arrays-vlas/)  
+`2018.08.20` <a name="woioingi"></a>__[woioingi]__  Davin McCall. _[Wrap on integer overflow is not a good idea](https://davmac.wordpress.com/2018/08/20/wrap-on-integer-overflow-is-not-a-good-idea/)_. [PVS Re-Post](https://www.viva64.com/en/b/0589/) (+ in [Russian](https://www.viva64.com/ru/b/0589/)) with extra links.  
 
 ### Unknown Date
 [c++s&tfaq] B. Stroustrup. "C++ Style and Technique FAQ". Dead link: http://www.gotw.ca/publications/mxc++/bs_constraints.htm. ([MExcC++] Bibliography)  
