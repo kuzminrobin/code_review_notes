@@ -587,7 +587,8 @@ __More Info:__
 * (Expected at/after CppCon 2018) Talk/Video: JF Bastien, "[Signed integers are two's complement](http://sched.co/FnKN)".  
 * C++Now 2018 Closing Keynote: Undefined Behavior and Compiler Optimizations, _John Regehr_ ([abstract](http://sched.co/ELaF), [slides](https://github.com/boostcon/cppnow_presentations_2018/blob/master/05-11-2018_friday/undefined_behavior_and_compiler_optimizations__john_regehr__cppnow__05112018.pdf), [video](https://youtu.be/AeEwxtEOgH0)).  
 * C++Now 2014 Undefined Behavior in C++: What is it, and why do you care? _Marshall Clow_ ([video](https://www.youtube.com/watch?v=uHCLkb1vKaY)).  
-* [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) command line arguments: -fstrict-overflow, -Wstrict-overflow[=n], -Wno-overflow, -fwrapv, -fsanitize=signed-integer-overflow, -fsanitize=float-cast-overflow, -ftrapv, also search for "overflow".
+* [gcc/g++](http://man7.org/linux/man-pages/man1/gcc.1.html) command line arguments: -fstrict-overflow, -Wstrict-overflow[=n], -Wno-overflow, -fwrapv, -fsanitize=signed-integer-overflow, -fsanitize=float-cast-overflow, -ftrapv, also search for "overflow".  
+* `2018.08.20` [[woioingi](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#woioingi)] Davin McCall. _Wrap on integer overflow is not a good idea_.  
 
 Info Sources About the Exceptions
 -
