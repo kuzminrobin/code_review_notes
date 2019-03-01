@@ -466,7 +466,7 @@ Know the Special Member Functions
 
 Know All the Effects of the Empty Destructor
 -
-Some people were taught to always write the destructor just in case, even if it does nothing (is empty).
+Some people were taught to always write the destructor just in case, even if it does nothing (is empty). I aslo heard that some compilers and/or static analyzers were complaining if a class had no destructor.
 
 Starting in C++11 the explicit destructor 
 * disables the (implicit, by-compiler) generation of the move operations,
@@ -478,9 +478,11 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 
 __Broader Picture:__  
 * [Know the Special Member Functions](#know-the-special-member-functions).
-* Pimpl-Idiom-specific, when the empty destructor may be needed: [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#MExcC++):
-  + _Item 30: Smart Pointer Members, Part 1: A Problem with `auto_ptr`_, section "What About `auto_ptr` Members?", last but one paragraph on paper page 185: "If you don't want to provide the definition of Y, you must write the X2 destructor explicitly, even if it's empty".
-  + _Item 31: Smart Pointer Members, Part 2: Toward a `ValuePtr`_, section "A Simple `ValuePtr`: Strict Ownership Only", first regular paragraph: "Either the full definition of Y must accompany X, or the X destructor must be explicitly provided, even if it's empty".
+* When the empty destructor may be needed:
+  * If the destructor needs to be _virtual_ or _pure virtual_. See [[EC++3]](book_list.md#EC++3) Item 7: Declare destructors virtual in polymorphic base classes.
+  * Pimpl-Idiom-specific, [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#MExcC++):
+    + _Item 30: Smart Pointer Members, Part 1: A Problem with `auto_ptr`_, section "What About `auto_ptr` Members?", last but one paragraph on paper page 185: "If you don't want to provide the definition of Y, you must write the X2 destructor explicitly, even if it's empty".
+    + _Item 31: Smart Pointer Members, Part 2: Toward a `ValuePtr`_, section "A Simple `ValuePtr`: Strict Ownership Only", first regular paragraph: "Either the full definition of Y must accompany X, or the X destructor must be explicitly provided, even if it's empty".
 
 There Should Be a Strong Reason for Writing the Destructor
 -
