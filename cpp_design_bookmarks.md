@@ -523,19 +523,94 @@ __Broader Picture:__
 
 Inlining
 -
+I often see the code like this:
+```c++
+// Header "B.h":
+class B
+{
+// non-private:
+    void b(); // Declaration of a member function.
+};    
+```
+```c++
+// File "B.cpp":
+void B::b() // Definition of the member function.
+{ 
+    /* Very short or empty implementation. */ 
+}
+```
+Since the member function `B::b()` is very short (or empty) it can be more efficient to _inline_ that function instead of calling it.
+However if the function is declared and defined separately as shown above then the compiler, while compiling the caller, does not know the body of the function `B::b()`. For example, we have `class D` derived from `class B` shown above.
+```c++
+// Header "D.h":
+#include "B.h"
+class D : public B
+{
+    void d();
+};
+```
+```c++
+// File "D.cpp":
+#include "D.h"
+void D::d()
+{
+    b(); // Calls the inherited `B::b()`.
+}
+```
+During compilation of "D.cpp" the compiler runs the file through the preprocessor (which expands all the `#include` directives) 
+and gets the translation unit that looks about like this:
+```c++
+class B
+{
+    void b();
+};    
+class D : public B
+{
+    void d();
+};
+void D::d()
+{
+    b();
+}
+```
+When the compiler generates the code for `D::d()` the compiler does not see the body of function `B::b()` called from `D::d()` and cannot make a decision about inlining `B::b()` into the `D::d()`. That decision is either not made at all (and inlining is not done) or 
+is postponed until linking.
+In the latter case the linker knows the body of `B::b()` and has enough information to make a decision about inlining. And that will be the _linker_ who will be able to make the inlining (I call such an inlinig the _link-time inlining_).  
+We know that inlining is not guaranteed. But if inlining is done then it is likely that the _compile-time inlining_ will be more efficient than the link-time inlining. In order to encourage the compile-time inlining we should move the definition of `B::b()` to the declaration site:
+```c++
+// Header "B.h":
+class B
+{
+    // Now both declaration and definition of `B::b()`:
+    void b() { /* Very short or empty implementation. */ }
+};
+```
+and to remove the separate definion of `B::b()` from the "B.cpp":
+```diff
+1,4d0
+< void B::b() // Definition of the member function.
+< {
+<     /* Very short or empty implementation. */
+< }
+```    
+
+**Remember:**
+The short member functions are good candidates for compile-time inlining. It is likely more efficient to place their definition together with the declaration.
+
+**More about inlining:**  
 [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#EC++3):
+* Item 30: Understand the ins and outs of inlining.
 * Item 2: Prefer consts, enums, and inlines to #defines.
 * Item 5: Know what functions C++ silently writes and calls, fragment: "_All these functions will be both public and inline_".
-* Item 30: Understand the ins and outs of inlining.
 * Item 44: Factor parameter-independent code out of templates, p. 214(paper)/235(file), Fragment: "_(Provided, of course, you refrain from declaring that function inline. If it’s inlined, each instantiation of SquareMatrix::invert will get a copy of SquareMatrixBase::invert’s code (see Item 30), and you’ll find yourself back in the land of object code replication.)_".
-* Also search for `inline`, `inlining` in the file.
+* Also search for `inline`, `inlining` in the e-book.
 
 [[MEC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#MEC++):
 * Item 24: Understand the costs of virtual functions, multiple inheritance, virtual base classes, and RTTI; p.118(paper)/135(file), middle, paragraph starting with: "The real runtime cost of virtual functions has to do with their interaction with inlining. For all practical purposes, virtual functions aren’t inlined.".
 * TODO: Other `inline`, `inlining` occurrences in Item 26, and other places.
+* Also search for `inline`, `inlining` in the e-book.
 
-TODO: [ExcC++].
-
+TODO: [ExcC++].  
 To be continued.
 
 Know the Danger of Overflowing (and Underflowing) the Signed Types
