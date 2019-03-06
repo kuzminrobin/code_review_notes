@@ -1,7 +1,6 @@
 The unsorted fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
-+ [Using the `assert`](#using-the-assert)
 + [Comparing Floating Point Numbers For [In]Equality](#comparing-floating-point-numbers-for-inequality)
 + [Overload Resolution](#overload-resolution)
 + [const T vs. T const (aka `const West` vs. `East const`)](#const-t-vs-t-const-aka-const-west-vs-east-const)
@@ -28,45 +27,6 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
-Using the `assert`
--
-I often see the code similar to this:
-```c++
-void f(int *p)
-{
-  ASSERT(p != NULL);
-  *p = ..
-```
-Here with the `ASSERT()` I mean a user-defined entity (e.g. a macro, function call) that is consistent with [standard `assert`](https://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search=assert) but optionally provides some extra functionality (e.g. prints the local variables, stack trace, etc.). And with _consistent_ I mean
-* fully functional in debug version (i.e. when the `NDEBUG` macro is _not_ defined),
-* has no effect in non-debug version (i.e. when the `NDEBUG` macro _is_ defined).
-
-The code above does not take into account that after the `ASSERT()` the execution continues in at least the non-debug version, and the subsequent fragment `*p = ..` causes the null pointer access.  
-(Some implementations allow even the _debug version_ to continue the execution after the `ASSERT()`, e.g. search for "Ignore" [here](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/assert-macro-assert-wassert?view=vs-2017). Of cause such an implementation is non-standard, but if you want your code to be fully portable then you need to take into account such non-standard implementations)  
-
-As a result the solution above causes undefined behavior in the non-debug version and typically lots of noise from the static analyzers.  
-
-I would recommend using the asserts in the following manner:
-```c++
-bool f(int *p)
-{
-  if(p == NULL)
-  {
-    ASSERT(false); // The debug version still catches the bug (by printing diagnostics and aborting).
-                   // The alpha version if any may still print the diagnostics but continue the execution.
-                   // The non-debug version ignores the `ASSERT()`.
-    return false;  // The non-debug (and alpha) version does not move forward, returns failure 
-                   // (and does not cause the null pointer access).
-  }
-  *p = ..
-```
-
-__How to automate catching this:__  
-The example above shows only a single case - the use of the assert to prevent the null pointer access. In general the asserts may be used in many more cases, e.g. to prevent the write to the closed descriptor, to check the state, to assure the size of the data types. In those various cases the diagnostics of the analysis tools might not be availabe or might not hint that it is the assert that needs to be used differently. But after this post hopefully you will quickly figure that out.  
-One of the ways to automate catching the case above is  
-* [PVS-Studio](https://www.viva64.com/en/pvs-studio/):
-  * Diagnostic [V522. Dereferencing of the null pointer might take place](https://www.viva64.com/en/w/v522).
-
 Comparing Floating Point Numbers For [In]Equality
 -
 Here is what one needs to know before comparing the floating point numbers for [in]equality.
