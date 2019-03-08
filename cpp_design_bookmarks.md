@@ -28,6 +28,27 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
+Avoid Comparing Booleans to `true`
+-
+Comparing a Boolean value to `true` is unreliable.
+
+Sometimes there are cases when the integer value `0` acts as an indication of `false`. And an arbitrary non-zero integer value acts as an indication of `true` (e.g. such a value can be returned by a function). Comparing the (`true`-like) non-zero integer value to `true` (or to the user-defined constant `TRUE`) is likely to fail.
+
+If such an integer value (with Boolean-like behavior) is assigned to a `bool` variable then the [Boolean conversions](https://en.cppreference.com/w/cpp/language/implicit_conversion#Boolean_conversions) guarantee that the `bool` will still stay `false` (0) or `true` (1). However the programmers sometimes do such tricks that the unexpected value still penetrates into the `bool` variable. E.g. they copy the Boolean-like integer byte-by-byte into the `bool`. This results in an arbitrary non-zero value, acting as `true`, to be in the `bool` variable instead of `true`.  
+
+The section [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing) shows a particular example of how `bool` can get an unexpected value.
+
+__What to remember:__  
+Avoid Comparing Booleans to `true`.  
+Prefer comparing to `false` (`== false`, `!= false`) or comparing like this: `if(boolVar)`, `if( ! boolVar)`.
+
+__How to automate catching this:__  
+In progress...  
+
+__How to forse the bugs caused by this to show themselves:__  
+In progress...  
+See the corresponding part of the [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing) section.
+
 Know the Limitations of `memset()` When Initializing
 -
 The problem can show itself in the code like this:
