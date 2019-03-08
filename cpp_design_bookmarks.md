@@ -27,6 +27,67 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
+Know the Limitations of `memset()` When Initializing
+-
+The problem can show itself in the code like this:
+```c++
+typedef enum
+{
+    ID_A,
+    ..
+    ID_D,
+    ID_IDLE  // Let's say this value is 4.
+}
+ENUM_TYPE;
+
+ENUM_TYPE myEnumArray[2]; // Array of enumerations.
+bool myBoolArray[3];      // Array of Booleans.
+
+// Initialize all the items of `myEnumArray` to `ID_IDLE`:
+memset(myEnumArray, ID_IDLE, sizeof(myEnumArray));
+
+// Initialize all the items of `myBoolArray` to `true`:
+memset(myBoolArray, true, sizeof(myBoolArray));
+```
+Recall that [`memset()`](https://en.cppreference.com/mwiki/index.php?title=Special%3ASearch&search=memset) converts its second parameter to `unsigned char` and copies that value to the bytes starting with the address pointed to by the first parameter.
+
+Converting to `unsigned char` can be problematic if the value of `ID_IDLE` does not fit in the `unsigned char`. With years the code can grow such that the `ID_IDLE` becomes `0x100`. After converting to `unsigned char` it becomes `0x00` and all the items of `myEnumArray` instead of being intialized to `ID_IDLE` start being initialized to `ID_A`.
+
+There is one more problem with `memset()`.  
+If in the code above the `sizeof(ENUM_TYPE)` is `1` and `sizeof(bool)` is `1` then we are fine. However the `sizeof(ENUM_TYPE)` is [not guaranteed](https://stackoverflow.com/a/8115895/6362941). The `sizeof(bool)` is [not guaranteed](https://en.cppreference.com/w/cpp/language/types) either. That is why if the compiler decides to use 2 bytes for each of those types above then  
+the items of `myEnumArray` will be initialized not to the value of `ID_IDLE` (`0x04`) but to the value of `0x0404`,  
+the items of `myBoolArray` will be initialized not to the value of `true` (`0x01`) but to the value of `0x0101`.  
+For such values (`0x0101`) of `myBoolArray`  
+if your code compares those with `false` (`== false`, `!= false`) or evaluates like this: `if(myBoolArray[0])`,  `if( ! myBoolArray[0])` then the code will be behaving as expected,  
+but if your code compares those with `true` (`== true`, `!= true`) then the comparison is likely to _fail_. That is one of the reasons why I recommend to _avoid comparing Booleans to `true`_.
+
+
+__What to remember:__  
+
+If you need to initialize the multi-byte varaibles (or the variables whose size is not guaranteed), or arrays of those, or structures containig those, etc.  
+to the value not containing `0` in all the bit positions,  
+and not containing `1` in all the bit positions,  
+then applying `memset()` for such an initialization is a risk.  
+
+In other words you can safely use `memset()` to initialize  
+1-byte-long variables (or types containing those)  
+or multi-byte variables to `0` in all bit positions  
+or multi-byte variables to `1` in all bit positions.  
+In all other cases applying `memset()` is unsafe.
+
+
+__How to automate catching this:__  
+In progress...
+
+__How to trigger such an unsafety:__  
+In progress...  
+The described problem is likely to cause different behavior  
+at different optimization levels of the same compiler (run the same tests with no optimization, highest optimization for speed, highest optimization for size),  
+on architectures with different native size (especially 8-bit vs. 16-bit).
+
+IAR C/C++ Compiler V6.70.2.6274/W32 for ARM (`arm\bin\iccarm.exe`):  
+`--enum_is_int   Force the size of all enumeration types to be at least 4 bytes`.
+
 Comparing Floating Point Numbers For [In]Equality
 -
 Here is what one needs to know before comparing the floating point numbers for [in]equality.
