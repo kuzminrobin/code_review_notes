@@ -1,6 +1,7 @@
 The unsorted fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
++ [Avoid Comparing Booleans to `true`](#avoid-comparing-booleans-to-true)
 + [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing)
 + [Comparing Floating Point Numbers For [In]Equality](#comparing-floating-point-numbers-for-inequality)
 + [Overload Resolution](#overload-resolution)
@@ -81,8 +82,7 @@ the items of `myEnumArray` will be initialized not to the value of `ID_IDLE` (`0
 the items of `myBoolArray` will be initialized not to the value of `true` (`0x01`) but to the value of `0x0101`.  
 For such values (`0x0101`) of `myBoolArray`  
 if your code compares those with `false` (`== false`, `!= false`) or evaluates like this: `if(myBoolArray[0])`,  `if( ! myBoolArray[0])` then the code will be behaving as expected,  
-but if your code compares those with `true` (`== true`, `!= true`) then the comparison is likely to _fail_. That is one of the reasons why I recommend to _avoid comparing Booleans to `true`_.
-
+but if your code compares those with `true` (`== true`, `!= true`) then the comparison is likely to _fail_. That is one of the reasons why I recommend to [_avoid comparing Booleans to `true`_](#avoid-comparing-booleans-to-true).
 
 __What to remember:__  
 
