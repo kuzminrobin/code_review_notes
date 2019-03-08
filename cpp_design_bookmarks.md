@@ -83,8 +83,8 @@ In progress...
 __How to trigger such an unsafety:__  
 In progress...  
 The described problem is likely to cause different behavior  
-at different optimization levels of the same compiler (run the same tests with no optimization, highest optimization for speed, highest optimization for size),  
-on architectures with different native size (especially 8-bit vs. 16-bit).
+* at different optimization levels of the same compiler (run the same tests with no optimization, highest optimization for speed, highest optimization for size),  
+* on architectures with different native size (especially 8-bit vs. 16-bit).
 
 IAR C/C++ Compiler V6.70.2.6274/W32 for ARM (`arm\bin\iccarm.exe`):  
 `--enum_is_int   Force the size of all enumeration types to be at least 4 bytes`.
