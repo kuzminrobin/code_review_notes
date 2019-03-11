@@ -124,7 +124,7 @@ has been added to the PVS-Studio's _To Do_ list (on 2019.03.0x). We are looking 
 
 ### How to Forse the `memset()` Problems to Show Themselves
 In progress...  
-The problem described in section _Know the Limitations of `memset()` When Initializing_ (To do: Link) is likely to cause different behavior  
+The problem described in section [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing) is likely to cause different behavior  
 * at different optimization levels of the same compiler (run the same tests with no optimization, highest optimization for speed, highest optimization for size),  
 * on architectures with different native size (especially 8-bit vs. 16-bit).
 
