@@ -115,7 +115,7 @@ In his posts [Andrey](https://www.viva64.com/en/b/a/andrey-karpov/) has describe
 ### How to Automate Catching the `memset()` Problems
 In progress...  
 
-__PVS-Studio:__  
+__[PVS-Studio](https://www.viva64.com/en/pvs-studio/):__  
 The following diagnostics catch some of the `memset()` problems.
 * [V575 The 'memset' function processes value XXXX](https://www.viva64.com/en/w/v575) (+[RU](https://www.viva64.com/ru/w/v575))  
 Catches the poblem of narrowing conversion of the second argument to `unsigned char` (when the value of `0x100` becomes `0x00`).
