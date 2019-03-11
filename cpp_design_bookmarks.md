@@ -134,6 +134,10 @@ The problem described in section [Know the Limitations of `memset()` When Initia
 * at different optimization levels of the same compiler (run the same tests with no optimization, highest optimization for speed, highest optimization for size),  
 * on architectures with different native size (especially 8-bit vs. 16-bit).
 
+Visual Studio 2017 Enterprise x64 (19.16.27027.1 for x86) (`cl.exe /EHsc <file.cpp>`):  
+`std::cout << "myEnumArray[0]: 0x" << std::hex << myEnumArray[0] << "\n";`  
+`myEnumArray[0]: 0x4040404`.  
+
 IAR C/C++ Compiler V6.70.2.6274/W32 for ARM (`arm\bin\iccarm.exe`):  
 `--enum_is_int`   `Force the size of all enumeration types to be at least 4 bytes`.  
 
