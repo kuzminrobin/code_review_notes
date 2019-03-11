@@ -44,7 +44,7 @@ If such an integer value (with Boolean-like behavior) is assigned to a `bool` va
 The section [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing) shows a particular example of how `bool` can get an unexpected value.
 
 __What to remember:__  
-Avoid Comparing Booleans to `true`.  
+Avoid comparing Booleans to `true`.  
 Prefer comparing to `false` (`== false`, `!= false`) or comparing like this: `if(boolVar)`, `if( ! boolVar)`.
 
 __How to automate catching this:__  
