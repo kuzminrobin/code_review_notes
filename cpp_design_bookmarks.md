@@ -2,7 +2,11 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 
 ----
 + [Avoid Comparing Booleans to `true`](#avoid-comparing-booleans-to-true)
-+ [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing)
++ [The `memset()` Function Is a Warning Sign](#the-memset-function-is-a-warning-sign)
+  + [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing)
+  + [Andrey Karpov's Experience With `memset()`](#andrey-karpovs-experience-with-memset)
+  + [How to Automate Catching the `memset()` Problems](#how-to-automate-catching-the-memset-problems)
+  + [How to Forse the `memset()` Problems to Show Themselves](#how-to-forse-the-memset-problems-to-show-themselves)
 + [Comparing Floating Point Numbers For [In]Equality](#comparing-floating-point-numbers-for-inequality)
 + [Overload Resolution](#overload-resolution)
 + [const T vs. T const (aka `const West` vs. `East const`)](#const-t-vs-t-const-aka-const-west-vs-east-const)
