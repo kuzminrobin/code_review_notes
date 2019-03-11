@@ -50,8 +50,10 @@ __How to forse the bugs caused by this to show themselves:__
 In progress...  
 See the corresponding part of the [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing) section.
 
-Know the Limitations of `memset()` When Initializing
--
+## The `memset()` Function Is a Warning Sign
+This section describes the problems with the `memset()` function.
+
+### Know the Limitations of `memset()` When Initializing
 The problem can show itself in the code like this:
 ```c++
 typedef enum
@@ -97,18 +99,37 @@ or multi-byte variables to `0` in all bit positions
 or multi-byte variables to `1` in all bit positions.  
 In all other cases applying `memset()` is unsafe.
 
+### Andrey Karpov's Experience With `memset()`
+In his posts [Andrey](https://www.viva64.com/en/b/a/andrey-karpov/) has described many more problems with `memset()` function. The number and severity of the problems really impresses. Please see his posts:  
+* [The most dangerous function in the C/C++ world](https://www.viva64.com/en/b/0360/) (+[RU](https://www.viva64.com/ru/b/0360/))  
+* [Safe Clearing of Private Data](https://www.viva64.com/en/b/0388/) (+[RU](https://www.viva64.com/ru/b/0388/))  
 
-__How to automate catching this:__  
-In progress...
+**See also:**  
+[CWE-14: Compiler Removal of Code to Clear Buffers](https://cwe.mitre.org/data/definitions/14.html)
 
-__How to trigger such an unsafety:__  
+### How to Automate Catching the `memset()` Problems
 In progress...  
-The described problem is likely to cause different behavior  
+
+__PVS-Studio:__  
+The following diagnostics catch some of the `memset()` problems.
+* [V575 The 'memset' function processes value XXXX](https://www.viva64.com/en/w/v575) (+[RU](https://www.viva64.com/ru/w/v575))  
+Catches the poblem of narrowing conversion of the second argument to `unsigned char` (when the value of `0x100` becomes `0x00`).
+* [V601 The 'true' value is implicitly cast to the integer type](https://www.viva64.com/en/w/v601/) (+[RU](https://www.viva64.com/en/w/v601/))  
+Catches the poblem of implicit cast  of the `bool` second argument to `unsigned char`.
+* [V597 The compiler could delete the 'memset'...](https://www.viva64.com/en/w/v597/) (+[RU](https://www.viva64.com/ru/w/v597/))  
+Catches the security problem when the compiler could delete the `memset()` function call.
+* The diagnostic catching the problem  
+when the items of `myEnumArray` get initialized not to the value of `ID_IDLE` (`0x04`) but to the value of `0x0404`  
+has been added to the PVS-Studio's _To Do_ list (on 2019.03.0x). We are looking forward to the new diagnostic.
+
+### How to Forse the `memset()` Problems to Show Themselves
+In progress...  
+The problem described in section _Know the Limitations of `memset()` When Initializing_ (To do: Link) is likely to cause different behavior  
 * at different optimization levels of the same compiler (run the same tests with no optimization, highest optimization for speed, highest optimization for size),  
 * on architectures with different native size (especially 8-bit vs. 16-bit).
 
 IAR C/C++ Compiler V6.70.2.6274/W32 for ARM (`arm\bin\iccarm.exe`):  
-`--enum_is_int   Force the size of all enumeration types to be at least 4 bytes`.
+`--enum_is_int`   `Force the size of all enumeration types to be at least 4 bytes`.  
 
 Comparing Floating Point Numbers For [In]Equality
 -
