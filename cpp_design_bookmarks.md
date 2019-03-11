@@ -49,10 +49,11 @@ Prefer comparing to `false` (`== false`, `!= false`) or comparing like this: `if
 
 __How to automate catching this:__  
 In progress...  
+See also the [How to Automate Catching the `memset()` Problems](#how-to-automate-catching-the-memset-problems) section.
 
 __How to forse the bugs caused by this to show themselves:__  
 In progress...  
-See the corresponding part of the [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing) section.
+See also the [How to Forse the `memset()` Problems to Show Themselves](#how-to-forse-the-memset-problems-to-show-themselves) section.
 
 ## The `memset()` Function Is a Warning Sign
 This section describes the problems with the `memset()` function.
