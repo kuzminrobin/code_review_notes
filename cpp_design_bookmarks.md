@@ -390,7 +390,7 @@ __See Also:__
 * Search for "reverse order" in the C++ Standard.
 * [g++ man page](http://man7.org/linux/man-pages/man1/gcc.1.html) (or [here](https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Dialect-Options.html#C_002b_002b-Dialect-Options) and [here](https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html)): `-Wreorder`/`-Werror=reorder`.
 
-System Calls Failing with EINTR
+System Calls Failing with `EINTR`
 -
 _POSIX/Linux-specific_.  
 
@@ -445,6 +445,7 @@ do
 while(1);
 ```
 __Info:__
+* [Primitives Interrupted by Signals](http://www.gnu.org/software/libc/manual/html_node/Interrupted-Primitives.html).
 * [`errno` Man Page](http://man7.org/linux/man-pages/man3/errno.3.html).
 * [`select()` Man Page](http://man7.org/linux/man-pages/man2/select.2.html).
 * [Alphabetic list of all Linux man pages](http://man7.org/linux/man-pages/dir_all_alphabetic.html).
@@ -854,4 +855,4 @@ Are there any cases (other than disabling the copy functions, etc.) when it make
 
 ----
 This page contains contributions from:
-* [Jakub Wilk](https://github.com/jwilk) (@jwilk).  
+* [Jakub Wilk](https://github.com/jwilk) (@jwilk), [Andrey Karpov](https://www.viva64.com/en/b/a/andrey-karpov), [Ivan Ponomarev](https://github.com/ivanarh).  
