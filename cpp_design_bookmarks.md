@@ -7,7 +7,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing)
   + [Andrey Karpov's Experience With `memset()`](#andrey-karpovs-experience-with-memset)
   + [How to Automate Catching the `memset()` Problems](#how-to-automate-catching-the-memset-problems)
-  + [How to Forse the `memset()` Problems to Show Themselves](#how-to-forse-the-memset-problems-to-show-themselves)
+  + [How to Force the `memset()` Problems to Show Themselves](#how-to-force-the-memset-problems-to-show-themselves)
 + [Comparing Floating Point Numbers For [In]Equality](#comparing-floating-point-numbers-for-inequality)
 + [Overload Resolution](#overload-resolution)
 + [const T vs. T const (aka `const West` vs. `East const`)](#const-t-vs-t-const-aka-const-west-vs-east-const)
@@ -52,9 +52,9 @@ __How to automate catching this:__
 In progress...  
 See also the [How to Automate Catching the `memset()` Problems](#how-to-automate-catching-the-memset-problems) section.
 
-__How to forse the bugs caused by this to show themselves:__  
+__How to force the bugs caused by this to show themselves:__  
 In progress...  
-See also the [How to Forse the `memset()` Problems to Show Themselves](#how-to-forse-the-memset-problems-to-show-themselves) section.
+See also the [How to Force the `memset()` Problems to Show Themselves](#how-to-force-the-memset-problems-to-show-themselves) section.
 
 ## The `memset()` Function Is a Warning Sign
 This section describes the problems with the `memset()` function.
@@ -128,7 +128,7 @@ Catches the security problem when the compiler could delete the `memset()` funct
 when the items of `myEnumArray` get initialized not to the value of `ID_IDLE` (`0x04`) but to the value of `0x0404`  
 has been added to the PVS-Studio's _To Do_ list (on 2019.03.0x). We are looking forward to the new diagnostic.
 
-### How to Forse the `memset()` Problems to Show Themselves
+### How to Force the `memset()` Problems to Show Themselves
 In progress...  
 The problem described in section [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing) is likely to cause different behavior  
 * at different optimization levels of the same compiler (run the same tests with no optimization, highest optimization for speed, highest optimization for size),  
