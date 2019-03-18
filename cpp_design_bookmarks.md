@@ -53,8 +53,17 @@ void f(int);
 void f(BOOL);
 ```
 
-__What to Remember:__  
+#### __What to Remember:__  
 For Booleans prefer using the type `bool` and its values `false` and `true`.
+
+#### __How to Automate Catching This:__  
+Help is wanted...  
+
+__[PVS-Studio](https://www.viva64.com/en/pvs-studio/):__  
+* [V724](https://www.viva64.com/en/w/v724/). Converting integers or pointers to BOOL can lead to a loss of high-order bits. Non-zero value can become 'FALSE' (+[RU](https://www.viva64.com/ru/w/v724/)).  
+
+#### __How to Force the Bugs to Show Themselves:__  
+Help is wanted...  
 
 ### Avoid Comparing Booleans to `true`
 
