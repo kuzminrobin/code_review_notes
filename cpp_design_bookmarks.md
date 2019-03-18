@@ -47,7 +47,7 @@ None the less the [type `bool`](https://en.cppreference.com/w/cpp/keyword/bool) 
 [Andrey Karpov]() has also admitted, the conversion of any (raw) pointer to `bool` is consistent (any non-null pointer is converted to `true`) whereas the conversion to other implementations can be _inconsistent_, e.g. converting non-null 16-bit pointer with 8 least significant bits equal to 0 (e.g. 0xAB00) to a 8-bit Boolean implementation can result in a value of 0 equivalent to `false` (i.e.   
 converting the non-null pointer `0xAB00` results in the equivalent of `false` (`0x00`), but  
 converting the non-null pointer `0xAB01` results in the equivalent of `true`  (`0x01`)).
-* If you use some type (e.g. `int`) for your Boolean implementation then you will not be able to provide two distinct function overloads for that type (`int`) and Boolean, e.g. like this
+* If you use some type (e.g. `int`) for your Boolean implementation then you will not be able to provide two distinct function overloads, one for that type (`int`) and one for Boolean, e.g. like this
 ```c++
 void f(int);
 void f(BOOL);
