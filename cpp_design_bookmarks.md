@@ -2,7 +2,9 @@
 The unsorted fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).
 
 ----
-+ [Avoid Comparing Booleans to `true`](#avoid-comparing-booleans-to-true)
++ [Booleans](#booleans)
+  + [Prefer `bool` For Booleans](#prefer-bool-for-booleans)
+  + [Avoid Comparing Booleans to `true`](#avoid-comparing-booleans-to-true)
 + [The `memset()` Function Is a Warning Sign](#the-memset-function-is-a-warning-sign)
   + [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing)
   + [Andrey Karpov's Experience With `memset()`](#andrey-karpovs-experience-with-memset)
@@ -34,8 +36,28 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
-Avoid Comparing Booleans to `true`
--
+## Booleans
+
+### Prefer `bool` For Booleans
+The `bool` type has not been included in the [C89]/[C90] standard. For almost a decade all the C and C++ programmers were using their own implementation of the Boolean type. Then starting with [C++98] the `bool` type has been standardized in C++. Shortly after that starting with [C99] it has been standardized in C. But having a large code base and a strong habit people were still using their own implementation. The situation was also facilitated by the fact that not all the compilers were supporting `bool`, e.g. Visual Studio started supporting `bool` in C with the version of 2015 (or 2012, double-check). In such a situation of having `bool` in C++ and not having in C for a long time, and partially for code portability between C++ and C, many still are using own Boolean implementations.
+Although `bool` type has been standardized both in C and C++ for nearly two decades now, in C it still requires including <stdbool.h> whereas in C++ it is a language keyword and does not require anything extra. Thus the support is still suboptimal.
+None the less the type `bool` (and its values `false` and `true`) still has its advantages over the other alternatives of Boolean.
+* The type `bool` is standard both in C and C++. It does not cause any questions for those who know about it. Whereas such types as `BOOL` or `Bool` or other Boolean implementations cause questions and typically force to take a look at the implementation in order to understand the difference from `bool` and limitations originating from that.  
+* When converting a number of types to `bool` the [Boolean conversions](https://en.cppreference.com/w/cpp/language/implicit_conversion#Boolean_conversions) guarantee only one of the two values for `bool` (either `false` or `true`), whereas converting to other implementations can result in more than two values, e.g. converting value `5` to some implementation, let’s say named `BOOL`, can result in a value not equal to `FALSE` and not equal to `TRUE`. If that implementation is based on the integer type then the behavior will still be defined. But if the implementation is the enum type, e.g. `typedef enum { FALSE, TRUE } BOOL;` then the resulting value not equal to `FALSE` and not equal to `TRUE` is _unspecified_ until [C++17] and causes the _undefined behavior_ since [C++17] (search for "unspecified" in the [Enumeration declaration](https://en.cppreference.com/w/cpp/language/enum)).  
+[Andrey Karpov]() has also admitted, the conversion of any (raw) pointer to `bool` is consistent (any non-null pointer is converted to `true`) whereas converting to other implementations can be _inconsistent_, e.g. converting 16-bit pointer with 8 least significant bits equal to 0 (e.g. 0xAB00) to a 8-bit Boolean implementation can result in a value of 0 equivalent to `false` (i.e.   
+converting the non-null pointer `0xAB00` results in the equivalent of `false`, but  
+converting the non-null pointer `0xAB01` results in the equivalent of `true`).
+* If you use some other non-unique type (e.g. `int`) for your Boolean implementation then you will not be able to provide two distinct function overloads for that type (`int`) and Boolean, e.g. like this
+```c++
+void f(int);
+void f(BOOL);
+```
+
+__What to Remember:__  
+For Booleans prefer using the type `bool` and its values `false` and `true`.
+
+### Avoid Comparing Booleans to `true`
+
 Comparing a Boolean value to `true` is unreliable.
 
 Sometimes there are cases when the integer value `0` acts as an indication of `false`. And an arbitrary non-zero integer value acts as an indication of `true` (e.g. such a value can be returned by a function). Comparing the (`true`-like) non-zero integer value to `true` (or to the user-defined constant `TRUE`) is likely to fail.
