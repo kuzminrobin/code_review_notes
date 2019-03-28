@@ -481,7 +481,7 @@ do
 while(1);
 ```
 __Info:__
-* [Primitives Interrupted by Signals](http://www.gnu.org/software/libc/manual/html_node/Interrupted-Primitives.html).
+* [Primitives Interrupted by Signals](http://www.gnu.org/software/libc/manual/html_node/Interrupted-Primitives.html) (this link has been courteously provided by [Ivan Ponomarev](https://cppnow2019.sched.com/artist/ivantrue)).
 * [`errno` Man Page](http://man7.org/linux/man-pages/man3/errno.3.html).
 * [`select()` Man Page](http://man7.org/linux/man-pages/man2/select.2.html).
 * [Alphabetic list of all Linux man pages](http://man7.org/linux/man-pages/dir_all_alphabetic.html).
