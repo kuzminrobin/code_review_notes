@@ -1,4 +1,4 @@
-# Code-Reviewer's Notes
+# The Code-Reviewer's Notes
 [About the author and how to get in touch](https://docs.google.com/document/d/1TmA8cXRxb_9lDnCREfYuIeGpJy9sMsXSpFVMK-0PwNo/edit).  
 
 The unsorted fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).  
