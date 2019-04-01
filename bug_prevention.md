@@ -66,3 +66,7 @@ I apologize if my opinion hurts you.
 * Having equal resources, { the bug prevention and code reviewing } _alone_ is order of magnitude more efficient than the { whole test infrastructure and bug fixing } _alone_. Ideally both should be present. But if the team has limited resources then the bug prevention and code reviewing should have higher priority.
 * Some work environments induce the code owners to dislike the bug preventers and productive code reviewers. It is inefficient or even risky if the code owner manages the bug preventer or manages a more efficient code reviewer.
 * Bug prevention is not certain type of testing or debugging. It is a separate activity.
+
+## See Also
+* [The Code-Reviewer's Notes](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md).
+* [About the Author](https://docs.google.com/document/d/1TmA8cXRxb_9lDnCREfYuIeGpJy9sMsXSpFVMK-0PwNo/edit).
