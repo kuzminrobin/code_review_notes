@@ -1,3 +1,4 @@
+[About the author and ways to get in touch](https://docs.google.com/document/d/1TmA8cXRxb_9lDnCREfYuIeGpJy9sMsXSpFVMK-0PwNo/edit).  
 # Bug Prevention and Code Reviewing vs. Testing With Bug Fixing.
 
 From time to time I hear something like this:
