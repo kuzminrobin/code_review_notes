@@ -1,5 +1,12 @@
 [About the author and ways to get in touch](https://docs.google.com/document/d/1TmA8cXRxb_9lDnCREfYuIeGpJy9sMsXSpFVMK-0PwNo/edit).  
-# Bug Prevention and Code Reviewing vs. Testing With Bug Fixing.
+
+Miscellaneous ideas and opinions that I would like to share and that are outside of [The Code-Reviewer's Notes](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md) topics.
+
+----
++ [Bug Prevention and Code Reviewing vs. Testing With Bug Fixing](#bug-prevention-and-code-reviewing-vs-testing-with-bug-fixing)
+----
+
+# Bug Prevention and Code Reviewing vs. Testing With Bug Fixing
 
 From time to time I hear something like this:
 * "Let’s not spend too much time for code-reviewing, let’s focus on bug fixing". 
