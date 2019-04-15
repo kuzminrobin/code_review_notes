@@ -3,6 +3,31 @@
 Miscellaneous ideas and opinions that I would like to share and that are outside of [The Code-Reviewer's Notes](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md) topics.
 
 ----
++ [The Build System of My Dream](#the-build-system-of-my-dream)
+  + [Why I'm Writing This](#why-im-writing-this)
+  + [Exclude the Never Used Code and Minimize the Used One](#exclude-the-never-used-code-and-minimize-the-used-one)
+  + [Build the Most Failing Files First](#build-the-most-failing-files-first)
+    + [Restructure Your Sources](#restructure-your-sources)
+  + [Prefer the Multithreaded Build Utilities](#prefer-the-multithreaded-build-utilities)
+  + [Avoid Copying or Prefer the Links](#avoid-copying-or-prefer-the-links)
+  + [Know About the `ccache`](#know-about-the-ccache)
+    + [How `ccache` Works](#how-ccache-works)
+  + [Optimizing the Code Repository Interactions](#optimizing-the-code-repository-interactions)
+    + [Store Non-Source Files Separately](#store-non-source-files-separately)
+    + [Know About Shallow Cloning](#know-about-shallow-cloning)
+    + [Avoid Cloning](#avoid-cloning)
+    + [Know About a Single Local Repository and Multiple Working Directories](#know-about-a-single-local-repository-and-multiple-working-directories)
+    + [Build Differently the User Branches And the Main Branch](#build-differently-the-user-branches-and-the-main-branch)
+  + [Optimizing the Build Servers](#optimizing-the-build-servers)
+    + [Optimizing the Sources for the Build Servers](#optimizing-the-sources-for-the-build-servers)
+      + [Optimizing the Floating Licenses Use](#optimizing-the-floating-licenses-use)
+    + [Know the Limitations of Virtual Machines](#know-the-limitations-of-virtual-machines)
+    + [Know About the `chroot`](#know-about-the-chroot)
+    + [Know About the SSD Drives](#know-about-the-ssd-drives)
+    + [Know About the RAM Drives](#know-about-the-ram-drives)
+      + [Problems With the RAM Drives](#problems-with-the-ram-drives)
+  + [The Summary of Links](#the-summary-of-links)
+  
 + [Bug Prevention and Code Reviewing vs. Testing With Bug Fixing](#bug-prevention-and-code-reviewing-vs-testing-with-bug-fixing)
 ----
 
