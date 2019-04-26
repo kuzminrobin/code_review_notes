@@ -33,7 +33,8 @@ Miscellaneous ideas and opinions that I would like to share and that are outside
 
 # The Build System of My Dream
 
-Here I share my ideas about how one can accelerate the source code build process a few hundred times.
+(Draft)  
+Here I share my ideas about how one can accelerate the source code build process a hundred times.
 
 ## Why I'm Writing This
 
