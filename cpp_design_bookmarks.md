@@ -614,6 +614,7 @@ Know the Special Member Functions
 * C++98/03: [[EC++3]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#EC++3) Chapter 2: Constructors, Destructors, and Assignment Operators.
 * C++11: What the Move Semantics Are. Part 1 [[ms1]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#ms1), Part 2 [[ms2]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#ms2).
 * C++11: [[EMC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#EMC++) Item 17: Understand special member function generation.
+* [The rule of three/five/zero](https://en.cppreference.com/w/cpp/language/rule_of_three).
 
 Know All the Effects of the Empty Destructor
 -
@@ -630,7 +631,9 @@ See the end (_Things to Remember_ section) of [[EMC++]](https://github.com/kuzmi
 __Broader Picture:__  
 * [Know the Special Member Functions](#know-the-special-member-functions).
 * When the empty destructor may be needed:
-  * If the destructor needs to be _virtual_ or _pure virtual_. See [[EC++3]](book_list.md#EC++3) Item 7: Declare destructors virtual in polymorphic base classes.
+  * If the destructor needs to be _virtual_ or _pure virtual_. See 
+    + [[EC++3]](book_list.md#EC++3) Item 7: Declare destructors virtual in polymorphic base classes;
+    + [Rule of zero](https://en.cppreference.com/w/cpp/language/rule_of_three).
   * Pimpl-Idiom-specific, [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#MExcC++):
     + _Item 30: Smart Pointer Members, Part 1: A Problem with `auto_ptr`_, section "What About `auto_ptr` Members?", last but one paragraph on paper page 185: "If you don't want to provide the definition of Y, you must write the X2 destructor explicitly, even if it's empty".
     + _Item 31: Smart Pointer Members, Part 2: Toward a `ValuePtr`_, section "A Simple `ValuePtr`: Strict Ownership Only", first regular paragraph: "Either the full definition of Y must accompany X, or the X destructor must be explicitly provided, even if it's empty".
@@ -638,6 +641,7 @@ __Broader Picture:__
 There Should Be a Strong Reason for Writing the Destructor
 -
 If you use Smart Pointers and other Smart Resource Releasers (see below) then you don't need the explicit (i.e. manually written) destructor, the implicit (i.e. the compiler-generated) one will do the right thing in the [right order](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md#know-about-the-compilers-resource-allocation-and-deallocation-order).  
+See also [Rule of zero](https://en.cppreference.com/w/cpp/language/rule_of_three).
 
 _The explicit destructor is a warning sign._
 
