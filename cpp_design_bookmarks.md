@@ -113,6 +113,7 @@ The line is equivalent to `b = b & f3()`, which is equivalent to `b = 1 & 4`, wh
 
 To avoid problems use the logical operators instead, e.g. `b = b && f2()`. The logical operators (`&&`) require `bool` operands (`b` and value returned by `f2()`). If any operand is not `bool` then it will be converted to `bool` according to the [Boolean Conversion rules](https://en.cppreference.com/w/cpp/language/implicit_conversion#Boolean_conversions). And the result will correspond to the expectation.
 
+__Note__  
 However the logical operators may not fully filter out the _incorrect `bool`_ values (not equal to `false` and not equal to `true`) shown in the section [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing). E.g. 
 ```c++
 b = b || f4();  // Function `f4()` returns an incorrect `bool` with value `0x0101`.
@@ -121,7 +122,7 @@ The compiler can still implement the logical operation `||` with the bitwise OR 
 
 __What To Remember__
 * Avoid bitwise operators for Booleans. Use logical operators instead. E.g. `b = b && f2()`.
-* Don't forget that the right-hand-side calcualtion can be optimized out. E.g. if `b` is `false` then the result of `b && f2()` will also be `false` regardless of `f2()`. That is why the call to `f2()` can be skipped in some contexts (and in some contexts it _will_ be skipped [to do]). See details in [[MISRACpp2008]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#MISRACpp2008) Rule 5–14–1 mentioned below.
+* Don't forget that the right-hand-side of the operator can be optimized out. E.g. if `b` is `false` then the result of `b && f2()` will also be `false` regardless of `f2()`. That is why the call to `f2()` can be skipped in some contexts (and in some contexts it _will_ be skipped [to do]). See details in [[MISRACpp2008]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#MISRACpp2008) Rule 5–14–1 mentioned below.
 
 __How to Automate Catching This__  
 The code analysis tools supporting the following checks should catch this issue.  
