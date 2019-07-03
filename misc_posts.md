@@ -26,7 +26,7 @@ Miscellaneous ideas and opinions that I would like to share and that are outside
     + [Know About the SSD Drives](#know-about-the-ssd-drives)
     + [Know About the RAM Drives](#know-about-the-ram-drives)
       + [Problems With the RAM Drives](#problems-with-the-ram-drives)
-  + [The Summary of Links](#the-summary-of-links)
+  + [See Also](#see-also)
   
 + [Bug Prevention and Code Reviewing vs. Testing With Bug Fixing](#bug-prevention-and-code-reviewing-vs-testing-with-bug-fixing)
 ----
@@ -282,11 +282,10 @@ In my last job I was dealing with the sources that after a full build were occup
 
 Unfortunately currently I cannot provide good links about the RAM drives. For me this area is still to investigate.
 
-## The Summary of Links
-ccache.  
-GIT (reference, ProGIT Book and web resource).  
-Chroot (Ubunto description, Debootstrap, man page).  
-RAM drives (TODO).  
+## See Also
+* Phillip Khandeliants. [Speeding up the Build of C and C++ Projects](https://www.viva64.com/en/b/0549/) (+[RU](https://www.viva64.com/ru/b/0549/)).
+* [C++ on Sea 2019] Viktor Kirilov. [The Hitchhiker's Guide to Faster Builds](https://www.youtube.com/watch?v=anbOy47fBYI) (video, 1:26:30).
+
 
 # Bug Prevention and Code Reviewing vs. Testing With Bug Fixing
 
