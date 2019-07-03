@@ -132,6 +132,7 @@ The code analysis tools supporting the following checks should catch this issue.
   * Rule 12.6 (advisory): The operands of logical operators (&&, || and !) should be effectively Boolean. Expressions that are effectively Boolean should not be used as operands to operators other than (&&, ||, !, =, ==, != and ?:).
 
 __See Also__
+* [V564. The '&' or '|' operator is applied to bool type value. You've probably forgotten to include parentheses or intended to use the '&&' or '||' operator](https://www.viva64.com/en/w/v564/) (+[RU](https://www.viva64.com/ru/w/v564/)).
 * [[MISRACpp2008]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#MISRACpp2008) _MISRA C++:2008 - Guidelines for the use of the C++ language in critical systems_.
   * Rule 5–0–20 (Required) Non-constant operands to a binary bitwise operator shall have the same _underlying type_.
   * Rule 5–0–21 (Required) Bitwise operators shall only be applied to operands of unsigned _underlying type_.
