@@ -86,11 +86,11 @@ Avoid comparing Booleans to `true`.
 Prefer comparing to `false` (`== false`, `!= false`) or comparing like this: `if(boolVar)`, `if( ! boolVar)`.
 
 __How to automate catching this:__  
-In progress...  
+(To some extent) [V676. It is incorrect to compare the variable of BOOL type with TRUE](https://www.viva64.com/en/w/v676/) (+[RU](https://www.viva64.com/ru/w/v676/)).  
 See also the [How to Automate Catching the `memset()` Problems](#how-to-automate-catching-the-memset-problems) section.
 
 __How to force the bugs caused by this to show themselves:__  
-In progress...  
+In progress... Help is welcome.  
 See also the [How to Force the `memset()` Problems to Show Themselves](#how-to-force-the-memset-problems-to-show-themselves) section.
 
 ### Avoid Bitwise Operations for Booleans
