@@ -129,7 +129,6 @@ The links also provide grounds for a very efficient technology used by `ccache` 
 
 ## Know About the `ccache`
 
-(I'm not sure if this or similar tool exists for Windows)  
 [ccache](https://ccache.dev/) is a command line utility that can get control instead of the compiler, invoke the compiler, cache the compiler's output - the object file, and during all the subsequent attempts to build the same file with the same compiler with the same compiler arguments, the cached object file is immediately provided by the `ccache` utility instead of invoking the compiler.
 
 ### How `ccache` Works
