@@ -133,6 +133,7 @@ The code analysis tools supporting the following checks should catch this issue.
 
 __See Also__
 * [V564](https://www.viva64.com/en/w/v564/). The '&' or '|' operator is applied to bool type value. You've probably forgotten to include parentheses or intended to use the '&&' or '||' operator (+[RU](https://www.viva64.com/ru/w/v564/)).
+* [V792](https://www.viva64.com/en/w/v792/). The function located to the right of the '|' and '&' operators will be called regardless of the value of the left operand. Consider using '||' and '&&' instead (+[RU](https://www.viva64.com/ru/w/v792/)).
 * [[MISRACpp2008]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#MISRACpp2008) _MISRA C++:2008 - Guidelines for the use of the C++ language in critical systems_.
   * Rule 5–0–20 (Required) Non-constant operands to a binary bitwise operator shall have the same _underlying type_.
   * Rule 5–0–21 (Required) Bitwise operators shall only be applied to operands of unsigned _underlying type_.
