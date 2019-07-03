@@ -358,4 +358,7 @@ I apologize if my opinion hurts you.
 
 ## See Also
 * [The Code-Reviewer's Notes](https://github.com/kuzminrobin/code_review_notes/blob/master/cpp_design_bookmarks.md).
-* [About the Author](https://docs.google.com/document/d/1TmA8cXRxb_9lDnCREfYuIeGpJy9sMsXSpFVMK-0PwNo/edit).
+* [The Ultimate Question of Programming, Refactoring, and Everything](https://www.viva64.com/en/b/0391/) (+[RU](https://www.viva64.com/ru/b/0391/)).
+* [A post about static code analysis for project managers, not recommended for the programmers](https://www.viva64.com/en/b/0498/) (+[RU](https://www.viva64.com/ru/b/0498/)).
+* [Philosophy of Static Code Analysis: We Have 100 Developers, the Analyzer Found Few Bugs, Is Analyzer Useless?](https://www.viva64.com/en/b/0534/) (+[RU](https://www.viva64.com/ru/b/0534/))
+* [PVS-Studio ROI](https://www.viva64.com/en/b/0606/) (+[RU](https://www.viva64.com/ru/b/0606/)).
