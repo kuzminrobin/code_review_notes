@@ -114,7 +114,7 @@ The line is equivalent to `b = b & f3()`, which is equivalent to `b = 1 & 4`, wh
 To avoid problems use the logical operators instead, e.g. `b = b && f2()`. The logical operators (`&&`) require `bool` operands (`b` and value returned by `f2()`). If any operand is not `bool` then it will be converted to `bool` according to the [Boolean Conversion rules](https://en.cppreference.com/w/cpp/language/implicit_conversion#Boolean_conversions). And the result will correspond to the expectation.
 
 __Note__  
-However the logical operators may not fully filter out the _incorrect `bool`_ values (not equal to `false` and not equal to `true`) shown in the section [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing). E.g. 
+However the recommended logical operators still may not fully filter out the _incorrect `bool`_ values (not equal to `false` and not equal to `true`) shown in the section [Know the Limitations of `memset()` When Initializing](#know-the-limitations-of-memset-when-initializing). E.g. 
 ```c++
 b = b || f4();  // Function `f4()` returns an incorrect `bool` with value `0x0101`.
 ```
