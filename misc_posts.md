@@ -27,8 +27,13 @@ Miscellaneous ideas and opinions that I would like to share and that are outside
     + [Know About the RAM Drives](#know-about-the-ram-drives)
       + [Problems With the RAM Drives](#problems-with-the-ram-drives)
   + [See Also](#see-also)
-  
+----
 + [Bug Prevention and Code Reviewing vs. Testing With Bug Fixing](#bug-prevention-and-code-reviewing-vs-testing-with-bug-fixing)
+  + [The Life Cycle of a Bug](#the-life-cycle-of-a-bug)
+  + [The Bug Prevention](#the-bug-prevention)
+  + [Summary](#summary)
+  + [What to Remember](#what-to-remember)
+  + [See Also](#see-also-1)
 ----
 
 # The Build System of My Dream
