@@ -258,7 +258,7 @@ With `chroot` technology you can install latest version of Ubuntu Linux and in a
 
 Getting some experience I saw a number of 
 
-Side Benefits of `chroot`.
+#### Side Benefits of `chroot`.
 
 The guest and host operating system _can share directories_. It means that a number of tools can be installed on the host, and shared by all the guests. It means that the file cache of the [`ccache`] (TODO: link to the earlier section) can also be shared between all the multiple guests of the same host. If each guest implements a separate agent of the CI build system then the build file cache gathered in one guest will be reused by the other guests. Since the `ccache`'s file cache is shared (and only a single copy is stored on the host) we can make the file cache large enough to store all the flavors. And whichever flavor build is assigned to the build agent the build process will still be using the file cache of the previous builds (by the same or other guests).
 
