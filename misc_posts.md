@@ -23,6 +23,7 @@ Miscellaneous ideas and opinions that I would like to share and that are outside
       + [Optimizing the Floating Licenses Use](#optimizing-the-floating-licenses-use)
     + [Know the Limitations of Virtual Machines](#know-the-limitations-of-virtual-machines)
     + [Know About the `chroot`](#know-about-the-chroot)
+      + [Side Benefits of `chroot`](#side-benefits-of-chroot)
     + [Know About the SSD Drives](#know-about-the-ssd-drives)
     + [Know About the RAM Drives](#know-about-the-ram-drives)
       + [Problems With the RAM Drives](#problems-with-the-ram-drives)
