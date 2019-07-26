@@ -5,11 +5,11 @@ This is a list of C++ (and other system programming) books _sorted by publicatio
 (the _articles_ and _other resources_ are in a [separate file](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md))  
 
 `1978.02.22` <a name="KandR"></a><a name="K&R"></a>_[KandR]_ Brian W. Kernighan, Dennis M. Ritchie. [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language).  
-`1990.??.??` [AC++RM] Margaret A. Ellis, Bjarne Stroustrup. [_The Annotated C++ Reference Manual_](https://www.amazon.com/Annotated-C-Reference-Manual/dp/0201514591) (more info: [MEC++]).  
+`1990.??.??` <a name="AC++RM"></a>[AC++RM] Margaret A. Ellis, Bjarne Stroustrup. [_The Annotated C++ Reference Manual_](https://www.amazon.com/Annotated-C-Reference-Manual/dp/0201514591) (more info: [MEC++]).  
 `1992.??.??` [AC++PS&I] James Coplien. _Advanced C++: Programming Styles and Idioms_. Addison-Wesley, 1992, ISBN 0-201-54855-0 (more info: [MEC++])  
 `1992.??.??` [C++PS] [Tom Cargill. _C++ Programming Style_ (1st Edition)](https://www.amazon.com/C-Programming-Style-Tom-Cargill/dp/0201563657).  
 `1992.12.??` <a name="C++SnT"></a>__[C++SnT]__ [Robert B. Murray. _C++ strategies and tactics_](https://www.amazon.com/Strategies-Tactics-Robert-B-Murray/dp/0201563827). The date is based on section 10.1, p.249. (I have in paper, gave to Shweta)  
-`1994.??.??` [D&EoC++] Bjarne Stroustrup. _The Design and Evolution of C++_. Addison-Wesley, 1994, ISBN 0-201-54330-3 (more info: [MEC++]).  
+`1994.??.??` <a name="D&EoC++"></a>[D&EoC++] Bjarne Stroustrup. _The Design and Evolution of C++_. Addison-Wesley, 1994, ISBN 0-201-54330-3 (more info: [MEC++]).  
 `1994.??.??` [S&EC++] John J. Barton, Lee R. Nackman. _Scientific and Engineering C++_. Addison-Wesley, 1994, ISBN 0-201-53393-6 (more info: [MEC++]).  
 `1994.??.??` [IC++OM] Stanley B. Lippman. _Inside the C++ Object Model_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
 `1995.??.??` <a name="DP"></a>__[DP]__ Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides. _Design Patterns: Elements of Reusable Object-Oriented Software_. Addison-Wesley, 1995, ISBN 0-201-63361-2 (more info: [MEC++]).  
@@ -17,7 +17,7 @@ This is a list of C++ (and other system programming) books _sorted by publicatio
 `1996.??.??` [RoC++] Andrew Koenig, Barbara Moo. _Ruminations on C++_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
 `1996.??.??` [LSC++SD] [John Lakos. _Large-Scale C++ Software Design_](https://www.amazon.com/Large-Scale-Software-Design-John-Lakos/dp/0201633620) ([EMC++] Front List).  
 `1996.??.??` <a name="MEC++"></a>__[MEC++]__ [Scott Meyers. _More Effective C++: 35 New Ways to Improve Your Programs and Designs_ (1st Edition)](https://www.amazon.com/gp/product/020163371X?ie=UTF8tag=aristeia.com-20linkCode=as2camp=1789creative=9325creativeASIN=020163371X).  
-`1997.06.30` [C++PL3] Bjarne Stroustrup. _[The C++ Programming Language (Third Edition)](https://en.wikipedia.org/wiki/The_C%2B%2B_Programming_Language)_. Addison-Wesley, 1997, ISBN 0-201-88954-4 (more info: [MEC++]).  
+`1997.06.30` <a name="C++PL3"></a>[C++PL3] Bjarne Stroustrup. _[The C++ Programming Language (Third Edition)](https://en.wikipedia.org/wiki/The_C%2B%2B_Programming_Language)_. Addison-Wesley, 1997, ISBN 0-201-88954-4 (more info: [MEC++]).  
 `1997.??.??` [CI&I] [David R. Hanson. _C Interfaces and Implementations: Techniques for Creating Reusable Software_ (1st Edition)](https://www.amazon.com/Interfaces-Implementations-Techniques-Creating-Reusable/dp/0201498413) ([EMC++] Front List).  
 `1998.??.??` [EC++2] Scott Meyers. _Effective C++, Second Edition: 50 Specific Ways to Improve Your Programs and Designs_.
 Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).  
@@ -30,7 +30,7 @@ __`1998.09.01`__ [C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C+
 `1999.11.18` <a name="ExcC++"></a>__[ExcC++]__ [Herb Sutter. _Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions_](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622).  
 __`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents)__ (ISO C standard).  
 `2000.??.??` [AC++] [Andrew Koenig, Barbara E. Moo. _Accelerated C++: Practical Programming by Example_ (1st Edition)](https://www.amazon.com/Accelerated-C-Practical-Programming-Example/dp/020170353X) ([MC++D] Front List).  
-`2000.02.11` [C++PLSE] Bjarne Stroustrup. _[The C++ Programming Language: Special Edition](https://en.wikipedia.org/wiki/The_C%2B%2B_Programming_Language)_ (Addison-Wesley, 2000).  
+`2000.02.11` <a name="C++PLSE"></a>[C++PLSE] Bjarne Stroustrup. _[The C++ Programming Language: Special Edition](https://en.wikipedia.org/wiki/The_C%2B%2B_Programming_Language)_ (Addison-Wesley, 2000).  
 `2000.??.??` [GP:MT&A] Krzysztof Czarnecki, Ulrich Eisenecker. _Generative Programming: Methods, Tools, and Applications_. Reading, MA: Addison-Wesley ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?  
 `2000.??.??` [ACE] Douglas C. Schmidt. _The ADAPTIVE Communication Environment (ACE)_. Available at http://www.cs.wustl.edu/~schmidt/ACE.html ([MC++D] Bibliography).  
 `2001.02.01` <a name="MC++D"></a>__[MC++D]__ Andrei Alexandrescu. [_Modern C++ Design: Generic Programming and Design Patterns Applied_ (1st Edition)](https://www.amazon.com/Modern-Design-Generic-Programming-Patterns/dp/0201704315). Appendix: [Loki libray](http://erdani.com/index.php/articles/) (search for "Loki"), local copy: [loki-0.1.7.zip](https://github.com/kuzminrobin/code_review_notes/raw/master/local_copies/loki-0.1.7.zip) (2018.08.10).  
