@@ -4,7 +4,8 @@ This is a list of C++ (and other system programming) books _sorted by publicatio
 ### Chronological List of C++ (and other system programming) Books.
 (the _articles_ and _other resources_ are in a [separate file](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md))  
 
-`1990.??.??` [AC++RM] [Margaret A. Ellis, Bjarne Stroustrup. _The Annotated C++ Reference Manual_](https://www.amazon.com/Annotated-C-Reference-Manual/dp/0201514591) (more info: [MEC++]).  
+`1978.02.22` <a name="KandR"></a><a name="K&R"></a>_[KandR]_ Brian W. Kernighan, Dennis M. Ritchie. [The C Programming Language](https://en.wikipedia.org/wiki/The_C_Programming_Language).  
+`1990.??.??` [AC++RM] Margaret A. Ellis, Bjarne Stroustrup. [_The Annotated C++ Reference Manual_](https://www.amazon.com/Annotated-C-Reference-Manual/dp/0201514591) (more info: [MEC++]).  
 `1992.??.??` [AC++PS&I] James Coplien. _Advanced C++: Programming Styles and Idioms_. Addison-Wesley, 1992, ISBN 0-201-54855-0 (more info: [MEC++])  
 `1992.??.??` [C++PS] [Tom Cargill. _C++ Programming Style_ (1st Edition)](https://www.amazon.com/C-Programming-Style-Tom-Cargill/dp/0201563657).  
 `1992.12.??` <a name="C++SnT"></a>__[C++SnT]__ [Robert B. Murray. _C++ strategies and tactics_](https://www.amazon.com/Strategies-Tactics-Robert-B-Murray/dp/0201563827). The date is based on section 10.1, p.249. (I have in paper, gave to Shweta)  
@@ -16,7 +17,7 @@ This is a list of C++ (and other system programming) books _sorted by publicatio
 `1996.??.??` [RoC++] Andrew Koenig, Barbara Moo. _Ruminations on C++_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
 `1996.??.??` [LSC++SD] [John Lakos. _Large-Scale C++ Software Design_](https://www.amazon.com/Large-Scale-Software-Design-John-Lakos/dp/0201633620) ([EMC++] Front List).  
 `1996.??.??` <a name="MEC++"></a>__[MEC++]__ [Scott Meyers. _More Effective C++: 35 New Ways to Improve Your Programs and Designs_ (1st Edition)](https://www.amazon.com/gp/product/020163371X?ie=UTF8tag=aristeia.com-20linkCode=as2camp=1789creative=9325creativeASIN=020163371X).  
-`1997.??.??` [C++PL3] Bjarne Stroustrup. _The C++ Programming Language_ (Third Edition). Addison-Wesley, 1997, ISBN 0-201-88954-4 (more info: [MEC++]).  
+`1997.06.30` [C++PL3] Bjarne Stroustrup. _[The C++ Programming Language (Third Edition)](https://en.wikipedia.org/wiki/The_C%2B%2B_Programming_Language)_. Addison-Wesley, 1997, ISBN 0-201-88954-4 (more info: [MEC++]).  
 `1997.??.??` [CI&I] [David R. Hanson. _C Interfaces and Implementations: Techniques for Creating Reusable Software_ (1st Edition)](https://www.amazon.com/Interfaces-Implementations-Techniques-Creating-Reusable/dp/0201498413) ([EMC++] Front List).  
 `1998.??.??` [EC++2] Scott Meyers. _Effective C++, Second Edition: 50 Specific Ways to Improve Your Programs and Designs_.
 Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).  
@@ -29,7 +30,7 @@ __`1998.09.01`__ [C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C+
 `1999.11.18` <a name="ExcC++"></a>__[ExcC++]__ [Herb Sutter. _Exceptional C++: 47 Engineering Puzzles, Programming Problems, and Solutions_](https://www.amazon.com/Exceptional-Engineering-Programming-Problems-Solutions/dp/0201615622).  
 __`1999.12.01`__ [C99] __ISO/IEC 9899:1999(E), [Programming languages — C](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents)__ (ISO C standard).  
 `2000.??.??` [AC++] [Andrew Koenig, Barbara E. Moo. _Accelerated C++: Practical Programming by Example_ (1st Edition)](https://www.amazon.com/Accelerated-C-Practical-Programming-Example/dp/020170353X) ([MC++D] Front List).  
-`2000.??.??` [C++PLSE] B. Stroustrup. The C++ Programming Language, Special Edition (Addison-Wesley, 2000).  
+`2000.02.11` [C++PLSE] Bjarne Stroustrup. _[The C++ Programming Language: Special Edition](https://en.wikipedia.org/wiki/The_C%2B%2B_Programming_Language)_ (Addison-Wesley, 2000).  
 `2000.??.??` [GP:MT&A] Krzysztof Czarnecki, Ulrich Eisenecker. _Generative Programming: Methods, Tools, and Applications_. Reading, MA: Addison-Wesley ([MC++D] Bibliography). TODO: Is it C++ (or other system programming)?  
 `2000.??.??` [ACE] Douglas C. Schmidt. _The ADAPTIVE Communication Environment (ACE)_. Available at http://www.cs.wustl.edu/~schmidt/ACE.html ([MC++D] Bibliography).  
 `2001.02.01` <a name="MC++D"></a>__[MC++D]__ Andrei Alexandrescu. [_Modern C++ Design: Generic Programming and Design Patterns Applied_ (1st Edition)](https://www.amazon.com/Modern-Design-Generic-Programming-Patterns/dp/0201704315). Appendix: [Loki libray](http://erdani.com/index.php/articles/) (search for "Loki"), local copy: [loki-0.1.7.zip](https://github.com/kuzminrobin/code_review_notes/raw/master/local_copies/loki-0.1.7.zip) (2018.08.10).  
@@ -53,6 +54,7 @@ __`2011.04.12`__ <a name="C11_N1570"></a>[C11_N1570] __ISO/IEC 9899:201x, [Progr
 __`2012.05.23`__ <a name="ANSI_C11"></a>[ANSI_C11] __INCITS/ISO/IEC 9899-2011[2012]. Information technology — Programming
 languages — C__ (ANSI copy of [C11]).  
 `2012.??.??` <a name="C++CinA"></a>__[C++CinA]__ [Anthony Williams. _C++ Concurrency in Action_ (1st Edition)](https://www.manning.com/books/c-plus-plus-concurrency-in-action).  
+`2013.05.19` <a name="CppPL4"></a>[CppPL4] Bjarne Stroustrup. _[The C++ Programming Language (4th Edition)](https://en.wikipedia.org/wiki/The_C%2B%2B_Programming_Language)_.  
 `2013.08.26` [BC++ADC] Antony Polukhin. [Boost C++ Application Development Cookbook: Over 80 practical, task-based recipes to create applications using Boost libraries](https://www.amazon.com/Boost-C-Application-Development-Cookbook/dp/1849514887/ref=sr_1_4?ie=UTF8&qid=1533973003&sr=8-4&keywords=Boost+C%2B%2B+Application+Development+Cookbook).  
 `2014.11.07` <a name="EMC++"></a>__[EMC++]__ Scott Meyers. [_Effective Modern C++_](http://shop.oreilly.com/product/0636920033707.do?cmp=af-code-books-video-product_cj_0636920033707_7708709).  
 `2017.08.30` [BC++ADC2] Antony Polukhin. [Boost C++ Application Development Cookbook - Second Edition: Recipes to simplify your application development](https://www.amazon.com/Boost-Application-Development-Cookbook-application/dp/1787282244/ref=sr_1_2?ie=UTF8&qid=1533973003&sr=8-2&keywords=Boost+C%2B%2B+Application+Development+Cookbook).  
