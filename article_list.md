@@ -59,12 +59,14 @@ Extracted from [books](https://github.com/kuzminrobin/code_review_notes/blob/mas
 + [MC++D]: Bibliography on p.311, Front List on p.4.
 
 ---
+### Non-Date-Specific
+<a name="Duffs_device"></a>__[Duffs_device]__ [Duff's device](https://en.wikipedia.org/wiki/Duff%27s_device).  
+
+---
 TODO:  
-+ [MC++D]: Loki Library direct link (and local copy).  
 + [Alexandrescu's Articles](http://erdani.com/index.php/articles/).  
 + Alexandrescu's, asserts.  
 + http://www.gotw.ca/gotw/ Articles ([MExcC++] Bibliography)
 
 ---
-* [not_yet_read],  
-* __[has_been_read]__.
+[not_yet_read], __[has_been_read]__.
