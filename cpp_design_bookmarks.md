@@ -38,6 +38,16 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
+## Identifiers
+
+Some categories of identifiers are reserved by the C++ standard. See  
+[[C++98]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#Cpp98) 17.4.3.1.2 Global names,  
+[C++17_N4659] 5.10 Identiﬁers, paragraphs 3.1 and 3.2 
+> - Each identiﬁer that contains a double underscore `__` or begins with an underscore followed by an uppercase letter is reserved to the implementation for any use.  
+> - Each identiﬁer that begins with an underscore is reserved to the implementation for use as a name in the global namespace. 
+
+If your code uses such identifiers (e.g. `__MY_HEADER_H_INCLUDED`, `__my_local_var`, `_MyMemberVar`, `_myGlobalVar`) then upon next edition of the standard (i.e. upon migration to the next version of your compiler) your code can start behaving in an unexpected/unpredictable way.
+
 ## Booleans
 
 ### Prefer `bool` For Booleans
