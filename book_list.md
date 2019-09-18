@@ -23,7 +23,7 @@ This is a list of C++ (and other system programming) books _sorted by publicatio
 Addison-Wesley, 1998, ISBN 0-201-92488-9 (more info: [MEC++]).  
 `1998.??.??` [C++P3] S. Lippmn and J. Lajoie. C++ Primer, 3rd Edition (Addison-Wesley, 1998).  
 `1998.??.??` [PH] John Vlissides. _Pattern Hatching_. Reading, MA: Addison-Wesley ([MC++D] Bibliography).  
-__`1998.09.01`__ [C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C++_](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents)__ (ISO and ANSI C++ standard). ([MExcC++] Bibliography)  
+__`1998.09.01`__ <a name="Cpp98"></a>[C++98] __ISO/IEC 14882:1998(E), [_Programming languages — C++_](https://stackoverflow.com/questions/81656/where-do-i-find-the-current-c-or-c-standard-documents)__ (ISO and ANSI C++ standard). ([MExcC++] Bibliography)  
 `1999.02.12` [ACPwC++] [Michi Henning, Steve Vinoski. _Advanced CORBA® Programming with C++_](https://www.amazon.com/Advanced-CORBA%C2%AE-Programming-Michi-Henning/dp/0201379279) ([EMC++] Front List).  
 `1999.??.??` [GP&STL] [Matthew H. Austern. _Generic Programming and the STL: Using and Extending the C++ Standard Template Library_ (1st Edition)](https://www.amazon.com/Generic-Programming-STL-Extending-Standard/dp/0201309564) ([EMC++] Front List).  
 `1999.??.??` [EC++CD] Scott Meyers. _Effective C++ CD: 85 Specific Ways to Improve Your Programs and Designs_ (Addison-Wesley, 1999).  
