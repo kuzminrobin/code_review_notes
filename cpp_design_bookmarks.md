@@ -4,6 +4,7 @@
 The unsorted fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).  
 
 ----
++ [Identifiers](#identifiers)
 + [Booleans](#booleans)
   + [Prefer `bool` For Booleans](#prefer-bool-for-booleans)
   + [Avoid Comparing Booleans to `true`](#avoid-comparing-booleans-to-true)
