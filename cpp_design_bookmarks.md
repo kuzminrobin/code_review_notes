@@ -669,6 +669,92 @@ __Broader Picture:__
   * [Boost.SmartPtr: The Smart Pointer Library](https://www.boost.org/doc/libs/1_68_0/libs/smart_ptr/doc/html/smart_ptr.html).
 * Smart Resource Releasers: C++98/03: [[gcwywescf]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#gcwywescf).
 
+Know What Happens If Rule of Three Is Violated
+-
+Recall what the [Rule of Three](https://en.cppreference.com/w/cpp/language/rule_of_three) is. Let's try to violate it in C++98.  
+Let's imagine that we develop a class that handles a resource - the heap-allocated block - by using a raw pointer. For simplicity it will be our own implementation of string:
+```c++
+#include <cstring>  // strlen(), strcpy().
+class String
+{
+    char *p;  // Raw pointer to a heap-allocated block.
+```
+It has a constructor that allocates a resource:
+```c++
+public:
+    String(const char *st) :
+        p( (st == NULL)                // If param is NULL 
+           ? NULL                      // then initialize the member variable to NULL
+           : new char[strlen(st) + 1]) // otherwise allocate the block, initialize the p to point to that block,
+    {                                  // (we don't consider the possible exceptions here)
+        if(st != NULL)
+        {
+            strcpy(p, st);             // and initialize the block.
+        }
+    }
+```
+It has the destructor that deallocates the resource:
+```c++
+    ~String()
+    {
+        if(p != NULL)
+        {
+            delete[] p;
+            p = NULL;
+        }
+    }
+```
+And it has an accessor to the resource data:
+```c++
+    const char *c_str() const 
+    {
+        return p;
+    }
+}; // End of the class.
+```
+To summarize, the user provides the destructor, but does not provide the copy constructor and the copy assignment operator, thus violating the rule of three.
+
+Now let's imagine that there is a function that prints the contents of our class:
+```c++
+#include <iostream>  // std::cout, std::endl.
+void printStr(String param)  // Takes parameter by value.
+{
+    std::cout << param.c_str() << std::endl;
+}
+```
+In general it can be any function that takes the parameter (`param`) _by value_ (rather than _by reference_ or _by pointer_).
+And we call such a function:
+```c++
+int main()
+{
+    String s("abc");
+    // . . .
+    printStr(s);  // Argument `s` is passed by value.
+    // . . .
+    return 0;
+}
+```
+Let's consider the call to `printStr(s)`.  
+The compiler-generated code allocates the space for the parameter `param` of the function `void printStr(String param)`. In particular case the space can be allocated in a CPU register, but in general case and in the case where the `param` does not fit in the CPU register, the space for `param` is allocated on the stack. Then the space needs to be initialized. It should be initialized with the call to the copy constructor `String::String(const String& other)`. But the user has not provided this constructor. Since the copy constructor is a special member function, the compiler generates one for the user. Here is what the compiler-generated copy constructor looks like:
+```c++
+String::String(// Hidden from the programmer, parameter `String *this`.
+               const String& other) :
+    p(other.p)
+{
+}
+```
+It has two parameters.  
+The first one is hidden form the programmer, it is named `this` and has type `String *` (the book [[C++TCG]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#CppTCG) states that the name of this parameter is `*this` and type is `String&`, but for simplicity we will not consider that). This parameter points to the `param`.  
+The second parameter `other` is a reference to the argument `s`.  
+The fragment `p(other.p)` copies the address from `s.p` to the `param.p`, i.e. it does the shallow copying of the pointer. Thus during the execution of the function `printStr()` the two pointers point to the same heap-allocated block: the `param.p` and the `s.p`.  
+Upon return form the function `printStr()` the parameter `param` gets destroyed, for this the destructor is called for `param`. The destructor deallocates the heap-allocated block (to which the `s.p` still points) and the `s.p` (after return from `printStr()`) becomes a _dangling pointer_. Any subsequent access to the data pointed to by `s.p` (including the destruction of the variable `s` in which case the destructor of `s` will try to deallocate the block again) will cause the _undefined behavior_. Reading the data pointed to by the dangling pointer can return the unpredictable values because that part of the heap can be already allocated for a differnt block (of the same or different thread). Writing to the location pointed to by the dangling pointer `s.p` can corrupt some other block's data (of the same or other thread) or even can corrupt the heap's internal data structures.  
+
+Similar things happen with the copy assignment operator. If the programmer does not provide one (for a class managing a resource and having the destructor and/or copy constructor) then the compiler-generated copy assignment operator will create a shallow copy, and again, different pointers (in different instances) will be pointing to the same heap-allocated block. Destruction of one instance will result in a dangling pointer in the other instance.
+
+__Broader Picture:__  
+* [Know the Special Member Functions](#know-the-special-member-functions).
+* [The rule of three/five/zero](https://en.cppreference.com/w/cpp/language/rule_of_three).
+
 Polymorphic Behavior of Non-Virtual Destructor
 -
 `2016.03.23` [[crto]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#crto) Jacek Galowicz. _Const References to Temporary Objects_.  
