@@ -27,6 +27,7 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 + [Know the Special Member Functions](#know-the-special-member-functions)
   + [Know All the Effects of the Empty Destructor](#know-all-the-effects-of-the-empty-destructor)
   + [There Should Be a Strong Reason for Writing the Destructor](#there-should-be-a-strong-reason-for-writing-the-destructor)
+  + [Know What Happens If Rule of Three Is Violated](#know-what-happens-if-rule-of-three-is-violated)
   + [Polymorphic Behavior of Non-Virtual Destructor](#polymorphic-behavior-of-non-virtual-destructor)
   + [Know the Peculiarities of Writing the Assignment Operator](#know-the-peculiarities-of-writing-the-assignment-operator)
 + [Inlining](#inlining)
