@@ -540,6 +540,7 @@ __See Also:__
 * [[dsa]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#dsa) How does dynamic stack allocation work in C, specifically regarding variable-length arrays?  
 * [[ynovlas]](https://github.com/kuzminrobin/code_review_notes/blob/master/article_list.md#ynovlas) Why doesn't C++ support variable length arrays (VLAs)?  
 * [gcc](http://man7.org/linux/man-pages/man1/gcc.1.html): `-Wvla`, `-Wvla-larger-than=n`.
+* (GNU C Extension for C90 and C++) [6.20 Arrays of Variable Length](https://gcc.gnu.org/onlinedocs/gcc/Variable-Length.html#Variable-Length).
 * [[P0785R0] Runtime-sized arrays and a C++ wrapper](http://open-std.org/JTC1/SC22/WG21/docs/papers/2017/p0785r0.html).
 * [[n3810] Alternatives for Array Extensions](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3810.pdf).
 
