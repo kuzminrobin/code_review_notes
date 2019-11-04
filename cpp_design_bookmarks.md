@@ -289,6 +289,9 @@ Very simple however the `localClass::nestedFunc()` has no access to the `enclosi
 
 __2. [[MExcC++]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#MExcC++), Item 33: Simulating Nested Functions.__
 
+__See Also__  
+(GNU C Extension) [6.4 Nested Functions](https://gcc.gnu.org/onlinedocs/gcc/Nested-Functions.html#Nested-Functions).
+
 Distinguish Between Size and Length
 -
 Sometimes I see the code similar to this:
