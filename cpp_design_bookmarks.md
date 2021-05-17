@@ -43,6 +43,12 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 ----
 ## Type Sizes And Other Peculiarities
 [[C11_N1570]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C11_N1570)  
+
+**`bool`**  
+6.2.5 Types, paragraph 2  
+> An object declared as type `_Bool` is large enough to store the values 0 and 1.  
+
+
 **`char`**  
 6.5.3.4 The `sizeof` and `_Alignof` operators, paragraph 4:  
 > When `sizeof` is applied to an operand that has type `char`, `unsigned char`, or `signed char`, (or a qualified version thereof) the result is 1.
@@ -52,6 +58,9 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 representation, and behavior as either `signed char` or `unsigned char`.45)  
   
 > 45\) `CHAR_MIN`, defined in `<limits.h>`, will have one of the values 0 or `SCHAR_MIN`, and this can be used to distinguish the two options. Irrespective of the choice made, `char` is a separate type from the other two and is not compatible with either.
+
+6.3.1.1 Boolean, characters, and integers, Paragraph 3
+> whether a "plain" `char` is treated as signed is implementation-defined.
  
 **Integer Types**  
 5.2.4.2.1 Sizes of integer types `<limits.h>`  
@@ -84,6 +93,23 @@ I.e. the values shown below are the lower limits in magnitude (the limits closes
 `LLONG_MAX +9223372036854775807 // 2^63 − 1`  
 — maximum value for an object of type `unsigned long long int`  
 `ULLONG_MAX 18446744073709551615 // 2^64 − 1`  
+
+6.2.5 Types  
+Paragraph 5  
+> A "plain" `int` object has the natural size suggested by the architecture of the execution environment (large enough to contain any value in the range `INT_MIN` to `INT_MAX` as defined in the header `<limits.h>`).
+
+Paragraph 6  
+> For each of the signed integer types, there is a corresponding (but different) unsigned integer type (designated with the keyword `unsigned`) that **uses the same amount of storage** (including sign information) and has the same alignment requirements.
+
+Paragraph 8  
+> For any two integer types with the same signedness and different integer conversion rank (see 6.3.1.1), the range of values of the type with smaller integer conversion rank is a subrange of the values of the other type.
+
+6.3.1.1 Boolean, characters, and integers  
+Paragraph 1  
+> — The rank of `long long int` shall be greater than the rank of `long int`, which shall be greater than the rank of `int`, which shall be greater than the rank of `short int`, which shall be greater than the rank of `signed char`.  
+— The rank of any unsigned integer type shall equal the rank of the corresponding signed integer type, if any.  
+— The rank of `_Bool` shall be less than the rank of all other standard integer types.  
+— The rank of any enumerated type shall equal the rank of the compatible integer type (see 6.7.2.2).  
 
 Conclusion  
 `{ sizeof(short int), sizeof(int) } >= 2`  
