@@ -85,6 +85,14 @@ I.e. the values shown below are the lower limits in magnitude (the limits closes
 — maximum value for an object of type `unsigned long long int`  
 `ULLONG_MAX 18446744073709551615 // 2^64 − 1`  
 
+Conclusion  
+`{ sizeof(short int), sizeof(int) } >= 2`  
+`{ sizeof(unsigned short int), sizeof(unsigned int) } >= 2`  
+`sizeof(long int) >= 4`  
+`sizeof(unsigned long int) >= 4`  
+`sizeof(long long int) >= 8`  
+`sizeof(unsigned long long int) >= 8`  
+
 ## Identifiers
 
 Some categories of identifiers are reserved by the C++ standard. See  
