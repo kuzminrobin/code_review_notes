@@ -4,6 +4,7 @@
 The unsorted fragments of knowledge to support my notes during the code reviews (and the bookmarks for my own reference).  
 
 ----
++ [Type Sizes](#type-sizes)
 + [Identifiers](#identifiers)
 + [Booleans](#booleans)
   + [Prefer `bool` For Booleans](#prefer-bool-for-booleans)
