@@ -42,8 +42,8 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 
 ----
 ## Type Sizes And Other Peculiarities
-**`char`**  
 [[C11_N1570]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C11_N1570)  
+**`char`**  
 6.5.3.4 The `sizeof` and `_Alignof` operators, paragraph 4:  
 > When `sizeof` is applied to an operand that has type `char`, `unsigned char`, or `signed char`, (or a qualified version thereof) the result is 1.
 
@@ -52,6 +52,38 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 representation, and behavior as either `signed char` or `unsigned char`.45)  
   
 > 45\) `CHAR_MIN`, defined in `<limits.h>`, will have one of the values 0 or `SCHAR_MIN`, and this can be used to distinguish the two options. Irrespective of the choice made, `char` is a separate type from the other two and is not compatible with either.
+ 
+**Integer Types**  
+5.2.4.2.1 Sizes of integer types `<limits.h>`  
+Important sentence:  
+> Their **implementation-defined values shall be equal or greater in magnitude** (absolute value) **to those shown**, with the same sign.
+
+I.e. the values shown below are the lower limits in magnitude (the limits closest to `0`). The actual values can be greater in magnitude (further away from `0`).
+
+> — minimum value for an object of type `short int`  
+`SHRT_MIN -32767 // −(2^15 − 1)`  
+— maximum value for an object of type `short int`  
+`SHRT_MAX +32767 // 2^15 − 1`  
+— maximum value for an object of type unsigned `short int`  
+`USHRT_MAX 65535 // 2^16 − 1`  
+— minimum value for an object of type `int`  
+`INT_MIN -32767 // −(2^15 − 1)`  
+— maximum value for an object of type `int`  
+`INT_MAX +32767 // 2^15 − 1`  
+— maximum value for an object of type `unsigned int`  
+`UINT_MAX 65535 // 2^16 − 1`  
+— minimum value for an object of type `long int`  
+`LONG_MIN -2147483647 // −(2^31 − 1)`  
+— maximum value for an object of type `long int`  
+`LONG_MAX +2147483647 // 2^31 − 1`  
+— maximum value for an object of type `unsigned long int`  
+`ULONG_MAX 4294967295 // 2^32 − 1`  
+— minimum value for an object of type `long long int`  
+`LLONG_MIN -9223372036854775807 // −(2^63 − 1)`  
+— maximum value for an object of type `long long int`  
+`LLONG_MAX +9223372036854775807 // 2^63 − 1`  
+— maximum value for an object of type `unsigned long long int`  
+`ULLONG_MAX 18446744073709551615 // 2^64 − 1`  
 
 ## Identifiers
 
