@@ -41,10 +41,17 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
-## Type Sizes
+## Type Sizes And Other Peculiarities
 **`char`**  
-[[C11_N1570]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C11_N1570), 6.5.3.4 The `sizeof` and `_Alignof` operators, paragraph 4:  
+[[C11_N1570]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C11_N1570)  
+6.5.3.4 The `sizeof` and `_Alignof` operators, paragraph 4:  
 > When `sizeof` is applied to an operand that has type `char`, `unsigned char`, or `signed char`, (or a qualified version thereof) the result is 1.
+
+6.2.5 Types, paragraph 15:  
+> The three types `char`, `signed char`, and `unsigned char` are collectively called the _character types_. The implementation shall define `char` to have the same range,
+representation, and behavior as either `signed char` or `unsigned char`.45)  
+  
+> 45\) `CHAR_MIN`, defined in `<limits.h>`, will have one of the values 0 or `SCHAR_MIN`, and this can be used to distinguish the two options. Irrespective of the choice made, `char` is a separate type from the other two and is not compatible with either.
 
 ## Identifiers
 
