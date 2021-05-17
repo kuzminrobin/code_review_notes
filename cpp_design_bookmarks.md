@@ -40,6 +40,11 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
   + [Abstract Class Constructors: `public`? `private`?](#abstract-class-constructors-public-private)
 
 ----
+## Type Sizes
+**`char`**  
+[[C11_N1570]](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md#C11_N1570), 6.5.3.4 The `sizeof` and `_Alignof` operators, paragraph 4:  
+> When `sizeof` is applied to an operand that has type `char`, `unsigned char`, or `signed char`, (or a qualified version thereof) the result is 1.
+
 ## Identifiers
 
 Some categories of identifiers are reserved by the C++ standard. See  
