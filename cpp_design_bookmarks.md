@@ -48,6 +48,8 @@ The unsorted fragments of knowledge to support my notes during the code reviews 
 6.2.5 Types, paragraph 2  
 > An object declared as type `_Bool` is large enough to store the values 0 and 1.  
 
+I.e. the size of `_Bool` is at least one bit, but there is no upper limit for the size of `_Bool`.
+TODO: Correspondence between `bool` and `_Bool` in C.
 
 **`char`**  
 6.5.3.4 The `sizeof` and `_Alignof` operators, paragraph 4:  
