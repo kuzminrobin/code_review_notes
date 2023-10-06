@@ -1,6 +1,6 @@
 ### The code_review_notes Repository.
 
-[cpp_design_bookmarks.md](cpp_design_bookmarks.md)
+[cpp_design_bookmarks.md](cpp_design_bookmarks.md)  
 The Code-Reviewer's Notes
 
 [book_list.md](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md)  
