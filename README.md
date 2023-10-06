@@ -1,5 +1,8 @@
 ### The code_review_notes Repository.
 
+[cpp_design_bookmarks.md](cpp_design_bookmarks.md)
+The Code-Reviewer's Notes
+
 [book_list.md](https://github.com/kuzminrobin/code_review_notes/blob/master/book_list.md)  
 This is a list of C++ (and other system programming) books _sorted by publication date_.  
 While reading the C++ books from time to time I notice that the authors give the contradicting pieces of advice. Typically a book published later is based on more knowledge and deserves more attention while resolving the contradictions. 
